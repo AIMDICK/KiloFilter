@@ -1,0 +1,47 @@
+# KiloFilter .gitignore
+
+# Build folders
+bin/
+obj/
+
+# Visual Studio files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# NuGet
+*.nupkg
+*.snupkg
+# NuGet Packages
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
+*.vspscc
+
+# Publish outputs
+publish/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Others
+*.log
+*.tmp
+*.bak
+
+# Ignore screenshots and assets if needed
+# Assets/*.png
+
+# Ignore generated files
+*.GeneratedMSBuildEditorConfig.editorconfig
+*.FileListAbsolute.txt
+
+# Ignore localization folders
+bin/Debug/net8.0-windows/*/
+bin/Release/net8.0-windows/*/
+obj/Debug/net8.0-windows/*/
+obj/Release/net8.0-windows/*/
