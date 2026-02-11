@@ -29,8 +29,9 @@ namespace KiloFilter.Forms
         private HashSet<string> originalBlacklist;
         private bool hasUnsavedChanges = false;
         private string categoryName;
+        private HashSet<string> redundantFilePaths = new HashSet<string>();
 
-        public CategoryDetailsForm(List<FileInfo> files, Dictionary<string, List<string>> currentGroups, HashSet<string> currentBlacklist, string catName) {
+        public CategoryDetailsForm(List<FileInfo> files, Dictionary<string, List<string>> currentGroups, HashSet<string> currentBlacklist, string catName, List<DuplicatesReportForm.DuplicateGroupInfo> duplicateGroups) {
             this.categoryName = catName;
             this.Text = $"Análisis Detallado - {categoryName}";
             this.Size = new Size(1000, 650);
@@ -44,6 +45,13 @@ namespace KiloFilter.Forms
             // Icono incrustado
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
 
+            // Build set of redundant file paths (all except first in each duplicate group)
+            foreach (var group in duplicateGroups) {
+                foreach (var file in group.Files.Skip(1)) {
+                    redundantFilePaths.Add(file.FullName.ToLower());
+                }
+            }
+
             this.groups = new Dictionary<string, List<string>>();
             foreach (var kvp in currentGroups) {
                 this.groups[kvp.Key] = new List<string>(kvp.Value);
@@ -56,12 +64,13 @@ namespace KiloFilter.Forms
             }
             this.originalBlacklist = new HashSet<string>(currentBlacklist);
 
-            this.allFiles = files;
-            this.currentFilteredFiles = files;
+            // Filter files to remove redundant copies
+            this.allFiles = files.Where(f => !redundantFilePaths.Contains(f.FullName.ToLower())).ToList();
+            this.currentFilteredFiles = this.allFiles;
             
             this.FormClosing += CategoryDetailsForm_FormClosing;
             
-            InitializeDetailsComponents(files);
+            InitializeDetailsComponents(this.allFiles);
         }
 
         private void CategoryDetailsForm_FormClosing(object? sender, FormClosingEventArgs e) {

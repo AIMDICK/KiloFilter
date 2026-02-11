@@ -61,12 +61,12 @@ namespace KiloFilter.Core
                 { Language.Japanese, "クリア" }
             }},
             { "BTN_ANALYZE", new Dictionary<Language, string> {
-                { Language.English, "1. ANALYZE DISK" },
-                { Language.Spanish, "1. ANALIZAR DISCO" },
-                { Language.French, "1. ANALYSER LE DISQUE" },
-                { Language.German, "1. FESTPLATTE ANALYSIEREN" },
-                { Language.Italian, "1. ANALIZZA DISCO" },
-                { Language.Japanese, "1. ディスクを分析" }
+                { Language.English, "ANALYZE DISK" },
+                { Language.Spanish, "ANALIZAR DISCO" },
+                { Language.French, "ANALYSER LE DISQUE" },
+                { Language.German, "FESTPLATTE ANALYSIEREN" },
+                { Language.Italian, "ANALIZZA DISCO" },
+                { Language.Japanese, "ディスクを分析" }
             }},
             { "BTN_CONFIGURE", new Dictionary<Language, string> {
                 { Language.English, "⚙ Configure" },
@@ -85,12 +85,12 @@ namespace KiloFilter.Core
                 { Language.Japanese, "➕ 新しいカテゴリー" }
             }},
             { "BTN_RESCUE", new Dictionary<Language, string> {
-                { Language.English, "2. RESCUE SELECTED" },
-                { Language.Spanish, "2. RESCATAR SELECCIONADOS" },
-                { Language.French, "2. SAUVEGARDER SÉLECTIONNÉS" },
-                { Language.German, "2. AUSGEWÄHLTE RETTEN" },
-                { Language.Italian, "2. SALVA SELEZIONATI" },
-                { Language.Japanese, "2. 選択したものを救出" }
+                { Language.English, "RESCUE SELECTED" },
+                { Language.Spanish, "RESCATAR SELECCIONADOS" },
+                { Language.French, "SAUVEGARDER SÉLECTIONNÉS" },
+                { Language.German, "AUSGEWÄHLTE RETTEN" },
+                { Language.Italian, "SALVA SELEZIONATI" },
+                { Language.Japanese, "選択したものを救出" }
             }},
             { "STATUS_READY", new Dictionary<Language, string> {
                 { Language.English, "Ready" },
@@ -973,12 +973,12 @@ namespace KiloFilter.Core
                 { Language.Japanese, "💡拡張子をチェック → 移動先を選択 → 移動を押す" }
             }},
             { "STATUS_ANALYZING", new Dictionary<Language, string> {
-                { Language.English, "Scanning files (Filter: 15KB)..." },
-                { Language.Spanish, "Escaneando archivos (Filtro: 15KB)..." },
-                { Language.French, "Analyse des fichiers (Filtre: 15KB)..." },
-                { Language.German, "Dateien scannen (Filter: 15KB)..." },
-                { Language.Italian, "Scansione file (Filtro: 15KB)..." },
-                { Language.Japanese, "ファイルをスキャン中 (フィルター: 15KB)..." }
+                { Language.English, "Analyzing files..." },
+                { Language.Spanish, "Analizando archivos..." },
+                { Language.French, "Analyse des fichiers..." },
+                { Language.German, "Dateien werden analysiert..." },
+                { Language.Italian, "Analisi dei file..." },
+                { Language.Japanese, "ファイルを分析中..." }
             }},
             { "STATUS_ANALYSIS_COMPLETE", new Dictionary<Language, string> {
                 { Language.English, "Analysis complete. Found {0} valid files." },
@@ -1004,6 +1004,14 @@ namespace KiloFilter.Core
                 { Language.Italian, "Salvataggio completato!" },
                 { Language.Japanese, "救出完了！" }
             }},
+            { "STATUS_CANCELLED", new Dictionary<Language, string> {
+                { Language.English, "Operation cancelled." },
+                { Language.Spanish, "Operación cancelada." },
+                { Language.French, "Opération annulée." },
+                { Language.German, "Operation abgebrochen." },
+                { Language.Italian, "Operazione annullata." },
+                { Language.Japanese, "操作がキャンセルされました。" }
+            }},
             { "NO_CATEGORIES_SELECTED", new Dictionary<Language, string> {
                 { Language.English, "No categories selected." },
                 { Language.Spanish, "No hay categorías seleccionadas." },
@@ -1013,12 +1021,20 @@ namespace KiloFilter.Core
                 { Language.Japanese, "カテゴリーが選択されていません。" }
             }},
             { "HELP_CONTENT", new Dictionary<Language, string> {
-                { Language.English, "HOW TO USE KILOFILTER\n\nQUICK START GUIDE\n\nStep 1: Select Source Folder\n• Click \"Browse...\" next to \"SOURCE FOLDER\"\n• Navigate to the folder containing the files you want to organize\n• This can be your Downloads folder, an external drive, or any directory with mixed files\n\nStep 2: Analyze Files\n• Click \"1. ANALYZE DISK\" to start scanning\n• The program will scan all files and automatically categorize them by type\n• Wait until you see \"Analysis complete\" at the bottom\n\nStep 3: Review Results\n• Check the list of categories (Images, Videos, Documents, etc.)\n• Each row shows: Category name, Number of files, Total size\n• Click \"View Details\" on any category to see individual files\n\nStep 4: Configure (Optional)\n• Click \"⚙️ Configure\" to customize file extensions for each category\n• Use the \"BLACKLIST\" tab to exclude unwanted file types from analysis\n• Set minimum file sizes to ignore small temporary files\n\nStep 5: Create Custom Categories (Optional)\n• Click \"➕ New Category\" to create your own file groups\n• Enter a category name (e.g., \"ProjectFiles\", \"Photos2024\")\n• Add file extensions (.psd, .ai, .indd, etc.)\n• Choose to analyze immediately or save for later\n\nStep 6: Select Destination\n• Click \"Browse...\" next to \"DESTINATION FOLDER\"\n• Choose where you want to save the organized files\n• A new folder will be created automatically with date/time stamp\n\nStep 7: Rescue Files\n• Check/uncheck categories you want to copy\n• Click \"2. RESCUE SELECTED\"\n• Files will be copied (not moved) to destination in organized folders\n• Original files remain untouched in the source location\n\nADVANCED FEATURES\n• Double-click any file in the detail view to open its location\n• Use the language button (top-right) to switch between 6 languages\n• The \"CLEAR\" button resets everything if you want to start over\n• Analysis doesn't modify your original files - they're only copied when you \"Rescue\"\n• Set per-extension minimum file sizes\n• Use blacklist to exclude specific file types from analysis" },
-                { Language.Spanish, "CÓMO USAR KILOFILTER\n\nGUÍA DE INICIO RÁPIDO\n\nPaso 1: Seleccionar Carpeta de Origen\n• Haz clic en \"Examinar...\" junto a \"CARPETA DE ORIGEN\"\n• Navega hasta la carpeta que contiene los archivos que deseas organizar\n• Puede ser tu carpeta de Descargas, un disco externo o cualquier directorio con archivos mezclados\n\nPaso 2: Analizar Archivos\n• Haz clic en \"1. ANALIZAR DISCO\" para iniciar el escaneo\n• El programa escaneará todos los archivos y los categorizará automáticamente por tipo\n• Espera hasta ver \"Análisis terminado\" en la parte inferior\n\nPaso 3: Revisar Resultados\n• Revisa la lista de categorías (Imágenes, Videos, Documentos, etc.)\n• Cada fila muestra: Nombre de categoría, Cantidad de archivos, Tamaño total\n• Haz clic en \"Ver Detalle\" en cualquier categoría para ver archivos individuales\n\nPaso 4: Configurar (Opcional)\n• Haz clic en \"⚙️ Configurar\" para personalizar extensiones de archivo por categoría\n• Usa la pestaña \"BLACKLIST\" para excluir tipos de archivo no deseados del análisis\n• Establece tamaños mínimos de archivo para ignorar archivos temporales pequeños\n\nPaso 5: Crear Categorías Personalizadas (Opcional)\n• Haz clic en \"➕ Nueva Categoría\" para crear tus propios grupos de archivos\n• Ingresa un nombre de categoría (ej: \"ArchivosProyecto\", \"Fotos2024\")\n• Agrega extensiones de archivo (.psd, .ai, .indd, etc.)\n• Elige analizar inmediatamente o guardar para después\n\nPaso 6: Seleccionar Destino\n• Haz clic en \"Examinar...\" junto a \"CARPETA DE DESTINO\"\n• Elige dónde quieres guardar los archivos organizados\n• Se creará automáticamente una nueva carpeta con fecha/hora\n\nPaso 7: Rescatar Archivos\n• Marca/desmarca las categorías que deseas copiar\n• Haz clic en \"2. RESCATAR SELECCIONADOS\"\n• Los archivos se copiarán (no se moverán) al destino en carpetas organizadas\n• Los archivos originales permanecen intactos en la ubicación de origen\n\nFUNCIONES AVANZADAS\n• Haz doble clic en cualquier archivo en la vista detallada para abrir su ubicación\n• Usa el botón de idioma (arriba a la derecha) para cambiar entre 6 idiomas\n• El botón \"LIMPIAR\" reinicia todo si quieres empezar de nuevo\n• El análisis no modifica tus archivos originales - solo se copian cuando haces \"Rescatar\"\n• Establece tamaños mínimos de archivo por extensión\n• Usa blacklist para excluir tipos de archivo específicos del análisis" },
-                { Language.French, "COMMENT UTILISER KILOFILTER\n\nGUIDDÉ DE DÉMARRAGE RAPIDE\n\nÉtape 1 : Sélectionner le Dossier Source\n• Cliquez sur \"Parcourir...\" à côté de \"DOSSIER SOURCE\"\n• Naviguez jusqu'au dossier contenant les fichiers que vous souhaitez organiser\n• Cela peut être votre dossier Téléchargements, un disque externe ou tout répertoire avec des fichiers mélangés\n\nÉtape 2 : Analyser les Fichiers\n• Cliquez sur \"1. ANALYSER LE DISQUE\" pour démarrer l'analyse\n• Le programme analysera tous les fichiers et les catégorisera automatiquement par type\n• Attendez de voir \"Analyse terminée\" en bas\n\nÉtape 3 : Examiner les Résultats\n• Vérifiez la liste des catégories (Images, Vidéos, Documents, etc.)\n• Chaque ligne affiche : Nom de catégorie, Nombre de fichiers, Taille totale\n• Cliquez sur \"Voir Détails\" sur n'importe quelle catégorie pour voir les fichiers individuels\n\nÉtape 4 : Configurer (Optionnel)\n• Cliquez sur \"⚙️ Configurer\" pour personnaliser les extensions de fichier par catégorie\n• Utilisez l'onglet \"LISTE NOIRE\" pour exclure les types de fichiers indésirables de l'analyse\n• Définissez des tailles de fichier minimales pour ignorer les petits fichiers temporaires\n\nÉtape 5 : Créer des Catégories Personnalisées (Optionnel)\n• Cliquez sur \"➕ Nouvelle Catégorie\" pour créer vos propres groupes de fichiers\n• Entrez un nom de catégorie (ex: \"FichiersProjet\", \"Photos2024\")\n• Ajoutez des extensions de fichier (.psd, .ai, .indd, etc.)\n• Choisissez d'analyser immédiatement ou de sauvegarder pour plus tard\n\nÉtape 6 : Sélectionner la Destination\n• Cliquez sur \"Parcourir...\" à côté de \"DOSSIER DE DESTINATION\"\n• Choisissez où vous voulez enregistrer les fichiers organisés\n• Un nouveau dossier sera créé automatiquement avec date/heure\n\nÉtape 7 : Sauvegarder les Fichiers\n• Cochez/décochez les catégories que vous souhaitez copier\n• Cliquez sur \"2. SAUVEGARDER SÉLECTIONNÉS\"\n• Les fichiers seront copiés (pas déplacés) vers la destination dans des dossiers organisés\n• Les fichiers originaux restent intacts à l'emplacement source\n\nFONCTIONNALITÉS AVANCÉES\n• Double-cliquez sur n'importe quel fichier dans la vue détaillée pour ouvrir son emplacement\n• Utilisez le bouton de langue (en haut à droite) pour changer de langue\n• Le bouton \"EFFACER\" réinitialise tout si vous voulez recommencer\n• L'analyse ne modifie pas vos fichiers originaux - ils ne sont copiés que lorsque vous \"Sauvegardez\"\n• Définir des tailles minimales de fichier par extension\n• Utilisez la liste noire pour exclure des types de fichiers spécifiques de l'analyse" },
-                { Language.German, "SO VERWENDEN SIE KILOFILTER\n\nSCHNELLSTARTANLEITUNG\n\nSchritt 1: Quellordner Auswählen\n• Klicken Sie auf \"Durchsuchen...\" neben \"QUELLORDNER\"\n• Navigieren Sie zu dem Ordner mit den Dateien, die Sie organisieren möchten\n• Dies kann Ihr Downloads-Ordner, eine externe Festplatte oder ein beliebiges Verzeichnis mit gemischten Dateien sein\n\nSchritt 2: Dateien Analysieren\n• Klicken Sie auf \"1. FESTPLATTE ANALYSIEREN\", um den Scan zu starten\n• Das Programm scannt alle Dateien und kategorisiert sie automatisch nach Typ\n• Warten Sie, bis unten \"Analyse abgeschlossen\" angezeigt wird\n\nSchritt 3: Ergebnisse Überprüfen\n• Überprüfen Sie die Liste der Kategorien (Bilder, Videos, Dokumente usw.)\n• Jede Zeile zeigt: Kategoriename, Anzahl der Dateien, Gesamtgröße\n• Klicken Sie auf \"Details Anzeigen\" bei jeder Kategorie, um einzelne Dateien zu sehen\n\nSchritt 4: Konfigurieren (Optional)\n• Klicken Sie auf \"⚙️ Konfigurieren\", um Dateierweiterungen pro Kategorie anzupassen\n• Verwenden Sie die Registerkarte \"BLACKLIST\", um unerwünschte Dateitypen von der Analyse auszuschließen\n• Legen Sie Mindestdateigrößen fest, um kleine temporäre Dateien zu ignorieren\n\nSchritt 5: Benutzerdefinierte Kategorien Erstellen (Optional)\n• Klicken Sie auf \"➕ Neue Kategorie\", um eigene Dateigruppen zu erstellen\n• Geben Sie einen Kategorienamen ein (z.B. \"Projektdateien\", \"Fotos2024\")\n• Fügen Sie Dateierweiterungen hinzu (.psd, .ai, .indd usw.)\n• Wählen Sie, ob Sie sofort analysieren oder für später speichern möchten\n\nSchritt 6: Ziel Auswählen\n• Klicken Sie auf \"Durchsuchen...\" neben \"ZIELORDNER\"\n• Wählen Sie, wo Sie die organisierten Dateien speichern möchten\n• Ein neuer Ordner wird automatisch mit Datum/Uhrzeit erstellt\n\nSchritt 7: Dateien Retten\n• Aktivieren/Deaktivieren Sie die Kategorien, die Sie kopieren möchten\n• Klicken Sie auf \"2. AUSGEWÄHLTE RETTEN\"\n• Dateien werden in organisierte Ordner am Zielort kopiert (nicht verschoben)\n• Originaldateien bleiben am Quellort unverändert\n\nERWEITERTE FUNKTIONEN\n• Doppelklicken Sie auf eine Datei in der Detailansicht, um ihren Speicherort zu öffnen\n• Verwenden Sie die Sprachschaltfläche (oben rechts), um zwischen Sprachen zu wechseln\n• Die Schaltfläche \"LÖSCHEN\" setzt alles zurück, wenn Sie neu beginnen möchten\n• Die Analyse ändert Ihre Originaldateien nicht - sie werden nur beim \"Retten\" kopiert\n• Legen Sie Mindestdateigrößen pro Erweiterung fest\n• Verwenden Sie die Blacklist, um bestimmte Dateitypen von der Analyse auszuschließen" },
-                { Language.Italian, "COME USARE KILOFILTER\n\nGUIDEA RAPIDA\n\nPassaggio 1: Selezionare la Cartella Sorgente\n• Clicca su \"Sfoglia...\" accanto a \"CARTELLA SORGENTE\"\n• Naviga fino alla cartella contenente i file che vuoi organizzare\n• Può essere la tua cartella Download, un disco esterno o qualsiasi directory con file misti\n\nPassaggio 2: Analizzare i File\n• Clicca su \"1. ANALIZZA DISCO\" per avviare la scansione\n• Il programma scansionerà tutti i file e li categorizzerà automaticamente per tipo\n• Attendi fino a vedere \"Analisi completata\" in basso\n\nPassaggio 3: Rivedere i Risultati\n• Controlla l'elenco delle categorie (Immagini, Video, Documenti, ecc.)\n• Ogni riga mostra: Nome categoria, Numero di file, Dimensione totale\n• Clicca su \"Visualizza Dettagli\" su qualsiasi categoria per vedere i singoli file\n\nPassaggio 4: Configurare (Opzionale)\n• Clicca su \"⚙️ Configura\" per personalizzare le estensioni dei file per categoria\n• Usa la scheda \"BLACKLIST\" per escludere tipi di file indesiderati dall'analisi\n• Imposta dimensioni minime dei file per ignorare piccoli file temporanei\n\nPassaggio 5: Creare Categorie Personalizzate (Opzionale)\n• Clicca su \"➕ Nuova Categoria\" per creare i tuoi gruppi di file\n• Inserisci un nome di categoria (es: \"FileProgetto\", \"Foto2024\")\n• Aggiungi estensioni di file (.psd, .ai, .indd, ecc.)\n• Scegli di analizzare immediatamente o salvare per dopo\n\nPassaggio 6: Selezionare la Destinazione\n• Clicca su \"Sfoglia...\" accanto a \"CARTELLA DI DESTINAZIONE\"\n• Scegli dove vuoi salvare i file organizzati\n• Una nuova cartella verrà creata automaticamente con data/ora\n\nPassaggio 7: Salvare i File\n• Seleziona/deseleziona le categorie che vuoi copiare\n• Clicca su \"2. SALVA SELEZIONATI\"\n• I file verranno copiati (non spostati) nella destinazione in cartelle organizzate\n• I file originali rimangono intatti nella posizione sorgente\n\nFUNZIONALITÀ AVANZATE\n• Fai doppio clic su qualsiasi file nella vista dettagliata per aprire la sua posizione\n• Usa il pulsante lingua (in alto a destra) per cambiare lingua\n• Il pulsante \"PULISCI\" resetta tutto se vuoi ricominciare\n• L'analisi non modifica i tuoi file originali - vengono copiati solo quando \"Salvi\"\n• Imposta dimensioni minime diverse per file per estensione\n• Usa la blacklist per escludere tipi di file specifici dall'analisi" },
-                { Language.Japanese, "KILOFILTERの使い方\n\nクイックスタートガイド\n\nステップ1：ソースフォルダーを選択\n• 「ソースフォルダー」の横にある「参照...」をクリック\n• 整理したいファイルが含まれているフォルダーに移動\n• ダウンロードフォルダー、外部ドライブ、または混在ファイルのあるディレクトリを選択可能\n\nステップ2：ファイルを分析\n• 「1. ディスクを分析」をクリックしてスキャンを開始\n• プログラムがすべてのファイルをスキャンし、タイプ別に自動分類\n• 下部に「分析完了」と表示されるまで待つ\n\nステップ3：結果を確認\n• カテゴリーのリスト（画像、動画、ドキュメントなど）を確認\n• 各行に表示：カテゴリー名、ファイル数、合計サイズ\n• 任意のカテゴリーの「詳細を表示」をクリックして個別ファイルを表示\n\nステップ4：設定（オプション）\n• 「⚙️ 設定」をクリックして、カテゴリーごとのファイル拡張子をカスタマイズ\n• 「ブラックリスト」タブを使用して、不要なファイルタイプを分析から除外\n• 小さな一時ファイルを無視するために最小ファイルサイズを設定\n\nステップ5：カスタムカテゴリーを作成（オプション）\n• 「➕ 新しいカテゴリー」をクリックして独自のファイルグループを作成\n• カテゴリー名を入力（例：「プロジェクトファイル」、「写真2024」）\n• ファイル拡張子を追加（.psd、.ai、.inddなど）\n• すぐに分析するか、後で保存するかを選択\n\nステップ6：保存先を選択\n• 「保存先フォルダー」の横にある「参照...」をクリック\n• 整理されたファイルを保存する場所を選択\n• 日付/時刻付きの新しいフォルダーが自動的に作成されます\n\nステップ7：ファイルを救出\n• コピーしたいカテゴリーをチェック/チェック解除\n• 「2. 選択を救出」をクリック\n• ファイルは整理されたフォルダーに保存先へコピー（移動ではない）\n• 元のファイルはソースの場所にそのまま残る\n\n高度な機能\n• ファイルをダブルクリックして、その場所を開く\n• 言語ボタン（右上）を使用して言語を切り替える\n• 「クリア」ボタンは、やり直したい場合にすべてをリセット\n• 分析は元のファイルを変更しません - 「救出」時にのみコピーされます\n• 拡張子ごとに異なる最小ファイルサイズを設定\n• ブラックリストを使用して、特定のファイルタイプを分析から除外" }
+                { Language.English, "HOW TO USE KILOFILTER\n\nQUICK START GUIDE\n\nStep 1: Select Source Folder\n• Click \"Browse...\" next to \"SOURCE FOLDER\"\n• Navigate to the folder containing the files you want to organize\n• This can be your Downloads folder, an external drive, or any directory with mixed files\n\nStep 2: Analyze Files\n• Click \"1. ANALYZE DISK\" to start scanning\n• The program will scan all files and automatically categorize them by type\n• Wait until you see \"Analysis complete\" at the bottom\n\nStep 3: Review Results\n• Check the list of categories (Images, Videos, Documents, etc.)\n• Each row shows: Category name, Number of files, Total size\n• Click \"View Details\" on any category to see individual files\n\nStep 4: Configure (Optional)\n• Click \"⚙️ Configure\" to customize file extensions for each category\n• Use the \"BLACKLIST\" tab to exclude unwanted file types from analysis\n• Set minimum file sizes to ignore small temporary files\n\nStep 5: Create Custom Categories (Optional)\n• Click \"➕ New Category\" to create your own file groups\n• Enter a category name (e.g., \"ProjectFiles\", \"Photos2024\")\n• Add file extensions (.psd, .ai, .indd, etc.)\n• Choose to analyze immediately or save for later\n\nStep 6: Select Destination\n• Click \"Browse...\" next to \"DESTINATION FOLDER\"\n• Choose where you want to save the organized files\n• A new folder will be created automatically with date/time stamp\n\nStep 7: Rescue Files\n• Check/uncheck categories you want to copy\n• Click \"2. RESCUE SELECTED\"\n• Files will be copied (not moved) to destination in organized folders\n• Original files remain untouched in the source location\n\nADVANCED FEATURES\n• Double-click any file in the detail view to open its location\n• Use the \"👑 Admin (Optional)\" button for deeper file and system access. This runs the program with administrator privileges, allowing detailed scanning of protected folders and system directories that require elevated permissions\n• Use the language button to switch between 6 languages\n• The \"CLEAR\" button resets everything if you want to start over\n• Analysis doesn't modify your original files - they're only copied when you \"Rescue\"\n• Set per-extension minimum file sizes\n• Use blacklist to exclude specific file types from analysis" },
+                { Language.Spanish, "CÓMO USAR KILOFILTER\n\nGUÍA DE INICIO RÁPIDO\n\nPaso 1: Seleccionar Carpeta de Origen\n• Haz clic en \"Examinar...\" junto a \"CARPETA DE ORIGEN\"\n• Navega hasta la carpeta que contiene los archivos que deseas organizar\n• Puede ser tu carpeta de Descargas, un disco externo o cualquier directorio con archivos mezclados\n\nPaso 2: Analizar Archivos\n• Haz clic en \"1. ANALIZAR DISCO\" para iniciar el escaneo\n• El programa escaneará todos los archivos y los categorizará automáticamente por tipo\n• Espera hasta ver \"Análisis terminado\" en la parte inferior\n\nPaso 3: Revisar Resultados\n• Revisa la lista de categorías (Imágenes, Videos, Documentos, etc.)\n• Cada fila muestra: Nombre de categoría, Cantidad de archivos, Tamaño total\n• Haz clic en \"Ver Detalle\" en cualquier categoría para ver archivos individuales\n\nPaso 4: Configurar (Opcional)\n• Haz clic en \"⚙️ Configurar\" para personalizar extensiones de archivo por categoría\n• Usa la pestaña \"BLACKLIST\" para excluir tipos de archivo no deseados del análisis\n• Establece tamaños mínimos de archivo para ignorar archivos temporales pequeños\n\nPaso 5: Crear Categorías Personalizadas (Opcional)\n• Haz clic en \"➕ Nueva Categoría\" para crear tus propios grupos de archivos\n• Ingresa un nombre de categoría (ej: \"ArchivosProyecto\", \"Fotos2024\")\n• Agrega extensiones de archivo (.psd, .ai, .indd, etc.)\n• Elige analizar inmediatamente o guardar para después\n\nPaso 6: Seleccionar Destino\n• Haz clic en \"Examinar...\" junto a \"CARPETA DE DESTINO\"\n• Elige dónde quieres guardar los archivos organizados\n• Se creará automáticamente una nueva carpeta con fecha/hora\n\nPaso 7: Rescatar Archivos\n• Marca/desmarca las categorías que deseas copiar\n• Haz clic en \"2. RESCATAR SELECCIONADOS\"\n• Los archivos se copiarán (no se moverán) al destino en carpetas organizadas\n• Los archivos originales permanecen intactos en la ubicación de origen\n\nFUNCIONES AVANZADAS\n• Haz doble clic en cualquier archivo en la vista detallada para abrir su ubicación\n• Usa el botón \"👑 Admin (Opcional)\" para un acceso más profundo a archivos y carpetas del sistema. Esto ejecuta el programa con permisos de administrador, permitiendo un escaneo detallado de carpetas protegidas y directorios del sistema que requieren permisos elevados\n• Usa el botón de idioma (arriba a la derecha) para cambiar entre 6 idiomas\n• El botón \"LIMPIAR\" reinicia todo si quieres empezar de nuevo\n• El análisis no modifica tus archivos originales - solo se copian cuando haces \"Rescatar\"\n• Establece tamaños mínimos de archivo por extensión\n• Usa blacklist para excluir tipos de archivo específicos del análisis" },
+                { Language.French, "COMMENT UTILISER KILOFILTER\n\nGUIDDÉ DE DÉMARRAGE RAPIDE\n\nÉtape 1 : Sélectionner le Dossier Source\n• Cliquez sur \"Parcourir...\" à côté de \"DOSSIER SOURCE\"\n• Naviguez jusqu'au dossier contenant les fichiers que vous souhaitez organiser\n• Cela peut être votre dossier Téléchargements, un disque externe ou tout répertoire avec des fichiers mélangés\n\nÉtape 2 : Analyser les Fichiers\n• Cliquez sur \"1. ANALYSER LE DISQUE\" pour démarrer l'analyse\n• Le programme analysera tous les fichiers et les catégorisera automatiquement par type\n• Attendez de voir \"Analyse terminée\" en bas\n\nÉtape 3 : Examiner les Résultats\n• Vérifiez la liste des catégories (Images, Vidéos, Documents, etc.)\n• Chaque ligne affiche : Nom de catégorie, Nombre de fichiers, Taille totale\n• Cliquez sur \"Voir Détails\" sur n'importe quelle catégorie pour voir les fichiers individuels\n\nÉtape 4 : Configurer (Optionnel)\n• Cliquez sur \"⚙️ Configurer\" pour personnaliser les extensions de fichier par catégorie\n• Utilisez l'onglet \"LISTE NOIRE\" pour exclure les types de fichiers indésirables de l'analyse\n• Définissez des tailles de fichier minimales pour ignorer les petits fichiers temporaires\n\nÉtape 5 : Créer des Catégories Personnalisées (Optionnel)\n• Cliquez sur \"➕ Nouvelle Catégorie\" pour créer vos propres groupes de fichiers\n• Entrez un nom de catégorie (ex: \"FichiersProjet\", \"Photos2024\")\n• Ajoutez des extensions de fichier (.psd, .ai, .indd, etc.)\n• Choisissez d'analyser immédiatement ou de sauvegarder pour plus tard\n\nÉtape 6 : Sélectionner la Destination\n• Cliquez sur \"Parcourir...\" à côté de \"DOSSIER DE DESTINATION\"\n• Choisissez où vous voulez enregistrer les fichiers organisés\n• Un nouveau dossier sera créé automatiquement avec date/heure\n\nÉtape 7 : Sauvegarder les Fichiers\n• Cochez/décochez les catégories que vous souhaitez copier\n• Cliquez sur \"2. SAUVEGARDER SÉLECTIONNÉS\"\n• Les fichiers seront copiés (pas déplacés) vers la destination dans des dossiers organisés\n• Les fichiers originaux restent intacts à l'emplacement source\n\nFONCTIONNALITÉS AVANCÉES\n• Double-cliquez sur n'importe quel fichier dans la vue détaillée pour ouvrir son emplacement\n• Utilisez le bouton \"👑 Admin (Optionnel)\" pour un accès plus approfondi aux fichiers et dossiers système. Cela exécute le programme avec les privilèges administrateur, permettant un scan détaillé des dossiers protégés et des répertoires système qui nécessitent des autorisations élevées\n• Utilisez le bouton de langue (en haut à droite) pour changer de langue\n• Le bouton \"EFFACER\" réinitialise tout si vous voulez recommencer\n• L'analyse ne modifie pas vos fichiers originaux - ils ne sont copiés que lorsque vous \"Sauvegardez\"\n• Définir des tailles minimales de fichier par extension\n• Utilisez la liste noire pour exclure des types de fichiers spécifiques de l'analyse" },
+                { Language.German, "SO VERWENDEN SIE KILOFILTER\n\nSCHNELLSTARTANLEITUNG\n\nSchritt 1: Quellordner Auswählen\n• Klicken Sie auf \"Durchsuchen...\" neben \"QUELLORDNER\"\n• Navigieren Sie zu dem Ordner mit den Dateien, die Sie organisieren möchten\n• Dies kann Ihr Downloads-Ordner, eine externe Festplatte oder ein beliebiges Verzeichnis mit gemischten Dateien sein\n\nSchritt 2: Dateien Analysieren\n• Klicken Sie auf \"1. FESTPLATTE ANALYSIEREN\", um den Scan zu starten\n• Das Programm scannt alle Dateien und kategorisiert sie automatisch nach Typ\n• Warten Sie, bis unten \"Analyse abgeschlossen\" angezeigt wird\n\nSchritt 3: Ergebnisse Überprüfen\n• Überprüfen Sie die Liste der Kategorien (Bilder, Videos, Dokumente usw.)\n• Jede Zeile zeigt: Kategoriename, Anzahl der Dateien, Gesamtgröße\n• Klicken Sie auf \"Details Anzeigen\" bei jeder Kategorie, um einzelne Dateien zu sehen\n\nSchritt 4: Konfigurieren (Optional)\n• Klicken Sie auf \"⚙️ Konfigurieren\", um Dateierweiterungen pro Kategorie anzupassen\n• Verwenden Sie die Registerkarte \"BLACKLIST\", um unerwünschte Dateitypen von der Analyse auszuschließen\n• Legen Sie Mindestdateigrößen fest, um kleine temporäre Dateien zu ignorieren\n\nSchritt 5: Benutzerdefinierte Kategorien Erstellen (Optional)\n• Klicken Sie auf \"➕ Neue Kategorie\", um eigene Dateigruppen zu erstellen\n• Geben Sie einen Kategorienamen ein (z.B. \"Projektdateien\", \"Fotos2024\")\n• Fügen Sie Dateierweiterungen hinzu (.psd, .ai, .indd usw.)\n• Wählen Sie, ob Sie sofort analysieren oder für später speichern möchten\n\nSchritt 6: Ziel Auswählen\n• Klicken Sie auf \"Durchsuchen...\" neben \"ZIELORDNER\"\n• Wählen Sie, wo Sie die organisierten Dateien speichern möchten\n• Ein neuer Ordner wird automatisch mit Datum/Uhrzeit erstellt\n\nSchritt 7: Dateien Retten\n• Aktivieren/Deaktivieren Sie die Kategorien, die Sie kopieren möchten\n• Klicken Sie auf \"2. AUSGEWÄHLTE RETTEN\"\n• Dateien werden in organisierte Ordner am Zielort kopiert (nicht verschoben)\n• Originaldateien bleiben am Quellort unverändert\n\nERWEITERTE FUNKTIONEN\n• Doppelklicken Sie auf eine Datei in der Detailansicht, um ihren Speicherort zu öffnen\n• Verwenden Sie die Schaltfläche \"👑 Admin (Optional)\" für tieferen Zugriff auf Dateien und Systemordner. Dies führt das Programm mit Administratorrechten aus und ermöglicht das detaillierte Scannen geschützter Ordner und Systemverzeichnisse, die erweiterte Berechtigungen erfordern\n• Verwenden Sie die Sprachschaltfläche (oben rechts), um zwischen Sprachen zu wechseln\n• Die Schaltfläche \"LÖSCHEN\" setzt alles zurück, wenn Sie neu beginnen möchten\n• Die Analyse ändert Ihre Originaldateien nicht - sie werden nur beim \"Retten\" kopiert\n• Legen Sie Mindestdateigrößen pro Erweiterung fest\n• Verwenden Sie die Blacklist, um bestimmte Dateitypen von der Analyse auszuschließen" },
+                { Language.Italian, "COME USARE KILOFILTER\n\nGUIDEA RAPIDA\n\nPassaggio 1: Selezionare la Cartella Sorgente\n• Clicca su \"Sfoglia...\" accanto a \"CARTELLA SORGENTE\"\n• Naviga fino alla cartella contenente i file che vuoi organizzare\n• Può essere la tua cartella Download, un disco esterno o qualsiasi directory con file misti\n\nPassaggio 2: Analizzare i File\n• Clicca su \"1. ANALIZZA DISCO\" per avviare la scansione\n• Il programma scansionerà tutti i file e li categorizzerà automaticamente per tipo\n• Attendi fino a vedere \"Analisi completata\" in basso\n\nPassaggio 3: Rivedere i Risultati\n• Controlla l'elenco delle categorie (Immagini, Video, Documenti, ecc.)\n• Ogni riga mostra: Nome categoria, Numero di file, Dimensione totale\n• Clicca su \"Visualizza Dettagli\" su qualsiasi categoria per vedere i singoli file\n\nPassaggio 4: Configurare (Opzionale)\n• Clicca su \"⚙️ Configura\" per personalizzare le estensioni dei file per categoria\n• Usa la scheda \"BLACKLIST\" per escludere tipi di file indesiderati dall'analisi\n• Imposta dimensioni minime dei file per ignorare piccoli file temporanei\n\nPassaggio 5: Creare Categorie Personalizzate (Opzionale)\n• Clicca su \"➕ Nuova Categoria\" per creare i tuoi gruppi di file\n• Inserisci un nome di categoria (es: \"FileProgetto\", \"Foto2024\")\n• Aggiungi estensioni di file (.psd, .ai, .indd, ecc.)\n• Scegli di analizzare immediatamente o salvare per dopo\n\nPassaggio 6: Selezionare la Destinazione\n• Clicca su \"Sfoglia...\" accanto a \"CARTELLA DI DESTINAZIONE\"\n• Scegli dove vuoi salvare i file organizzati\n• Una nuova cartella verrà creata automaticamente con data/ora\n\nPassaggio 7: Salvare i File\n• Seleziona/deseleziona le categorie che vuoi copiare\n• Clicca su \"2. SALVA SELEZIONATI\"\n• I file verranno copiati (non spostati) nella destinazione in cartelle organizzate\n• I file originali rimangono intatti nella posizione sorgente\n\nFUNZIONALITÀ AVANZATE\n• Fai doppio clic su qualsiasi file nella vista dettagliata per aprire la sua posizione\n• Usa il pulsante \"👑 Admin (Facoltativo)\" per un accesso più profondo ai file e alle cartelle di sistema. Ciò esegue il programma con privilegi di amministratore, consentendo la scansione dettagliata di cartelle protette e directory di sistema che richiedono autorizzazioni elevate\n• Usa il pulsante lingua (in alto a destra) per cambiare lingua\n• Il pulsante \"PULISCI\" resetta tutto se vuoi ricominciare\n• L'analisi non modifica i tuoi file originali - vengono copiati solo quando \"Salvi\"\n• Imposta dimensioni minime diverse per file per estensione\n• Usa la blacklist per escludere tipi di file specifici dall'analisi" },
+                { Language.Japanese, "KILOFILTERの使い方\n\nクイックスタートガイド\n\nステップ1：ソースフォルダーを選択\n• 「ソースフォルダー」の横にある「参照...」をクリック\n• 整理したいファイルが含まれているフォルダーに移動\n• ダウンロードフォルダー、外部ドライブ、または混在ファイルのあるディレクトリを選択可能\n\nステップ2：ファイルを分析\n• 「1. ディスクを分析」をクリックしてスキャンを開始\n• プログラムがすべてのファイルをスキャンし、タイプ別に自動分類\n• 下部に「分析完了」と表示されるまで待つ\n\nステップ3：結果を確認\n• カテゴリーのリスト（画像、動画、ドキュメントなど）を確認\n• 各行に表示：カテゴリー名、ファイル数、合計サイズ\n• 任意のカテゴリーの「詳細を表示」をクリックして個別ファイルを表示\n\nステップ4：設定（オプション）\n• 「⚙️ 設定」をクリックして、カテゴリーごとのファイル拡張子をカスタマイズ\n• 「ブラックリスト」タブを使用して、不要なファイルタイプを分析から除外\n• 小さな一時ファイルを無視するために最小ファイルサイズを設定\n\nステップ5：カスタムカテゴリーを作成（オプション）\n• 「➕ 新しいカテゴリー」をクリックして独自のファイルグループを作成\n• カテゴリー名を入力（例：「プロジェクトファイル」、「写真2024」）\n• ファイル拡張子を追加（.psd、.ai、.inddなど）\n• すぐに分析するか、後で保存するかを選択\n\nステップ6：保存先を選択\n• 「保存先フォルダー」の横にある「参照...」をクリック\n• 整理されたファイルを保存する場所を選択\n• 日付/時刻付きの新しいフォルダーが自動的に作成されます\n\nステップ7：ファイルを救出\n• コピーしたいカテゴリーをチェック/チェック解除\n• 「2. 選択を救出」をクリック\n• ファイルは整理されたフォルダーに保存先へコピー（移動ではない）\n• 元のファイルはソースの場所にそのまま残る\n\n高度な機能\n• ファイルをダブルクリックして、その場所を開く\n• 「👑 Admin (オプション)」ボタンを使用してファイルとシステムフォルダーへのより深いアクセスを取得します。これはプログラムを管理者権限で実行し、昇格された権限が必要な保護されたフォルダーとシステムディレクトリの詳細なスキャンを可能にします\n• 言語ボタン（右上）を使用して言語を切り替える\n• 「クリア」ボタンは、やり直したい場合にすべてをリセット\n• 分析は元のファイルを変更しません - 「救出」時にのみコピーされます\n• 拡張子ごとに異なる最小ファイルサイズを設定\n• ブラックリストを使用して、特定のファイルタイプを分析から除外" }
+            }},
+            { "BTN_ADMIN", new Dictionary<Language, string> {
+                { Language.English, "👑 Admin (Optional)" },
+                { Language.Spanish, "👑 Admin (Opcional)" },
+                { Language.French, "👑 Admin (Optionnel)" },
+                { Language.German, "👑 Admin (Optional)" },
+                { Language.Italian, "👑 Admin (Facoltativo)" },
+                { Language.Japanese, "👑 管理者 (オプション)" }
             }},
             { "BTN_HELP", new Dictionary<Language, string> {
                 { Language.English, "❓ Help" },
@@ -1027,6 +1043,158 @@ namespace KiloFilter.Core
                 { Language.German, "❓ Hilfe" },
                 { Language.Italian, "❓ Aiuto" },
                 { Language.Japanese, "❓ ヘルプ" }
+            }},
+            { "ALREADY_ADMIN", new Dictionary<Language, string> {
+                { Language.English, "The program is already running with administrator privileges." },
+                { Language.Spanish, "El programa ya se está ejecutando con permisos de administrador." },
+                { Language.French, "Le programme s'exécute déjà avec les privilèges d'administrateur." },
+                { Language.German, "Das Programm wird bereits mit Administratorrechten ausgeführt." },
+                { Language.Italian, "Il programma è già in esecuzione con privilegi di amministratore." },
+                { Language.Japanese, "プログラムは既に管理者権限で実行されています。" }
+            }},
+            { "ADMIN_DENIED", new Dictionary<Language, string> {
+                { Language.English, "Admin request was denied or cancelled. Please try again with administrator privileges." },
+                { Language.Spanish, "La solicitud de administrador fue rechazada o cancelada. Intente de nuevo con permisos de administrador." },
+                { Language.French, "La demande d'administrateur a été refusée ou annulée. Réessayez avec les privilèges d'administrateur." },
+                { Language.German, "Die Administratoreinstellung wurde verweigert oder abgebrochen. Versuchen Sie es erneut mit Administratorrechten." },
+                { Language.Italian, "La richiesta di amministratore è stata rifiutata o annullata. Riprovare con privilegi di amministratore." },
+                { Language.Japanese, "管理者リクエストが拒否またはキャンセルされました。管理者権限で再度お試しください。" }
+            }},
+            { "BTN_ANALYZE_DUPLICATES", new Dictionary<Language, string> {
+                { Language.English, "ANALYZE (NO DUPLICATES)" },
+                { Language.Spanish, "ANALIZAR (SIN DUPLICADOS)" },
+                { Language.French, "ANALYSER (SANS DOUBLONS)" },
+                { Language.German, "ANALYSIEREN (KEINE DUPLIKATE)" },
+                { Language.Italian, "ANALIZZA (SENZA DUPLICATI)" },
+                { Language.Japanese, "分析（重複なし）" }
+            }},
+            { "STATUS_ANALYZING_DUPLICATES", new Dictionary<Language, string> {
+                { Language.English, "Analyzing files (excluding duplicates)..." },
+                { Language.Spanish, "Analizando archivos (sin duplicados)..." },
+                { Language.French, "Analyse des fichiers (excluant les doublons)..." },
+                { Language.German, "Dateien werden analysiert (Duplikate ausgeschlossen)..." },
+                { Language.Italian, "Analisi dei file (escludendo i duplicati)..." },
+                { Language.Japanese, "ファイルを分析中（重複を除外）..." }
+            }},
+            { "STATUS_DUPLICATES_FOUND", new Dictionary<Language, string> {
+                { Language.English, "Found {0} duplicate files" },
+                { Language.Spanish, "Se encontraron {0} archivos duplicados" },
+                { Language.French, "Trouvé {0} fichiers en double" },
+                { Language.German, "{0} doppelte Dateien gefunden" },
+                { Language.Italian, "Trovati {0} file duplicati" },
+                { Language.Japanese, "{0}個の重複ファイルが見つかりました" }
+            }},
+            { "BTN_REOPEN_REPORT", new Dictionary<Language, string> {
+                { Language.English, "↻ Reopen Report" },
+                { Language.Spanish, "↻ Reabrir Informe" },
+                { Language.French, "↻ Rouvrir Rapport" },
+                { Language.German, "↻ Bericht Erneut Öffnen" },
+                { Language.Italian, "↻ Riapri Report" },
+                { Language.Japanese, "↻ レポートを再度開く" }
+            }},
+            { "DUPLICATES_REPORT_TITLE", new Dictionary<Language, string> {
+                { Language.English, "Duplicate Files Report Found" },
+                { Language.Spanish, "Reporte de Duplicados Encontrados" },
+                { Language.French, "Rapport des Fichiers en Double Trouvés" },
+                { Language.German, "Bericht der gefundenen doppelten Dateien" },
+                { Language.Italian, "Rapporto sui File Duplicati Trovati" },
+                { Language.Japanese, "見つかった重複ファイルレポート" }
+            }},
+            { "DUPLICATES_FOUND", new Dictionary<Language, string> {
+                { Language.English, "Found {0} duplicate group(s)" },
+                { Language.Spanish, "Se encontraron {0} grupo(s) de duplicados" },
+                { Language.French, "Trouvé {0} groupe(s) de fichiers en double" },
+                { Language.German, "{0} doppelte Gruppe(n) gefunden" },
+                { Language.Italian, "Trovati {0} gruppo(i) di file duplicati" },
+                { Language.Japanese, "{0}個の重複ファイルグループが見つかりました" }
+            }},
+            { "TAB_SUMMARY_GROUPS", new Dictionary<Language, string> {
+                { Language.English, "Summary by Group" },
+                { Language.Spanish, "Resumen por Grupo" },
+                { Language.French, "Résumé par Groupe" },
+                { Language.German, "Zusammenfassung nach Gruppe" },
+                { Language.Italian, "Riepilogo per Gruppo" },
+                { Language.Japanese, "グループ別サマリー" }
+            }},
+            { "TAB_DETAILS_FILES", new Dictionary<Language, string> {
+                { Language.English, "File Details" },
+                { Language.Spanish, "Detalles por Archivo" },
+                { Language.French, "Détails des Fichiers" },
+                { Language.German, "Dateidetails" },
+                { Language.Italian, "Dettagli dei File" },
+                { Language.Japanese, "ファイルの詳細" }
+            }},
+            { "COL_HASH_GROUP", new Dictionary<Language, string> {
+                { Language.English, "Hash (Group)" },
+                { Language.Spanish, "Hash (Grupo)" },
+                { Language.French, "Hash (Groupe)" },
+                { Language.German, "Hash (Gruppe)" },
+                { Language.Italian, "Hash (Gruppo)" },
+                { Language.Japanese, "ハッシュ（グループ）" }
+            }},
+            { "COL_FILENAME", new Dictionary<Language, string> {
+                { Language.English, "File Name" },
+                { Language.Spanish, "Nombre Archivo" },
+                { Language.French, "Nom du Fichier" },
+                { Language.German, "Dateiname" },
+                { Language.Italian, "Nome del File" },
+                { Language.Japanese, "ファイル名" }
+            }},
+            { "COL_FULL_PATH", new Dictionary<Language, string> {
+                { Language.English, "Full Path" },
+                { Language.Spanish, "Ruta Completa" },
+                { Language.French, "Chemin Complet" },
+                { Language.German, "Vollständiger Pfad" },
+                { Language.Italian, "Percorso Completo" },
+                { Language.Japanese, "フルパス" }
+            }},
+            { "COL_DUPLICATE_FILES", new Dictionary<Language, string> {
+                { Language.English, "Duplicate Files" },
+                { Language.Spanish, "Archivos Duplicados" },
+                { Language.French, "Fichiers en Double" },
+                { Language.German, "Doppelte Dateien" },
+                { Language.Italian, "File Duplicati" },
+                { Language.Japanese, "重複ファイル" }
+            }},
+            { "COL_WASTED_SPACE", new Dictionary<Language, string> {
+                { Language.English, "Wasted Space" },
+                { Language.Spanish, "Espacio Desperdiciado" },
+                { Language.French, "Espace Gaspillé" },
+                { Language.German, "Verschwendeter Speicherplatz" },
+                { Language.Italian, "Spazio Sprecato" },
+                { Language.Japanese, "無駄になったスペース" }
+            }},
+            { "COL_FILE_NAMES", new Dictionary<Language, string> {
+                { Language.English, "File Names" },
+                { Language.Spanish, "Nombres" },
+                { Language.French, "Noms des Fichiers" },
+                { Language.German, "Dateiname" },
+                { Language.Italian, "Nomi dei File" },
+                { Language.Japanese, "ファイル名" }
+            }},
+            { "BTN_COPY_CLIPBOARD", new Dictionary<Language, string> {
+                { Language.English, "⧉ Copy to Clipboard" },
+                { Language.Spanish, "⧉ Copiar al Portapapeles" },
+                { Language.French, "⧉ Copier dans le Presse-papiers" },
+                { Language.German, "⧉ In Zwischenablage kopieren" },
+                { Language.Italian, "⧉ Copia negli Appunti" },
+                { Language.Japanese, "⧉ クリップボードにコピー" }
+            }},
+            { "LABEL_TOTAL", new Dictionary<Language, string> {
+                { Language.English, "TOTAL" },
+                { Language.Spanish, "TOTAL" },
+                { Language.French, "TOTAL" },
+                { Language.German, "GESAMT" },
+                { Language.Italian, "TOTALE" },
+                { Language.Japanese, "合計" }
+            }},
+            { "BTN_CLOSE", new Dictionary<Language, string> {
+                { Language.English, "Close" },
+                { Language.Spanish, "Cerrar" },
+                { Language.French, "Fermer" },
+                { Language.German, "Schließen" },
+                { Language.Italian, "Chiudi" },
+                { Language.Japanese, "閉じる" }
             }},
             { "HELP_TITLE", new Dictionary<Language, string> {
                 { Language.English, "KiloFilter Help - How to Use" },
