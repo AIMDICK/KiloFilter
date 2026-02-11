@@ -4,6 +4,8 @@
 
 A modern utility to organize, analyze duplicates, and rescue files by type, with custom categories, duplicate detection, and multilingual support.
 
+![KiloFilter Screenshot](Assets/screenshot.png)
+
 ## 📸 Features Overview
 
 KiloFilter is a powerful file management tool that helps you:
