@@ -1,70 +1,156 @@
 # KiloFilter .gitignore
+# A file-based duplicate detector and organizer for Windows
 
-# Build and object folders
+## ======================
+## .NET and Build Output
+## ======================
+
+# Directories
 bin/
 obj/
 publish/
-
-# Visual Studio
 .vs/
 .vscode/
-*.user
-*.suo
-*.userosscache
-*.sln.docstates
-*.csproj.user
-*.csproj.vspscc
-
-# NuGet
-*.nupkg
-*.snupkg
 packages/
 
-# Build outputs
+# Build-related files
 *.dll
 *.exe
 *.pdb
 *.cache
 *.log
 *.vspscc
+*.sln.docstates
+*.Build.CppClean.log
 
-# Temporary files
-*.tmp
-*.bak
-*.log
+# NuGet
+*.nupkg
+*.snupkg
+
+# Visual Studio user-specific files
+*.user
+*.suo
+*.userosscache
+*.csproj.user
+*.csproj.vspscc
+*.csproj.aps
+*.csproj.ncb
+*.csproj.opensdf
+*.csproj.sdf
+*.csproj.cachefile
+
+# Visual Studio Code
+.vscode/
+.vs/
+*.code-workspace
+
+## ======================
+## Debugging and Analysis
+## ======================
+
+# Debugging
+*.MDF
+*.LDF
 *.ldf
 *.mdf
 
-# User-specific
-Thumbs.db
-Desktop.ini
-.DS_Store
-
-# Generated files
-*.GeneratedMSBuildEditorConfig.editorconfig
-*.FileListAbsolute.txt
-*.Build.CppClean.log
-*.aps
-*.ncb
-*.opensdf
-*.sdf
-*.cachefile
-*.VC.db
-
-# Roslyn analyzers
+# Code Analysis
 .roslyn/
+.sonarqube/
+.sonarcache/
 
-# User settings
-launchSettings.json
-
-# IDE
+# ReSharper
 .idea/
+.ReSharper/
+.ReSharper.user
+.ReSharperSilentBuild
+riderModule.iml
+*.sln.iml
+
+# Coverage
+OpenCover/
+CodeCoverage/
+*.coverage
+
+## ======================
+## Temporary Files
+## ======================
+
+# General temporary
+*.tmp
+*.bak
 *.swp
 *.swo
 *~
+*.stackdump
 
-# OS
+# Windows temporary
 Thumbs.db
-.DS_Store
 ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+._*
+.AppleDouble
+.LSOverride
+
+# Linux
+.directory
+
+## ======================
+## KiloFilter App-Specific
+## ======================
+
+# User configuration and cache
+AppData/
+UserSettings/
+Cache/
+Logs/
+*.config.local
+
+# Generated editor config
+*.GeneratedMSBuildEditorConfig.editorconfig
+*.FileListAbsolute.txt
+
+# Application user data
+KiloFilter.App.config
+user.config
+
+# Debug symbols
+*.pdb
+# Excluded from distribution
+
+## ======================
+## OS and IDE Artifacts
+## ======================
+
+# LaunchSettings (can contain sensitive info)
+Properties/launchSettings.json
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE artifacts
+.vs/
+.vscode/
+.idea/
+*.rsuser
+
+# Build artifacts
+dist/
+artifacts/
+
+## ======================
+## Additional Security
+## ======================
+
+# Exclude sensitive files
+*.pfx
+*.p12
+*.key
+*.pem
+appsettings.Development.json
 
