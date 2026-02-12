@@ -892,9 +892,14 @@ namespace KiloFilter.Forms
                             string categoryKey = GetFolder(f.Extension.ToLower());
                             // ✅ Use translated folder name
                             string translatedFolder = Localization.GetFolderName(categoryKey);
-                            string folder = Path.Combine(target, translatedFolder);
-                            if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
-                            f.CopyTo(Path.Combine(folder, f.Name), true);
+                            // ✅ Get file extension without the dot for subfolder organization
+                            string fileExtension = Path.GetExtension(f.Name).TrimStart('.').ToUpper();
+                            if (string.IsNullOrEmpty(fileExtension)) fileExtension = "UNKNOWN";
+                            // ✅ Create category folder first, then extension subfolder
+                            string categoryFolder = Path.Combine(target, translatedFolder);
+                            string extensionFolder = Path.Combine(categoryFolder, fileExtension);
+                            if (!Directory.Exists(extensionFolder)) Directory.CreateDirectory(extensionFolder);
+                            f.CopyTo(Path.Combine(extensionFolder, f.Name), true);
                             current += f.Length;
                             successCount++;
                             this.Invoke(new Action(() => pBar.Value = (int)((double)current / total * 100)));

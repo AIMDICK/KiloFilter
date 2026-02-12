@@ -44,6 +44,28 @@ KiloFilter is a powerful file management tool that helps you:
 - **Space calculation**: Shows total disk space that will be freed before deletion
 - **Button emojis**: 22+ buttons with consistent emoji icons for better usability
 
+### Hierarchical File Organization by Extension (v2.1.0 - New!)
+- **Two-level folder structure**: Files organized by Category → Extension
+- **Automatic extension detection**: System extracts file extension (JPG, PNG, PDF, etc.)
+- **Smart subfolder creation**: Each file type gets its own subfolder
+- **Example structure**:
+  ```
+  RESCATE_20260211_1430/
+  ├── 📁 Imágenes/
+  │   ├── 📁 JPG/
+  │   ├── 📁 PNG/
+  │   └── 📁 GIF/
+  ├── 📁 Documentos/
+  │   ├── 📁 PDF/
+  │   └── 📁 XLSX/
+  └── 📁 Videos/
+      ├── 📁 MP4/
+      ├── 📁 AVI/
+      └── 📁 MKV/
+  ```
+- **Improved discoverability**: Find files by both category and exact type
+- **Unknown extension handling**: Files without extensions placed in "UNKNOWN" folder
+
 ### Smart Cache System
 - **Automatic caching**: Analysis results are automatically saved after each scan
 - **Change detection**: Advanced content hashing detects if folder contents have changed
@@ -92,7 +114,10 @@ The Smart Cache System significantly speeds up your workflow when analyzing the 
 1. Scans the source folder recursively
 2. Groups files by extension and custom categories
 3. Filters by blacklist and minimum file size settings
-4. Displays results in an interactive list with statistics
+4. Organizes output in hierarchical structure:
+   - **Primary level**: By category (Images, Videos, Documents, etc.)
+   - **Secondary level**: By file extension (JPG, PNG, PDF, etc.)
+5. Displays results in an interactive list with statistics
 
 ### Duplicate Detection
 1. **Stage 1**: Groups files by identical file size

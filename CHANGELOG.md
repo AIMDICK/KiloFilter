@@ -11,6 +11,15 @@
 - **Automatic filtering**: Search by filename, filter by size (min/max)
 - **Interactive control**: Apply filters and see results instantly
 
+### 📂 Enhanced File Organization
+- **Hierarchical file structure by extension**: Files are now organized in nested folders:
+  - Category folder (Images, Documents, Videos, etc.)
+  - Extension subfolder (JPG, PNG, PDF, XLSX, etc.)
+  - Example: `RESCATE/Images/JPG/`, `RESCATE/Images/PNG/`, `RESCATE/Documents/PDF/`
+- **Automatic extension detection**: System automatically extracts file extension and creates appropriate folder
+- **Unknown extension handling**: Files without recognized extensions placed in "UNKNOWN" folder
+- **Improved file discoverability**: Users can easily locate files by type and extension
+
 ### 🎨 UI Polish
 - **Removed redundant Preview button**: Eliminated unnecessary "Preview Delete" action
 - **Button emoji consistency**: Added emojis to all action buttons for better visual hierarchy
@@ -27,12 +36,14 @@
 - **Real-time filtering**: Duplicate preview updates instantly as filters change
 - **Size-based selection**: Support for min/max file size filtering in duplicate removal
 - **Strategy selection dropdown**: Easy choice between deletion strategies
+- **Nested directory creation**: Automatic creation of category + extension folder structure
 
 ### 📝 Localization
 - All new features fully translated (6 languages):
   - Delete strategy options
   - Filter labels and tooltips
   - Smart delete button with emojis
+  - Help content with comprehensive v2.1.0 guide
 
 ---
 

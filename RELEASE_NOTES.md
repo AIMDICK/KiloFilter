@@ -30,6 +30,36 @@ KiloFilter v2.1.0 introduces **intelligent duplicate removal** with three custom
 - **Automatic Deduplication**: Smart analysis removes all duplicates from results
 - **Real-Time Updates**: Results update instantly as you adjust filters
 
+#### 📂 Hierarchical File Organization by Extension
+- **Two-Level Directory Structure**: Files organized by Category → Extension
+- **Automatic Extension Detection**: System automatically extracts file extension (JPG, PNG, PDF, etc.)
+- **Smart Subfolder Creation**: Each file type gets its own dedicated subfolder
+- **Example Structure**:
+  ```
+  RESCATE_20260211_1430/
+  ├── Imágenes/
+  │   ├── JPG/
+  │   │   ├── photo1.jpg
+  │   │   └── photo2.jpg
+  │   ├── PNG/
+  │   │   └── logo.png
+  │   └── GIF/
+  │       └── animation.gif
+  ├── Documentos/
+  │   ├── PDF/
+  │   │   └── report.pdf
+  │   ├── XLSX/
+  │   │   └── spreadsheet.xlsx
+  │   └── DOCX/
+  │       └── letter.docx
+  └── Videos/
+      ├── MP4/
+      ├── AVI/
+      └── MKV/
+  ```
+- **Improved File Discoverability**: Quickly locate files by both category and exact type
+- **Unknown Extension Handling**: Files without recognized extensions are placed in "UNKNOWN" folder
+
 ---
 
 ## ✨ UI/UX Improvements
