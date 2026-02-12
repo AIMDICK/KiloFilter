@@ -15,6 +15,11 @@ namespace KiloFilter.Forms
         private ListView lvDuplicates = null!;
         private ListView lvDetails = null!;
         private Label lblSummary = null!;
+        private TextBox txtSearchFileName = null!;
+        private TextBox txtMinSize = null!;
+        private TextBox txtMaxSize = null!;
+        private ComboBox cmbDeletionStrategy = null!;
+        private ListView lvDeletePreview = null!;
 
         public class DuplicateGroupInfo
         {
@@ -26,13 +31,16 @@ namespace KiloFilter.Forms
         public DuplicatesReportForm(List<DuplicateGroupInfo> duplicates) {
             this.duplicateGroups = duplicates;
             this.Text = Localization.Get("DUPLICATES_REPORT_TITLE");
-            this.Size = new Size(1200, 700);
+            this.Size = new Size(1400, 800);
             this.BackColor = Color.FromArgb(30, 30, 30);
             this.ForeColor = Color.White;
             this.Font = new Font("Segoe UI", 9);
             this.StartPosition = FormStartPosition.CenterParent;
             this.FormBorderStyle = FormBorderStyle.Sizable;
-            this.MinimumSize = new Size(900, 500);
+            this.MinimumSize = new Size(1000, 600);
+            
+            // Icono incrustado
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
 
             InitializeComponents();
         }
@@ -51,7 +59,7 @@ namespace KiloFilter.Forms
             // TabControl
             tabControl = new DarkTabControl {
                 Location = new Point(15, 55),
-                Size = new Size(1170, 520),
+                Size = new Size(1370, 620),
                 Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right
             };
 
@@ -63,10 +71,14 @@ namespace KiloFilter.Forms
             TabPage tabDetails = CreateDetailsTab();
             tabControl.TabPages.Add(tabDetails);
 
+            // TAB 3: Búsqueda y Filtrado + Eliminación Inteligente
+            TabPage tabSmartDelete = CreateSmartDeleteTab();
+            tabControl.TabPages.Add(tabSmartDelete);
+
             // Botones
             Button btnClose = new Button {
                 Text = Localization.Get("BTN_CLOSE") ?? "Cerrar",
-                Location = new Point(1070, 590),
+                Location = new Point(1270, 690),
                 Width = 110,
                 Height = 30,
                 BackColor = Color.FromArgb(80, 80, 120),
@@ -75,18 +87,7 @@ namespace KiloFilter.Forms
                 Anchor = AnchorStyles.Bottom | AnchorStyles.Right
             };
 
-            Button btnExport = new Button {
-                Text = Localization.Get("BTN_COPY_CLIPBOARD"),
-                Location = new Point(915, 590),
-                Width = 150,
-                Height = 30,
-                BackColor = Color.FromArgb(60, 100, 60),
-                FlatStyle = FlatStyle.Flat,
-                Anchor = AnchorStyles.Bottom | AnchorStyles.Right
-            };
-            btnExport.Click += (s, e) => ExportToClipboard();
-
-            this.Controls.AddRange(new Control[] { lblSummary, tabControl, btnExport, btnClose });
+            this.Controls.AddRange(new Control[] { lblSummary, tabControl, btnClose });
         }
 
         private TabPage CreateSummaryTab() {
@@ -108,11 +109,11 @@ namespace KiloFilter.Forms
                 Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right
             };
 
-            lvDuplicates.Columns.Add(Localization.Get("COL_HASH_GROUP"), 150);
-            lvDuplicates.Columns.Add(Localization.Get("COL_SIZE"), 120);
-            lvDuplicates.Columns.Add(Localization.Get("COL_DUPLICATE_FILES"), 150);
-            lvDuplicates.Columns.Add(Localization.Get("COL_WASTED_SPACE"), 180);
-            lvDuplicates.Columns.Add(Localization.Get("COL_FILE_NAMES"), 550);
+            lvDuplicates.Columns.Add(Localization.Get("COL_HASH_GROUP"), 140);
+            lvDuplicates.Columns.Add(Localization.Get("COL_SIZE"), 100);
+            lvDuplicates.Columns.Add(Localization.Get("COL_DUPLICATE_FILES"), 120);
+            lvDuplicates.Columns.Add(Localization.Get("COL_WASTED_SPACE"), 140);
+            lvDuplicates.Columns.Add(Localization.Get("COL_FILE_NAMES"), 650);
 
             var totalWaste = 0L;
 
@@ -172,11 +173,11 @@ namespace KiloFilter.Forms
                 Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right
             };
 
-            lvDetails.Columns.Add(Localization.Get("COL_HASH_GROUP"), 150);
-            lvDetails.Columns.Add(Localization.Get("COL_FILENAME"), 250);
-            lvDetails.Columns.Add(Localization.Get("COL_SIZE"), 100);
-            lvDetails.Columns.Add(Localization.Get("COL_FULL_PATH"), 450);
-            lvDetails.Columns.Add(Localization.Get("COL_MODIFIED_DATE"), 150);
+            lvDetails.Columns.Add(Localization.Get("COL_HASH_GROUP"), 120);
+            lvDetails.Columns.Add(Localization.Get("COL_FILENAME"), 200);
+            lvDetails.Columns.Add(Localization.Get("COL_SIZE"), 80);
+            lvDetails.Columns.Add(Localization.Get("COL_FULL_PATH"), 550);
+            lvDetails.Columns.Add(Localization.Get("COL_MODIFIED_DATE"), 180);
 
             foreach (var group in duplicateGroups) {
                 // Mostrar todos los archivos duplicados del grupo
@@ -288,6 +289,275 @@ namespace KiloFilter.Forms
             } catch (Exception ex) {
                 MessageBox.Show($"Error opening directory: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private TabPage CreateSmartDeleteTab() {
+            TabPage tab = new TabPage {
+                Text = Localization.Get("SEARCH_FILTER"),
+                BackColor = Color.FromArgb(45, 45, 45)
+            };
+
+            // Panel de búsqueda y filtrado
+            Label lblSearch = new Label {
+                Text = Localization.Get("FILTER_BY_NAME"),
+                Location = new Point(15, 15),
+                AutoSize = true,
+                ForeColor = Color.FromArgb(200, 200, 200)
+            };
+
+            txtSearchFileName = new TextBox {
+                Location = new Point(150, 13),
+                Width = 200,
+                BackColor = Color.FromArgb(50, 50, 50),
+                ForeColor = Color.White,
+                BorderStyle = BorderStyle.FixedSingle
+            };
+            txtSearchFileName.TextChanged += (s, e) => RefreshDeletePreview();
+
+            Label lblMinSize = new Label {
+                Text = Localization.Get("FILTER_BY_SIZE"),
+                Location = new Point(370, 15),
+                AutoSize = true,
+                ForeColor = Color.FromArgb(200, 200, 200)
+            };
+
+            txtMinSize = new TextBox {
+                Location = new Point(460, 13),
+                Width = 80,
+                Text = "0",
+                BackColor = Color.FromArgb(50, 50, 50),
+                ForeColor = Color.White,
+                BorderStyle = BorderStyle.FixedSingle
+            };
+            txtMinSize.TextChanged += (s, e) => RefreshDeletePreview();
+
+            Label lblMaxSize = new Label {
+                Text = Localization.Get("FILTER_MAX_SIZE"),
+                Location = new Point(550, 15),
+                AutoSize = true,
+                ForeColor = Color.FromArgb(200, 200, 200)
+            };
+
+            txtMaxSize = new TextBox {
+                Location = new Point(650, 13),
+                Width = 80,
+                Text = long.MaxValue.ToString(),
+                BackColor = Color.FromArgb(50, 50, 50),
+                ForeColor = Color.White,
+                BorderStyle = BorderStyle.FixedSingle
+            };
+            txtMaxSize.TextChanged += (s, e) => RefreshDeletePreview();
+
+            // Panel de eliminación inteligente
+            Label lblStrategy = new Label {
+                Text = Localization.Get("SMART_DELETE"),
+                Location = new Point(15, 50),
+                AutoSize = true,
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                ForeColor = Color.FromArgb(255, 200, 100)
+            };
+
+            cmbDeletionStrategy = new ComboBox {
+                Location = new Point(15, 75),
+                Width = 250,
+                DropDownStyle = ComboBoxStyle.DropDownList,
+                BackColor = Color.FromArgb(50, 50, 50),
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat
+            };
+            cmbDeletionStrategy.Items.Add(Localization.Get("KEEP_NEWEST"));
+            cmbDeletionStrategy.Items.Add(Localization.Get("KEEP_OLDEST"));
+            cmbDeletionStrategy.Items.Add(Localization.Get("KEEP_SMALLEST"));
+            cmbDeletionStrategy.SelectedIndex = 0;
+            cmbDeletionStrategy.SelectedIndexChanged += (s, e) => RefreshDeletePreview();
+
+            Button btnExecuteDelete = new Button {
+                Text = Localization.Get("SMART_DELETE"),
+                Location = new Point(15, 110),
+                Width = 250,
+                Height = 30,
+                BackColor = Color.FromArgb(150, 60, 60),
+                FlatStyle = FlatStyle.Flat,
+                Font = new Font("Segoe UI", 9, FontStyle.Bold)
+            };
+            btnExecuteDelete.Click += (s, e) => ExecuteSmartDelete();
+
+            // Lista de vista previa
+            Label lblPreviewTitle = new Label {
+                Text = "Preview de archivos a eliminar:",
+                Location = new Point(15, 155),
+                AutoSize = true,
+                ForeColor = Color.FromArgb(200, 200, 200)
+            };
+
+            lvDeletePreview = new ListView {
+                Location = new Point(15, 180),
+                Size = new Size(1340, 330),
+                View = View.Details,
+                FullRowSelect = true,
+                GridLines = true,
+                BackColor = Color.FromArgb(40, 40, 40),
+                ForeColor = Color.White,
+                BorderStyle = BorderStyle.FixedSingle,
+                Font = new Font("Segoe UI", 8),
+                Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right
+            };
+            lvDeletePreview.Columns.Add("Archivo", 300);
+            lvDeletePreview.Columns.Add("Tamaño", 100);
+            lvDeletePreview.Columns.Add("Ruta", 500);
+            lvDeletePreview.Columns.Add("Acción", 100);
+
+            tab.Controls.AddRange(new Control[] {
+                lblSearch, txtSearchFileName, lblMinSize, txtMinSize, lblMaxSize, txtMaxSize,
+                lblStrategy, cmbDeletionStrategy, btnExecuteDelete, lblPreviewTitle, lvDeletePreview
+            });
+
+            // Cargar vista previa inicial con todos los duplicados
+            InitializeDeletePreview();
+
+            return tab;
+        }
+
+        private void InitializeDeletePreview() {
+            lvDeletePreview.Items.Clear();
+
+            var strategy = SmartDuplicateDeleter.DeletionStrategy.KeepNewest;
+            long totalSpaceToFree = 0;
+            int totalFilesToDelete = 0;
+
+            // Mostrar vista previa inicial con todos los duplicados
+            foreach (var group in duplicateGroups) {
+                var filesToDelete = SmartDuplicateDeleter.GetFilesToDelete(group.Files, strategy);
+                foreach (var file in filesToDelete) {
+                    var item = new ListViewItem(System.IO.Path.GetFileName(file.FullName));
+                    item.SubItems.Add(SmartDuplicateDeleter.FormatSize(file.Length));
+                    item.SubItems.Add(file.DirectoryName ?? "");
+                    item.SubItems.Add("DELETE");
+                    item.Tag = file;
+                    item.ForeColor = Color.FromArgb(255, 100, 100);
+                    lvDeletePreview.Items.Add(item);
+                    totalSpaceToFree += file.Length;
+                    totalFilesToDelete++;
+                }
+            }
+
+            // Mostrar resumen
+            if (totalFilesToDelete > 0) {
+                var summary = new ListViewItem($"Total: {totalFilesToDelete} archivos");
+                summary.SubItems.Add(SmartDuplicateDeleter.FormatSize(totalSpaceToFree));
+                summary.SubItems.Add("");
+                summary.SubItems.Add("");
+                summary.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+                summary.ForeColor = Color.FromArgb(255, 150, 0);
+                lvDeletePreview.Items.Add(summary);
+            }
+        }
+
+        private void RefreshDeletePreview() {
+            lvDeletePreview.Items.Clear();
+
+            // Obtener filtros
+            string nameFilter = txtSearchFileName.Text.ToLower();
+            long.TryParse(txtMinSize.Text, out long minSize);
+            long.TryParse(txtMaxSize.Text, out long maxSize);
+
+            if (maxSize == 0) maxSize = long.MaxValue;
+
+            // Recopilar todos los archivos duplicados con filtros
+            var allDuplicateFiles = new List<FileInfo>();
+            foreach (var group in duplicateGroups) {
+                allDuplicateFiles.AddRange(group.Files);
+            }
+
+            var filtered = SmartDuplicateDeleter.FilterDuplicates(allDuplicateFiles, nameFilter, minSize, maxSize);
+
+            if (filtered.Count == 0) {
+                return;
+            }
+
+            // Recopilar grupos de duplicados filtrados
+            var filteredGroups = new Dictionary<string, List<FileInfo>>();
+            foreach (var group in this.duplicateGroups) {
+                var groupFiltered = group.Files.Where(f => filtered.Contains(f)).ToList();
+                if (groupFiltered.Count > 0) {
+                    filteredGroups[group.Hash] = groupFiltered;
+                }
+            }
+
+            // Determinar estrategia de eliminación
+            var strategy = cmbDeletionStrategy.SelectedIndex switch {
+                1 => SmartDuplicateDeleter.DeletionStrategy.KeepOldest,
+                2 => SmartDuplicateDeleter.DeletionStrategy.KeepSmallest,
+                _ => SmartDuplicateDeleter.DeletionStrategy.KeepNewest
+            };
+
+            long totalSpaceToFree = 0;
+            int totalFilesToDelete = 0;
+
+            // Mostrar vista previa
+            foreach (var kvp in filteredGroups) {
+                var filesToDelete = SmartDuplicateDeleter.GetFilesToDelete(kvp.Value, strategy);
+                foreach (var file in filesToDelete) {
+                    var item = new ListViewItem(System.IO.Path.GetFileName(file.FullName));
+                    item.SubItems.Add(SmartDuplicateDeleter.FormatSize(file.Length));
+                    item.SubItems.Add(file.DirectoryName ?? "");
+                    item.SubItems.Add("DELETE");
+                    item.Tag = file;
+                    item.ForeColor = Color.FromArgb(255, 100, 100);
+                    lvDeletePreview.Items.Add(item);
+                    totalSpaceToFree += file.Length;
+                    totalFilesToDelete++;
+                }
+            }
+
+            // Mostrar resumen
+            if (totalFilesToDelete > 0) {
+                var summary = new ListViewItem($"Total: {totalFilesToDelete} archivos");
+                summary.SubItems.Add(SmartDuplicateDeleter.FormatSize(totalSpaceToFree));
+                summary.SubItems.Add("");
+                summary.SubItems.Add("");
+                summary.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+                summary.ForeColor = Color.FromArgb(255, 150, 0);
+                lvDeletePreview.Items.Add(summary);
+            }
+        }
+
+        private void ExecuteSmartDelete() {
+            if (lvDeletePreview.Items.Count == 0) {
+                MessageBox.Show(Localization.Get("NO_DUPLICATES_FOUND"));
+                return;
+            }
+
+            // Contar archivos a eliminar (excluyendo la fila de resumen)
+            int filesToDeleteCount = lvDeletePreview.Items.Count - 1;
+
+            // Confirmación
+            var confirmMsg = string.Format(Localization.Get("DELETE_CONFIRM"), filesToDeleteCount);
+            if (MessageBox.Show(confirmMsg, "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) {
+                return;
+            }
+
+            // Recopilar archivos a eliminar
+            var filesToDelete = new List<FileInfo>();
+            foreach (ListViewItem item in lvDeletePreview.Items) {
+                if (item.Tag is FileInfo file) {
+                    filesToDelete.Add(file);
+                }
+            }
+
+            // Ejecutar eliminación
+            var result = SmartDuplicateDeleter.DeleteDuplicates(filesToDelete);
+
+            // Mostrar resultado
+            var successMsg = string.Format(Localization.Get("DELETE_SUCCESS"), result.DeletedCount, SmartDuplicateDeleter.FormatSize(result.SpaceFreed));
+            MessageBox.Show(successMsg, "✅ Eliminación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            if (result.ErrorFiles.Count > 0) {
+                MessageBox.Show($"Errores durante eliminación:\n{string.Join("\n", result.ErrorFiles)}", "⚠️ Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            // Limpiar preview
+            lvDeletePreview.Items.Clear();
         }
 
         private string FormatSize(long bytes) {

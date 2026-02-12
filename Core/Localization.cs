@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace KiloFilter.Core
@@ -45,28 +45,28 @@ namespace KiloFilter.Core
                 { Language.Japanese, "保存先フォルダー:" }
             }},
             { "BTN_BROWSE", new Dictionary<Language, string> {
-                { Language.English, "Browse..." },
-                { Language.Spanish, "Examinar..." },
-                { Language.French, "Parcourir..." },
-                { Language.German, "Durchsuchen..." },
-                { Language.Italian, "Sfoglia..." },
-                { Language.Japanese, "参照..." }
+                { Language.English, "☚ Browse..." },
+                { Language.Spanish, "☚ Examinar..." },
+                { Language.French, "☚ Parcourir..." },
+                { Language.German, "☚ Durchsuchen..." },
+                { Language.Italian, "☚ Sfoglia..." },
+                { Language.Japanese, "☚ 参照..." }
             }},
             { "BTN_CLEAR", new Dictionary<Language, string> {
-                { Language.English, "CLEAR" },
-                { Language.Spanish, "LIMPIAR" },
-                { Language.French, "EFFACER" },
-                { Language.German, "LÖSCHEN" },
-                { Language.Italian, "PULISCI" },
-                { Language.Japanese, "クリア" }
+                { Language.English, "☓ CLEAR" },
+                { Language.Spanish, "☓ LIMPIAR" },
+                { Language.French, "☓ EFFACER" },
+                { Language.German, "☓ LÖSCHEN" },
+                { Language.Italian, "☓ PULISCI" },
+                { Language.Japanese, "☓ クリア" }
             }},
             { "BTN_ANALYZE", new Dictionary<Language, string> {
-                { Language.English, "ANALYZE DISK" },
-                { Language.Spanish, "ANALIZAR DISCO" },
-                { Language.French, "ANALYSER LE DISQUE" },
-                { Language.German, "FESTPLATTE ANALYSIEREN" },
-                { Language.Italian, "ANALIZZA DISCO" },
-                { Language.Japanese, "ディスクを分析" }
+                { Language.English, "⛏ ANALYZE DISK" },
+                { Language.Spanish, "⛏ ANALIZAR DISCO" },
+                { Language.French, "⛏ ANALYSER LE DISQUE" },
+                { Language.German, "⛏ FESTPLATTE ANALYSIEREN" },
+                { Language.Italian, "⛏ ANALIZZA DISCO" },
+                { Language.Japanese, "⛏ ディスクを分析" }
             }},
             { "BTN_CONFIGURE", new Dictionary<Language, string> {
                 { Language.English, "⚙ Configure" },
@@ -85,12 +85,12 @@ namespace KiloFilter.Core
                 { Language.Japanese, "➕ 新しいカテゴリー" }
             }},
             { "BTN_RESCUE", new Dictionary<Language, string> {
-                { Language.English, "RESCUE SELECTED" },
-                { Language.Spanish, "RESCATAR SELECCIONADOS" },
-                { Language.French, "SAUVEGARDER SÉLECTIONNÉS" },
-                { Language.German, "AUSGEWÄHLTE RETTEN" },
-                { Language.Italian, "SALVA SELEZIONATI" },
-                { Language.Japanese, "選択したものを救出" }
+                { Language.English, "⛑ RESCUE SELECTED" },
+                { Language.Spanish, "⛑ RESCATAR SELECCIONADOS" },
+                { Language.French, "⛑ SAUVEGARDER SÉLECTIONNÉS" },
+                { Language.German, "⛑ AUSGEWÄHLTE RETTEN" },
+                { Language.Italian, "⛑ SALVA SELEZIONATI" },
+                { Language.Japanese, "⛑ 選択したものを救出" }
             }},
             { "STATUS_READY", new Dictionary<Language, string> {
                 { Language.English, "Ready" },
@@ -289,20 +289,20 @@ namespace KiloFilter.Core
                 { Language.Japanese, "含まれる拡張子" }
             }},
             { "BTN_REMOVE", new Dictionary<Language, string> {
-                { Language.English, "Remove" },
-                { Language.Spanish, "Eliminar" },
-                { Language.French, "Supprimer" },
-                { Language.German, "Entfernen" },
-                { Language.Italian, "Rimuovi" },
-                { Language.Japanese, "削除" }
+                { Language.English, "❌ Remove" },
+                { Language.Spanish, "❌ Eliminar" },
+                { Language.French, "❌ Supprimer" },
+                { Language.German, "❌ Entfernen" },
+                { Language.Italian, "❌ Rimuovi" },
+                { Language.Japanese, "❌ 削除" }
             }},
             { "BTN_CLEAR_ALL", new Dictionary<Language, string> {
-                { Language.English, "Clear All" },
-                { Language.Spanish, "Limpiar Todo" },
-                { Language.French, "Tout Effacer" },
-                { Language.German, "Alles Löschen" },
-                { Language.Italian, "Pulisci Tutto" },
-                { Language.Japanese, "すべてクリア" }
+                { Language.English, "☒ Clear All" },
+                { Language.Spanish, "☒ Limpiar Todo" },
+                { Language.French, "☒ Tout Effacer" },
+                { Language.German, "☒ Alles Löschen" },
+                { Language.Italian, "☒ Pulisci Tutto" },
+                { Language.Japanese, "☒ すべてクリア" }
             }},
             { "TOTAL_EXTENSIONS", new Dictionary<Language, string> {
                 { Language.English, "Total: {0} extension(s)" },
@@ -321,36 +321,36 @@ namespace KiloFilter.Core
                 { Language.Japanese, "拡張子を追加 (例: .py, .psd, .mp3)" }
             }},
             { "BTN_ADD", new Dictionary<Language, string> {
-                { Language.English, "Add" },
-                { Language.Spanish, "Agregar" },
-                { Language.French, "Ajouter" },
-                { Language.German, "Hinzufügen" },
-                { Language.Italian, "Aggiungi" },
-                { Language.Japanese, "追加" }
+                { Language.English, "➕ Add" },
+                { Language.Spanish, "➕ Agregar" },
+                { Language.French, "➕ Ajouter" },
+                { Language.German, "➕ Hinzufügen" },
+                { Language.Italian, "➕ Aggiungi" },
+                { Language.Japanese, "➕ 追加" }
             }},
             { "BTN_SAVE_AND_ANALYZE", new Dictionary<Language, string> {
-                { Language.English, "Save and Analyze" },
-                { Language.Spanish, "Guardar y Analizar" },
-                { Language.French, "Enregistrer et Analyser" },
-                { Language.German, "Speichern und Analysieren" },
-                { Language.Italian, "Salva e Analizza" },
-                { Language.Japanese, "保存して分析" }
+                { Language.English, "☑ Save and Analyze" },
+                { Language.Spanish, "☑ Guardar y Analizar" },
+                { Language.French, "☑ Enregistrer et Analyser" },
+                { Language.German, "☑ Speichern und Analysieren" },
+                { Language.Italian, "☑ Salva e Analizza" },
+                { Language.Japanese, "☑ 保存して分析" }
             }},
             { "BTN_SAVE_ONLY", new Dictionary<Language, string> {
-                { Language.English, "Save Only" },
-                { Language.Spanish, "Solo Guardar" },
-                { Language.French, "Enregistrer Seulement" },
-                { Language.German, "Nur Speichern" },
-                { Language.Italian, "Solo Salva" },
-                { Language.Japanese, "保存のみ" }
+                { Language.English, "☑ Save Only" },
+                { Language.Spanish, "☑ Solo Guardar" },
+                { Language.French, "☑ Enregistrer Seulement" },
+                { Language.German, "☑ Nur Speichern" },
+                { Language.Italian, "☑ Solo Salva" },
+                { Language.Japanese, "☑ 保存のみ" }
             }},
             { "BTN_CANCEL", new Dictionary<Language, string> {
-                { Language.English, "Cancel" },
-                { Language.Spanish, "Cancelar" },
-                { Language.French, "Annuler" },
-                { Language.German, "Abbrechen" },
-                { Language.Italian, "Annulla" },
-                { Language.Japanese, "キャンセル" }
+                { Language.English, "❌ Cancel" },
+                { Language.Spanish, "❌ Cancelar" },
+                { Language.French, "❌ Annuler" },
+                { Language.German, "❌ Abbrechen" },
+                { Language.Italian, "❌ Annulla" },
+                { Language.Japanese, "❌ キャンセル" }
             }},
 
             // Ventana de detalles de categoría
@@ -387,12 +387,12 @@ namespace KiloFilter.Core
                 { Language.Japanese, "拡張子別サマリー" }
             }},
             { "BTN_APPLY_CHANGES", new Dictionary<Language, string> {
-                { Language.English, "Apply Changes" },
-                { Language.Spanish, "Aplicar Cambios" },
-                { Language.French, "Appliquer les Modifications" },
-                { Language.German, "Änderungen Übernehmen" },
-                { Language.Italian, "Applica Modifiche" },
-                { Language.Japanese, "変更を適用" }
+                { Language.English, "✓ Apply Changes" },
+                { Language.Spanish, "✓ Aplicar Cambios" },
+                { Language.French, "✓ Appliquer les Modifications" },
+                { Language.German, "✓ Änderungen Übernehmen" },
+                { Language.Italian, "✓ Applica Modifiche" },
+                { Language.Japanese, "✓ 変更を適用" }
             }},
             { "BTN_SAVE_AND_CLOSE", new Dictionary<Language, string> {
                 { Language.English, "💾 Save and Close" },
@@ -403,20 +403,20 @@ namespace KiloFilter.Core
                 { Language.Japanese, "💾 保存して閉じる" }
             }},
             { "FILTER", new Dictionary<Language, string> {
-                { Language.English, "Filter" },
-                { Language.Spanish, "Filtrar" },
-                { Language.French, "Filtrer" },
-                { Language.German, "Filtern" },
-                { Language.Italian, "Filtra" },
-                { Language.Japanese, "フィルター" }
+                { Language.English, "🔍 Filter" },
+                { Language.Spanish, "🔍 Filtrar" },
+                { Language.French, "🔍 Filtrer" },
+                { Language.German, "🔍 Filtern" },
+                { Language.Italian, "🔍 Filtra" },
+                { Language.Japanese, "🔍 フィルター" }
             }},
             { "BTN_COPY_SUMMARY", new Dictionary<Language, string> {
-                { Language.English, "Copy Summary" },
-                { Language.Spanish, "Copiar Resumen" },
-                { Language.French, "Copier le Résumé" },
-                { Language.German, "Zusammenfassung Kopieren" },
-                { Language.Italian, "Copia Riepilogo" },
-                { Language.Japanese, "サマリーをコピー" }
+                { Language.English, "⧉ Copy Summary" },
+                { Language.Spanish, "⧉ Copiar Resumen" },
+                { Language.French, "⧉ Copier le Résumé" },
+                { Language.German, "⧉ Zusammenfassung Kopieren" },
+                { Language.Italian, "⧉ Copia Riepilogo" },
+                { Language.Japanese, "⧉ サマリーをコピー" }
             }},
             { "COL_SELECTION", new Dictionary<Language, string> {
                 { Language.English, "Sel" },
@@ -483,12 +483,12 @@ namespace KiloFilter.Core
                 { Language.Japanese, "選択した拡張子を移動:" }
             }},
             { "BTN_MOVE", new Dictionary<Language, string> {
-                { Language.English, "MOVE" },
-                { Language.Spanish, "MOVER" },
-                { Language.French, "DÉPLACER" },
-                { Language.German, "VERSCHIEBEN" },
-                { Language.Italian, "SPOSTA" },
-                { Language.Japanese, "移動" }
+                { Language.English, "📂 MOVE" },
+                { Language.Spanish, "📂 MOVER" },
+                { Language.French, "📂 DÉPLACER" },
+                { Language.German, "📂 VERSCHIEBEN" },
+                { Language.Italian, "📂 SPOSTA" },
+                { Language.Japanese, "📂 移動" }
             }},
             { "BTN_SELECT_ALL", new Dictionary<Language, string> {
                 { Language.English, "Select All" },
@@ -613,36 +613,36 @@ namespace KiloFilter.Core
                 { Language.Japanese, "ブラックリストに追加（例: .log または log）:" }
             }},
             { "BTN_REMOVE_FROM_BLACKLIST", new Dictionary<Language, string> {
-                { Language.English, "Remove from Blacklist" },
-                { Language.Spanish, "Quitar de Blacklist" },
-                { Language.French, "Retirer de la Liste Noire" },
-                { Language.German, "Von Blacklist Entfernen" },
-                { Language.Italian, "Rimuovi dalla Blacklist" },
-                { Language.Japanese, "ブラックリストから削除" }
+                { Language.English, "➕ Remove from Blacklist" },
+                { Language.Spanish, "➕ Quitar de Blacklist" },
+                { Language.French, "➕ Retirer de la Liste Noire" },
+                { Language.German, "➕ Von Blacklist Entfernen" },
+                { Language.Italian, "➕ Rimuovi dalla Blacklist" },
+                { Language.Japanese, "➕ ブラックリストから削除" }
             }},
             { "BTN_BLOCK", new Dictionary<Language, string> {
-                { Language.English, "Block" },
-                { Language.Spanish, "Bloquear" },
-                { Language.French, "Bloquer" },
-                { Language.German, "Blockieren" },
-                { Language.Italian, "Blocca" },
-                { Language.Japanese, "ブロック" }
+                { Language.English, "⛔ Block" },
+                { Language.Spanish, "⛔ Bloquear" },
+                { Language.French, "⛔ Bloquer" },
+                { Language.German, "⛔ Blockieren" },
+                { Language.Italian, "⛔ Blocca" },
+                { Language.Japanese, "⛔ ブロック" }
             }},
             { "BTN_CHECK_ALL", new Dictionary<Language, string> {
-                { Language.English, "Check All" },
-                { Language.Spanish, "Marcar Todas" },
-                { Language.French, "Tout Cocher" },
-                { Language.German, "Alle Markieren" },
-                { Language.Italian, "Seleziona Tutto" },
-                { Language.Japanese, "すべて選択" }
+                { Language.English, "✓ Check All" },
+                { Language.Spanish, "✓ Marcar Todas" },
+                { Language.French, "✓ Tout Cocher" },
+                { Language.German, "✓ Alle Markieren" },
+                { Language.Italian, "✓ Seleziona Tutto" },
+                { Language.Japanese, "✓ すべて選択" }
             }},
             { "BTN_UNCHECK_ALL", new Dictionary<Language, string> {
-                { Language.English, "Uncheck All" },
-                { Language.Spanish, "Desmarcar" },
-                { Language.French, "Tout Décocher" },
-                { Language.German, "Alle Abwählen" },
-                { Language.Italian, "Deseleziona Tutto" },
-                { Language.Japanese, "すべて解除" }
+                { Language.English, "❌ Uncheck All" },
+                { Language.Spanish, "❌ Desmarcar" },
+                { Language.French, "❌ Tout Décocher" },
+                { Language.German, "❌ Alle Abwählen" },
+                { Language.Italian, "❌ Deseleziona Tutto" },
+                { Language.Japanese, "❌ すべて解除" }
             }},
             { "TOTAL_BLOCKED", new Dictionary<Language, string> {
                 { Language.English, "Total blocked: {0}" },
@@ -717,12 +717,12 @@ namespace KiloFilter.Core
                 { Language.Japanese, "ブラックリストから {0} 個の拡張子を削除してもよろしいですか？\n\nこれらの拡張子は分析に表示され始めます。" }
             }},
             { "BTN_REMOVE_SELECTED", new Dictionary<Language, string> {
-                { Language.English, "Remove Selected" },
-                { Language.Spanish, "Eliminar Seleccionadas" },
-                { Language.French, "Supprimer Sélectionnées" },
-                { Language.German, "Ausgewählte Entfernen" },
-                { Language.Italian, "Rimuovi Selezionate" },
-                { Language.Japanese, "選択を削除" }
+                { Language.English, "❌ Remove Selected" },
+                { Language.Spanish, "❌ Eliminar Seleccionadas" },
+                { Language.French, "❌ Supprimer Sélectionnées" },
+                { Language.German, "❌ Ausgewählte Entfernen" },
+                { Language.Italian, "❌ Rimuovi Selezionate" },
+                { Language.Japanese, "❌ 選択を削除" }
             }},
             { "MIN_SIZE_SUFFIX", new Dictionary<Language, string> {
                 { Language.English, " - {0} minimum size allowed in analysis" },
@@ -805,12 +805,12 @@ namespace KiloFilter.Core
                 { Language.Japanese, "小さいファイルは分析中に無視されます。" }
             }},
             { "BTN_APPLY_TO_ALL", new Dictionary<Language, string> {
-                { Language.English, "Apply to All" },
-                { Language.Spanish, "Aplicar a Todas" },
-                { Language.French, "Appliquer à Tous" },
-                { Language.German, "Auf Alle Anwenden" },
-                { Language.Italian, "Applica a Tutti" },
-                { Language.Japanese, "すべてに適用" }
+                { Language.English, "✓ Apply to All" },
+                { Language.Spanish, "✓ Aplicar a Todas" },
+                { Language.French, "✓ Appliquer à Tous" },
+                { Language.German, "✓ Auf Alle Anwenden" },
+                { Language.Italian, "✓ Applica a Tutti" },
+                { Language.Japanese, "✓ すべてに適用" }
             }},
             { "EXTENSION_COLUMN", new Dictionary<Language, string> {
                 { Language.English, "Extension" },
@@ -1021,12 +1021,12 @@ namespace KiloFilter.Core
                 { Language.Japanese, "カテゴリーが選択されていません。" }
             }},
             { "HELP_CONTENT", new Dictionary<Language, string> {
-                { Language.English, "HOW TO USE KILOFILTER\n\nQUICK START GUIDE\n\nStep 1: Select Source Folder\n• Click \"Browse...\" next to \"SOURCE FOLDER\"\n• Navigate to the folder containing the files you want to organize\n• This can be your Downloads folder, an external drive, or any directory with mixed files\n\nStep 2: Analyze Files\n• Click \"1. ANALYZE DISK\" to start scanning\n• The program will scan all files and automatically categorize them by type\n• Wait until you see \"Analysis complete\" at the bottom\n\nStep 3: Review Results\n• Check the list of categories (Images, Videos, Documents, etc.)\n• Each row shows: Category name, Number of files, Total size\n• Click \"View Details\" on any category to see individual files\n\nStep 4: Configure (Optional)\n• Click \"⚙️ Configure\" to customize file extensions for each category\n• Use the \"BLACKLIST\" tab to exclude unwanted file types from analysis\n• Set minimum file sizes to ignore small temporary files\n\nStep 5: Create Custom Categories (Optional)\n• Click \"➕ New Category\" to create your own file groups\n• Enter a category name (e.g., \"ProjectFiles\", \"Photos2024\")\n• Add file extensions (.psd, .ai, .indd, etc.)\n• Choose to analyze immediately or save for later\n\nStep 6: Select Destination\n• Click \"Browse...\" next to \"DESTINATION FOLDER\"\n• Choose where you want to save the organized files\n• A new folder will be created automatically with date/time stamp\n\nStep 7: Rescue Files\n• Check/uncheck categories you want to copy\n• Click \"2. RESCUE SELECTED\"\n• Files will be copied (not moved) to destination in organized folders\n• Original files remain untouched in the source location\n\nADVANCED FEATURES\n• Double-click any file in the detail view to open its location\n• Use the \"👑 Admin (Optional)\" button for deeper file and system access. This runs the program with administrator privileges, allowing detailed scanning of protected folders and system directories that require elevated permissions\n• Use the language button to switch between 6 languages\n• The \"CLEAR\" button resets everything if you want to start over\n• Analysis doesn't modify your original files - they're only copied when you \"Rescue\"\n• Set per-extension minimum file sizes\n• Use blacklist to exclude specific file types from analysis" },
-                { Language.Spanish, "CÓMO USAR KILOFILTER\n\nGUÍA DE INICIO RÁPIDO\n\nPaso 1: Seleccionar Carpeta de Origen\n• Haz clic en \"Examinar...\" junto a \"CARPETA DE ORIGEN\"\n• Navega hasta la carpeta que contiene los archivos que deseas organizar\n• Puede ser tu carpeta de Descargas, un disco externo o cualquier directorio con archivos mezclados\n\nPaso 2: Analizar Archivos\n• Haz clic en \"1. ANALIZAR DISCO\" para iniciar el escaneo\n• El programa escaneará todos los archivos y los categorizará automáticamente por tipo\n• Espera hasta ver \"Análisis terminado\" en la parte inferior\n\nPaso 3: Revisar Resultados\n• Revisa la lista de categorías (Imágenes, Videos, Documentos, etc.)\n• Cada fila muestra: Nombre de categoría, Cantidad de archivos, Tamaño total\n• Haz clic en \"Ver Detalle\" en cualquier categoría para ver archivos individuales\n\nPaso 4: Configurar (Opcional)\n• Haz clic en \"⚙️ Configurar\" para personalizar extensiones de archivo por categoría\n• Usa la pestaña \"BLACKLIST\" para excluir tipos de archivo no deseados del análisis\n• Establece tamaños mínimos de archivo para ignorar archivos temporales pequeños\n\nPaso 5: Crear Categorías Personalizadas (Opcional)\n• Haz clic en \"➕ Nueva Categoría\" para crear tus propios grupos de archivos\n• Ingresa un nombre de categoría (ej: \"ArchivosProyecto\", \"Fotos2024\")\n• Agrega extensiones de archivo (.psd, .ai, .indd, etc.)\n• Elige analizar inmediatamente o guardar para después\n\nPaso 6: Seleccionar Destino\n• Haz clic en \"Examinar...\" junto a \"CARPETA DE DESTINO\"\n• Elige dónde quieres guardar los archivos organizados\n• Se creará automáticamente una nueva carpeta con fecha/hora\n\nPaso 7: Rescatar Archivos\n• Marca/desmarca las categorías que deseas copiar\n• Haz clic en \"2. RESCATAR SELECCIONADOS\"\n• Los archivos se copiarán (no se moverán) al destino en carpetas organizadas\n• Los archivos originales permanecen intactos en la ubicación de origen\n\nFUNCIONES AVANZADAS\n• Haz doble clic en cualquier archivo en la vista detallada para abrir su ubicación\n• Usa el botón \"👑 Admin (Opcional)\" para un acceso más profundo a archivos y carpetas del sistema. Esto ejecuta el programa con permisos de administrador, permitiendo un escaneo detallado de carpetas protegidas y directorios del sistema que requieren permisos elevados\n• Usa el botón de idioma (arriba a la derecha) para cambiar entre 6 idiomas\n• El botón \"LIMPIAR\" reinicia todo si quieres empezar de nuevo\n• El análisis no modifica tus archivos originales - solo se copian cuando haces \"Rescatar\"\n• Establece tamaños mínimos de archivo por extensión\n• Usa blacklist para excluir tipos de archivo específicos del análisis" },
-                { Language.French, "COMMENT UTILISER KILOFILTER\n\nGUIDDÉ DE DÉMARRAGE RAPIDE\n\nÉtape 1 : Sélectionner le Dossier Source\n• Cliquez sur \"Parcourir...\" à côté de \"DOSSIER SOURCE\"\n• Naviguez jusqu'au dossier contenant les fichiers que vous souhaitez organiser\n• Cela peut être votre dossier Téléchargements, un disque externe ou tout répertoire avec des fichiers mélangés\n\nÉtape 2 : Analyser les Fichiers\n• Cliquez sur \"1. ANALYSER LE DISQUE\" pour démarrer l'analyse\n• Le programme analysera tous les fichiers et les catégorisera automatiquement par type\n• Attendez de voir \"Analyse terminée\" en bas\n\nÉtape 3 : Examiner les Résultats\n• Vérifiez la liste des catégories (Images, Vidéos, Documents, etc.)\n• Chaque ligne affiche : Nom de catégorie, Nombre de fichiers, Taille totale\n• Cliquez sur \"Voir Détails\" sur n'importe quelle catégorie pour voir les fichiers individuels\n\nÉtape 4 : Configurer (Optionnel)\n• Cliquez sur \"⚙️ Configurer\" pour personnaliser les extensions de fichier par catégorie\n• Utilisez l'onglet \"LISTE NOIRE\" pour exclure les types de fichiers indésirables de l'analyse\n• Définissez des tailles de fichier minimales pour ignorer les petits fichiers temporaires\n\nÉtape 5 : Créer des Catégories Personnalisées (Optionnel)\n• Cliquez sur \"➕ Nouvelle Catégorie\" pour créer vos propres groupes de fichiers\n• Entrez un nom de catégorie (ex: \"FichiersProjet\", \"Photos2024\")\n• Ajoutez des extensions de fichier (.psd, .ai, .indd, etc.)\n• Choisissez d'analyser immédiatement ou de sauvegarder pour plus tard\n\nÉtape 6 : Sélectionner la Destination\n• Cliquez sur \"Parcourir...\" à côté de \"DOSSIER DE DESTINATION\"\n• Choisissez où vous voulez enregistrer les fichiers organisés\n• Un nouveau dossier sera créé automatiquement avec date/heure\n\nÉtape 7 : Sauvegarder les Fichiers\n• Cochez/décochez les catégories que vous souhaitez copier\n• Cliquez sur \"2. SAUVEGARDER SÉLECTIONNÉS\"\n• Les fichiers seront copiés (pas déplacés) vers la destination dans des dossiers organisés\n• Les fichiers originaux restent intacts à l'emplacement source\n\nFONCTIONNALITÉS AVANCÉES\n• Double-cliquez sur n'importe quel fichier dans la vue détaillée pour ouvrir son emplacement\n• Utilisez le bouton \"👑 Admin (Optionnel)\" pour un accès plus approfondi aux fichiers et dossiers système. Cela exécute le programme avec les privilèges administrateur, permettant un scan détaillé des dossiers protégés et des répertoires système qui nécessitent des autorisations élevées\n• Utilisez le bouton de langue (en haut à droite) pour changer de langue\n• Le bouton \"EFFACER\" réinitialise tout si vous voulez recommencer\n• L'analyse ne modifie pas vos fichiers originaux - ils ne sont copiés que lorsque vous \"Sauvegardez\"\n• Définir des tailles minimales de fichier par extension\n• Utilisez la liste noire pour exclure des types de fichiers spécifiques de l'analyse" },
-                { Language.German, "SO VERWENDEN SIE KILOFILTER\n\nSCHNELLSTARTANLEITUNG\n\nSchritt 1: Quellordner Auswählen\n• Klicken Sie auf \"Durchsuchen...\" neben \"QUELLORDNER\"\n• Navigieren Sie zu dem Ordner mit den Dateien, die Sie organisieren möchten\n• Dies kann Ihr Downloads-Ordner, eine externe Festplatte oder ein beliebiges Verzeichnis mit gemischten Dateien sein\n\nSchritt 2: Dateien Analysieren\n• Klicken Sie auf \"1. FESTPLATTE ANALYSIEREN\", um den Scan zu starten\n• Das Programm scannt alle Dateien und kategorisiert sie automatisch nach Typ\n• Warten Sie, bis unten \"Analyse abgeschlossen\" angezeigt wird\n\nSchritt 3: Ergebnisse Überprüfen\n• Überprüfen Sie die Liste der Kategorien (Bilder, Videos, Dokumente usw.)\n• Jede Zeile zeigt: Kategoriename, Anzahl der Dateien, Gesamtgröße\n• Klicken Sie auf \"Details Anzeigen\" bei jeder Kategorie, um einzelne Dateien zu sehen\n\nSchritt 4: Konfigurieren (Optional)\n• Klicken Sie auf \"⚙️ Konfigurieren\", um Dateierweiterungen pro Kategorie anzupassen\n• Verwenden Sie die Registerkarte \"BLACKLIST\", um unerwünschte Dateitypen von der Analyse auszuschließen\n• Legen Sie Mindestdateigrößen fest, um kleine temporäre Dateien zu ignorieren\n\nSchritt 5: Benutzerdefinierte Kategorien Erstellen (Optional)\n• Klicken Sie auf \"➕ Neue Kategorie\", um eigene Dateigruppen zu erstellen\n• Geben Sie einen Kategorienamen ein (z.B. \"Projektdateien\", \"Fotos2024\")\n• Fügen Sie Dateierweiterungen hinzu (.psd, .ai, .indd usw.)\n• Wählen Sie, ob Sie sofort analysieren oder für später speichern möchten\n\nSchritt 6: Ziel Auswählen\n• Klicken Sie auf \"Durchsuchen...\" neben \"ZIELORDNER\"\n• Wählen Sie, wo Sie die organisierten Dateien speichern möchten\n• Ein neuer Ordner wird automatisch mit Datum/Uhrzeit erstellt\n\nSchritt 7: Dateien Retten\n• Aktivieren/Deaktivieren Sie die Kategorien, die Sie kopieren möchten\n• Klicken Sie auf \"2. AUSGEWÄHLTE RETTEN\"\n• Dateien werden in organisierte Ordner am Zielort kopiert (nicht verschoben)\n• Originaldateien bleiben am Quellort unverändert\n\nERWEITERTE FUNKTIONEN\n• Doppelklicken Sie auf eine Datei in der Detailansicht, um ihren Speicherort zu öffnen\n• Verwenden Sie die Schaltfläche \"👑 Admin (Optional)\" für tieferen Zugriff auf Dateien und Systemordner. Dies führt das Programm mit Administratorrechten aus und ermöglicht das detaillierte Scannen geschützter Ordner und Systemverzeichnisse, die erweiterte Berechtigungen erfordern\n• Verwenden Sie die Sprachschaltfläche (oben rechts), um zwischen Sprachen zu wechseln\n• Die Schaltfläche \"LÖSCHEN\" setzt alles zurück, wenn Sie neu beginnen möchten\n• Die Analyse ändert Ihre Originaldateien nicht - sie werden nur beim \"Retten\" kopiert\n• Legen Sie Mindestdateigrößen pro Erweiterung fest\n• Verwenden Sie die Blacklist, um bestimmte Dateitypen von der Analyse auszuschließen" },
-                { Language.Italian, "COME USARE KILOFILTER\n\nGUIDEA RAPIDA\n\nPassaggio 1: Selezionare la Cartella Sorgente\n• Clicca su \"Sfoglia...\" accanto a \"CARTELLA SORGENTE\"\n• Naviga fino alla cartella contenente i file che vuoi organizzare\n• Può essere la tua cartella Download, un disco esterno o qualsiasi directory con file misti\n\nPassaggio 2: Analizzare i File\n• Clicca su \"1. ANALIZZA DISCO\" per avviare la scansione\n• Il programma scansionerà tutti i file e li categorizzerà automaticamente per tipo\n• Attendi fino a vedere \"Analisi completata\" in basso\n\nPassaggio 3: Rivedere i Risultati\n• Controlla l'elenco delle categorie (Immagini, Video, Documenti, ecc.)\n• Ogni riga mostra: Nome categoria, Numero di file, Dimensione totale\n• Clicca su \"Visualizza Dettagli\" su qualsiasi categoria per vedere i singoli file\n\nPassaggio 4: Configurare (Opzionale)\n• Clicca su \"⚙️ Configura\" per personalizzare le estensioni dei file per categoria\n• Usa la scheda \"BLACKLIST\" per escludere tipi di file indesiderati dall'analisi\n• Imposta dimensioni minime dei file per ignorare piccoli file temporanei\n\nPassaggio 5: Creare Categorie Personalizzate (Opzionale)\n• Clicca su \"➕ Nuova Categoria\" per creare i tuoi gruppi di file\n• Inserisci un nome di categoria (es: \"FileProgetto\", \"Foto2024\")\n• Aggiungi estensioni di file (.psd, .ai, .indd, ecc.)\n• Scegli di analizzare immediatamente o salvare per dopo\n\nPassaggio 6: Selezionare la Destinazione\n• Clicca su \"Sfoglia...\" accanto a \"CARTELLA DI DESTINAZIONE\"\n• Scegli dove vuoi salvare i file organizzati\n• Una nuova cartella verrà creata automaticamente con data/ora\n\nPassaggio 7: Salvare i File\n• Seleziona/deseleziona le categorie che vuoi copiare\n• Clicca su \"2. SALVA SELEZIONATI\"\n• I file verranno copiati (non spostati) nella destinazione in cartelle organizzate\n• I file originali rimangono intatti nella posizione sorgente\n\nFUNZIONALITÀ AVANZATE\n• Fai doppio clic su qualsiasi file nella vista dettagliata per aprire la sua posizione\n• Usa il pulsante \"👑 Admin (Facoltativo)\" per un accesso più profondo ai file e alle cartelle di sistema. Ciò esegue il programma con privilegi di amministratore, consentendo la scansione dettagliata di cartelle protette e directory di sistema che richiedono autorizzazioni elevate\n• Usa il pulsante lingua (in alto a destra) per cambiare lingua\n• Il pulsante \"PULISCI\" resetta tutto se vuoi ricominciare\n• L'analisi non modifica i tuoi file originali - vengono copiati solo quando \"Salvi\"\n• Imposta dimensioni minime diverse per file per estensione\n• Usa la blacklist per escludere tipi di file specifici dall'analisi" },
-                { Language.Japanese, "KILOFILTERの使い方\n\nクイックスタートガイド\n\nステップ1：ソースフォルダーを選択\n• 「ソースフォルダー」の横にある「参照...」をクリック\n• 整理したいファイルが含まれているフォルダーに移動\n• ダウンロードフォルダー、外部ドライブ、または混在ファイルのあるディレクトリを選択可能\n\nステップ2：ファイルを分析\n• 「1. ディスクを分析」をクリックしてスキャンを開始\n• プログラムがすべてのファイルをスキャンし、タイプ別に自動分類\n• 下部に「分析完了」と表示されるまで待つ\n\nステップ3：結果を確認\n• カテゴリーのリスト（画像、動画、ドキュメントなど）を確認\n• 各行に表示：カテゴリー名、ファイル数、合計サイズ\n• 任意のカテゴリーの「詳細を表示」をクリックして個別ファイルを表示\n\nステップ4：設定（オプション）\n• 「⚙️ 設定」をクリックして、カテゴリーごとのファイル拡張子をカスタマイズ\n• 「ブラックリスト」タブを使用して、不要なファイルタイプを分析から除外\n• 小さな一時ファイルを無視するために最小ファイルサイズを設定\n\nステップ5：カスタムカテゴリーを作成（オプション）\n• 「➕ 新しいカテゴリー」をクリックして独自のファイルグループを作成\n• カテゴリー名を入力（例：「プロジェクトファイル」、「写真2024」）\n• ファイル拡張子を追加（.psd、.ai、.inddなど）\n• すぐに分析するか、後で保存するかを選択\n\nステップ6：保存先を選択\n• 「保存先フォルダー」の横にある「参照...」をクリック\n• 整理されたファイルを保存する場所を選択\n• 日付/時刻付きの新しいフォルダーが自動的に作成されます\n\nステップ7：ファイルを救出\n• コピーしたいカテゴリーをチェック/チェック解除\n• 「2. 選択を救出」をクリック\n• ファイルは整理されたフォルダーに保存先へコピー（移動ではない）\n• 元のファイルはソースの場所にそのまま残る\n\n高度な機能\n• ファイルをダブルクリックして、その場所を開く\n• 「👑 Admin (オプション)」ボタンを使用してファイルとシステムフォルダーへのより深いアクセスを取得します。これはプログラムを管理者権限で実行し、昇格された権限が必要な保護されたフォルダーとシステムディレクトリの詳細なスキャンを可能にします\n• 言語ボタン（右上）を使用して言語を切り替える\n• 「クリア」ボタンは、やり直したい場合にすべてをリセット\n• 分析は元のファイルを変更しません - 「救出」時にのみコピーされます\n• 拡張子ごとに異なる最小ファイルサイズを設定\n• ブラックリストを使用して、特定のファイルタイプを分析から除外" }
+                { Language.English, "HOW TO USE KILOFILTER\n\nQUICK START GUIDE\n\nStep 1: Select Source Folder\n- Click Browse next to SOURCE FOLDER\n- Navigate to the folder containing the files you want to organize\n\nStep 2: Choose Analysis Mode\n\nOption A: ANALYZE DISK (Purple Button)\n- Scans ALL files and categorizes them by type\n- Shows all files including duplicate copies\n- Use when you want to copy everything\n\nOption B: ANALYZE (NO DUPLICATES) (Orange Button)\n- Automatically detects and removes duplicate files\n- Shows only 1 file from each duplicate group\n- Displays a Duplicate Report showing what was found\n- Use when you want to save storage by removing copies\n\nStep 3: Review Results\n- Check the categories list (Images, Videos, Documents, etc.)\n- Each row shows: Category, Number of files, Total size\n- Click View Details to see individual files\n- If using NO DUPLICATES mode, you can Reopen Report\n\nStep 4: Configure (Optional)\n- Click Configure to customize file extensions per category\n- Use BLACKLIST tab to exclude unwanted file types\n- Set minimum file sizes for each extension\n\nStep 5: Create Custom Categories (Optional)\n- Click New Category to create your own file groups\n- Enter name, add extensions, choose to analyze\n\nStep 6: Select Destination Folder\n- Click Browse next to DESTINATION FOLDER\n- Choose where to save organized files\n- New folder created with date/time stamp\n\nStep 7: Rescue Files\n- Check/uncheck categories to copy\n- Click RESCUE SELECTED\n- Files copied to destination in organized folders\n- Original files stay untouched\n\nKEY FEATURES\n- Double-click files to open their location\n- Admin button: Run with administrator privileges for protected folders\n- Language button: Switch between 6 languages\n- Clear button: Reset everything to start over\n- File count matches exactly what will be copied\n\nSMART CACHE SYSTEM (NEW FEATURE)\n\nKiloFilter now includes an intelligent cache system that automatically saves analysis results. When you analyze the same folder again:\n\n- First scan: Full analysis performed, results saved automatically\n- Subsequent scans: If folder content hasn't changed, you're notified and can reload the cached result in <1 second instead of minutes\n- Change detection: The system detects if files were added, deleted, or modified using advanced content hashing\n- Auto-cleanup: Cache automatically removed after 30 days of non-use to prevent disk space accumulation\n\nHow to use:\n-Click the 📋 History button to view all saved analyses\n- Select a previous analysis to load it instantly\n- Delete individual analyses or clear all cache as needed\n- The system handles everything automatically - no user configuration needed\n\nThis feature saves time when working with large folders you analyze repeatedly!\n\nSMART DUPLICATE DELETION (v2.1.0 - NEW!)\n\nThis advanced feature allows you to intelligently delete duplicate files using three different strategies:\n\nThree Deletion Strategies:\n\n1. KEEP NEWEST - Retains the most recently modified file from each duplicate group\n- Perfect when you want the latest version\n- Example: If you have 3 copies of a file from different dates, keeps the newest one\n\n2. KEEP OLDEST - Retains the original/oldest file from each duplicate group\n- Useful for archival and historical purposes\n- Example: Keep the first copy, delete newer copies\n\n3. KEEP SMALLEST - Retains the smallest file from each duplicate group\n- Optimizes storage space maximally\n- Example: Multiple copies of same document at different compressions, keeps most compressed\n\nHow to Use:\n\n1. Click ANALYZE DUPLICATES (orange button) to find all duplicate files\n2. Go to Tab 3 (Search & Filter) for advanced options\n3. (Optional) Apply filters: Enter filename search, set size range, click APPLY FILTERS\n4. Select your Deletion Strategy (Keep Newest/Oldest/Smallest)\n5. Review the Real-Time Preview showing files to delete and space to be freed\n6. Click SMART DELETE to execute\n7. Confirm the deletion\n\nAdvanced Filtering:\n- Filename search by partial name\n- Size range filtering (min/max)\n- Real-time preview updates\n- Exact space calculation\n\nIMPORTANT NOTES:\n- Always review preview before deleting\n- Deleted files are permanent (not Recycle Bin)\n- Strategy applies to ALL duplicate groups\n- Use different strategies to find best option for your needs\n\nIMPORTANT: When using NO DUPLICATES mode, only 1 copy from each duplicate group is copied, saving storage space." },
+                { Language.Spanish, "COMO USAR KILOFILTER\n\nGUIA DE INICIO RAPIDO\n\nPaso 1: Seleccionar Carpeta de Origen\n- Haz clic en Examinar junto a CARPETA DE ORIGEN\n- Navega hasta la carpeta que contiene los archivos\n\nPaso 2: Elegir Modo de Analisis\n\nOpcion A: ANALIZAR DISCO (Boton Morado)\n- Examina TODOS los archivos y los categoriza por tipo\n- Muestra todos los archivos incluyendo copias duplicadas\n- Usa cuando quieras copiar todo\n\nOpcion B: ANALIZAR (SIN DUPLICADOS) (Boton Naranja)\n- Detecta y elimina automaticamente archivos duplicados\n- Muestra solo 1 archivo de cada grupo de duplicados\n- Genera un Reporte de Duplicados mostrando lo encontrado\n- Usa cuando quieras ahorrar espacio eliminando copias\n\nPaso 3: Revisar Resultados\n- Revisa la lista de categorias (Imagenes, Videos, Documentos, etc.)\n- Cada fila muestra: Categoria, Cantidad de archivos, Tamanio total\n- Haz clic en Ver Detalle para ver archivos individuales\n- En modo SIN DUPLICADOS, puedes Reabrir Informe\n\nPaso 4: Configurar (Opcional)\n- Haz clic en Configurar para personalizar extensiones por categoria\n- Usa pestaña BLACKLIST para excluir tipos de archivo no deseados\n- Establece tamanios minimos de archivo por extension\n\nPaso 5: Crear Categorias Personalizadas (Opcional)\n- Haz clic en Nueva Categoria para crear tus propios grupos\n- Ingresa nombre, agrega extensiones, elige si analizar\n\nPaso 6: Seleccionar Carpeta de Destino\n- Haz clic en Examinar junto a CARPETA DE DESTINO\n- Elige donde guardar los archivos organizados\n- Se crea nueva carpeta con fecha/hora\n\nPaso 7: Rescatar Archivos\n- Marca/desmarca categorias para copiar\n- Haz clic en RESCATAR SELECCIONADOS\n- Los archivos se copian al destino en carpetas organizadas\n- Los archivos originales permanecen intactos\n\nCARACTERISTICAS PRINCIPALES\n- Doble clic en archivos para abrir su ubicacion\n- Boton Admin: Ejecutar con permisos de administrador para carpetas protegidas\n- Boton Idioma: Cambiar entre 6 idiomas\n- Boton Limpiar: Reiniciar todo\n- La cantidad de archivos coincide exactamente con lo que se copiara\n\nSISTEMA DE CACHE INTELIGENTE (NUEVA CARACTERISTICA)\n\nKiloFilter ahora incluye un sistema de cache inteligente que guarda automaticamente los resultados del analisis. Cuando analizas la misma carpeta nuevamente:\n\n- Primer escaneo: Se realiza analisis completo, resultados guardados automaticamente\n- Escaneos posteriores: Si el contenido de la carpeta no cambio, se te notifica y puedes cargar el resultado cacheado en <1 segundo en lugar de minutos\n- Deteccion de cambios: El sistema detecta si se agregaron, eliminaron o modificaron archivos usando hash de contenido avanzado\n- Limpieza automatica: El cache se elimina automaticamente despues de 30 dias de no usarse para prevenir acumulacion de espacio\n\nComo usar:\n- Haz clic en el boton 📋 Historial para ver todos los analisis guardados\n- Selecciona un analisis anterior para cargarlo instantaneamente\n- Elimina analisis individuales o limpia todo el cache segun sea necesario\n- El sistema maneja todo automaticamente - no se requiere configuracion del usuario\n\n!Esta caracteristica ahorra tiempo cuando trabajas con carpetas grandes que analizas repetidamente!\n\nELIMINACION INTELIGENTE DE DUPLICADOS (v2.1.0 - ¡NUEVO!)\n\nEsta caracteritica avanzada te permite eliminar inteligentemente archivos duplicados usando tres estrategias diferentes:\n\nTres Estrategias de Eliminacion:\n\n1. MANTENER MAS RECIENTE - Retiene el archivo modificado mas recientemente de cada grupo de duplicados\n- Perfecto cuando quieres la version mas reciente\n- Ejemplo: Si tienes 3 copias de un archivo de diferentes fechas, mantiene la mas nueva\n\n2. MANTENER MAS ANTIGUO - Retiene el archivo original/mas antiguo de cada grupo de duplicados\n- Util para propositos de archivo e historicos\n- Ejemplo: Mantener la primera copia, eliminar copias mas nuevas\n\n3. MANTENER MAS PEQUENO - Retiene el archivo mas pequeno de cada grupo de duplicados\n- Optimiza al maximo el espacio de almacenamiento\n- Ejemplo: Multiples copias del mismo documento a diferentes compresiones, mantiene la mas comprimida\n\nComo usar:\n\n1. Haz clic en ANALIZAR DUPLICADOS (boton naranja) para encontrar todos los archivos duplicados\n2. Ve a la Pestana 3 (Buscar y Filtrar) para opciones avanzadas\n3. (Opcional) Aplica filtros: Ingresa busqueda de nombre, establece rango de tamanio, haz clic en APLICAR FILTROS\n4. Selecciona tu Estrategia de Eliminacion (Mantener Mas Reciente/Antiguo/Pequeno)\n5. Revisa la Vista Previa en Tiempo Real mostrando archivos a eliminar y espacio a liberar\n6. Haz clic en ELIMINAR INTELIGENTEMENTE para ejecutar\n7. Confirma la eliminacion\n\nFiltrado Avanzado:\n- Busqueda de nombre por nombre parcial\n- Filtrado por rango de tamanio (min/max)\n- Actualizaciones de vista previa en tiempo real\n- Calculo de espacio exacto\n\nNOTAS IMPORTANTES:\n- Siempre revisa la vista previa antes de eliminar\n- Los archivos eliminados son permanentes (no van a Papelera)\n- La estrategia se aplica a TODOS los grupos de duplicados\n- Usa diferentes estrategias para encontrar la mejor opcion para tus necesidades\n\nIMPORTANTE: En modo SIN DUPLICADOS, solo se copia 1 archivo de cada grupo de duplicados, ahorrando espacio de almacenamiento." },
+                { Language.French, "COMMENT UTILISER KILOFILTER\n\nGUIDDE DE DEMARRAGE RAPIDE\n\nEtape 1: Selectionner Dossier Source\n- Cliquez sur Parcourir a cote de DOSSIER SOURCE\n- Naviguez jusqu'au dossier contenant les fichiers\n\nEtape 2: Choisir Mode d'Analyse\n\nOption A: ANALYSER LE DISQUE (Bouton Violet)\n- Analyse TOUS les fichiers et les categorise par type\n- Affiche tous les fichiers y compris les doublons\n- Utilisez quand vous voulez tout copier\n\nOption B: ANALYSER (SANS DOUBLONS) (Bouton Orange)\n- Detecte et supprime automatiquement les fichiers en double\n- Affiche seulement 1 fichier de chaque groupe de doublons\n- Genere un Rapport de Doublons montrant ce qui a ete trouve\n- Utilisez pour economiser de l'espace en supprimant les copies\n\nEtape 3: Examiner les Resultats\n- Verifiez la liste des categories (Images, Videos, Documents, etc.)\n- Chaque ligne affiche: Categorie, Nombre de fichiers, Taille totale\n- Cliquez sur Voir Details pour voir les fichiers individuels\n- En mode SANS DOUBLONS, vous pouvez Rouvrir Rapport\n\nEtape 4: Configurer (Optionnel)\n- Cliquez sur Configurer pour personnaliser extensions par categorie\n- Utilisez onglet LISTE NOIRE pour exclure types de fichiers non desires\n- Definissez tailles minimales de fichier par extension\n\nEtape 5: Creer Categories Personnalisees (Optionnel)\n- Cliquez sur Nouvelle Categorie pour creer vos propres groupes\n- Entrez nom, ajoutez extensions, choisissez d'analyser\n\nEtape 6: Selectionner Dossier de Destination\n- Cliquez sur Parcourir a cote de DOSSIER DE DESTINATION\n- Choisissez ou enregistrer les fichiers organises\n- Nouveau dossier cree avec date/heure\n\nEtape 7: Sauvegarder Fichiers\n- Cochez/decochez categories a copier\n- Cliquez sur SAUVEGARDER SELECTIONNES\n- Les fichiers sont copies au destination dans dossiers organises\n- Les fichiers originaux restent intacts\n\nCARACTERISTIQUES PRINCIPALES\n- Double-cliquez sur fichiers pour ouvrir emplacement\n- Bouton Admin: Executer avec privileges administrateur pour dossiers proteges\n- Bouton Langue: Changer entre 6 langues\n- Bouton Effacer: Reinitialiser tout\n- Le nombre de fichiers correspond exactement a ce qui sera copie\n\nSYSTEME DE CACHE INTELLIGENT (NOUVELLE FONCTIONNALITE)\n\nKiloFilter inclut maintenant un systeme de cache intelligent qui enregistre automatiquement les resultats d'analyse. Lorsque vous analysez le meme dossier a nouveau:\n\n- Premier scan: Analyse complete effectuee, resultats enregistres automatiquement\n- Scans subsequents: Si le contenu du dossier n'a pas change, vous etes notifie et pouvez charger le resultat en cache en <1 seconde au lieu de minutes\n- Detection de changement: Le systeme detecte si des fichiers ont ete ajoutes, supprimes ou modifies en utilisant un hachage de contenu avance\n- Nettoyage automatique: Le cache est automatiquement supprime apres 30 jours de non-utilisation pour eviter l'accumulation d'espace disque\n\nComment utiliser:\n- Cliquez sur le bouton 📋 Historique pour afficher toutes les analyses enregistrees\n- Selectionnez une analyse anterieure pour la charger instantanement\n- Supprimez des analyses individuelles ou videz tout le cache selon vos besoins\n- Le systeme gere tout automatiquement - aucune configuration utilisateur necessaire\n\nCette fonctionnalite economise du temps lorsque vous travaillez avec de grands dossiers que vous analysez repetitivement!\n\nSUPPRESSION INTELLIGENTE DES DOUBLONS (v2.1.0 - NOUVEAU!)\n\nCette fonctionnalite avancee vous permet de supprimer intelligemment les fichiers en double en utilisant trois strategies differentes:\n\nTrois Strategies de Suppression:\n\n1. CONSERVER LE PLUS RECENT - Conserve le fichier modifie le plus recemment de chaque groupe de doublons\n- Parfait quand vous voulez la version la plus recente\n- Exemple: Si vous avez 3 copies d'un fichier de differentes dates, conserve la plus recente\n\n2. CONSERVER LE PLUS ANCIEN - Conserve le fichier original/le plus ancien de chaque groupe de doublons\n- Utile pour les buts d'archivage et historiques\n- Exemple: Conserver la premiere copie, supprimer les copies plus recentes\n\n3. CONSERVER LE PLUS PETIT - Conserve le plus petit fichier de chaque groupe de doublons\n- Optimise au maximum l'espace de stockage\n- Exemple: Plusieurs copies du meme document a differentes compressions, conserve la plus comprimee\n\nComment utiliser:\n\n1. Cliquez sur ANALYSER LES DOUBLONS (bouton orange) pour trouver tous les fichiers en double\n2. Allez a l'Onglet 3 (Recherche et Filtrage) pour les options avancees\n3. (Optionnel) Appliquez les filtres: Entrez recherche de nom, definissez plage de taille, cliquez sur APPLIQUER LES FILTRES\n4. Selectionnez votre strategie de suppression souhaitee (Conserver Plus Recent/Ancien/Petit)\n5. Examinez l'Apercu en Temps Reel affichant fichiers a supprimer et espace a liberer\n6. Cliquez sur SUPPRIMER INTELLIGEMMENT pour executer\n7. Confirmez la suppression\n\nFiltrage Avances:\n- Recherche de nom par nom partiel\n- Filtrage par plage de taille (min/max)\n- Mises a jour d'apercu en temps reel\n- Calcul d'espace exact\n\nNOTES IMPORTANTES:\n- Examinez toujours l'apercu avant de supprimer\n- Les fichiers supprimes sont permanents (non places a la Corbeille)\n- La strategie s'applique a TOUS les groupes de doublons\n- Utilisez differentes strategies pour trouver la meilleure option pour vos besoins\n\nIMPORTANT: En mode SANS DOUBLONS, une seule copie de chaque groupe de doublons est copiee, economisant l'espace de stockage." },
+                { Language.German, "SO VERWENDEN SIE KILOFILTER\n\nSCHNELLSTARTANLEITUNG\n\nSchritt 1: Quellordner Auswaehlen\n- Klicken Sie auf Durchsuchen neben QUELLORDNER\n- Navigieren Sie zu Ordner mit Dateien\n\nSchritt 2: Analysemodus Auswaehlen\n\nOption A: FESTPLATTE ANALYSIEREN (Violetter Button)\n- Abtastung ALLER Dateien und Kategorisierung nach Typ\n- Zeigt alle Dateien einschliesslich Duplikate\n- Verwenden Sie, wenn Sie alles kopieren moechten\n\nOption B: ANALYSIEREN (KEINE DUPLIKATE) (Oranger Button)\n- Erkennt und entfernt automatisch doppelte Dateien\n- Zeigt nur 1 Datei pro Duplikatgruppe an\n- Erstellt Duplikatbericht mit Angaben\n- Verwenden um Speicher durch Entfernen von Kopien zu sparen\n\nSchritt 3: Ergebnisse Ueberprufen\n- Pruefen Sie Kategorieliste (Bilder, Videos, Dokumente, etc.)\n- Jede Zeile zeigt: Kategorie, Dateizahl, Gesamtgroesse\n- Klicken Sie auf Details Anzeigen fuer individuelle Dateien\n- Im Modus KEINE DUPLIKATE koennen Sie Bericht Erneut Oeffnen\n\nSchritt 4: Konfigurieren (Optional)\n- Klicken Sie auf Konfigurieren um Erweiterungen per Kategorie anzupassen\n- Verwenden Sie BLACKLIST Registerkarte fuer unwuenschte Dateitypen\n- Legen Sie Mindestdateien per Erweiterung fest\n\nSchritt 5: Benutzerdefinierte Kategorien Erstellen (Optional)\n- Klicken Sie auf Neue Kategorie fuer eigene Gruppen\n- Geben Sie Namen ein, fuegen Sie Erweiterungen hinzu\n\nSchritt 6: Zielordner Auswaehlen\n- Klicken Sie auf Durchsuchen neben ZIELORDNER\n- Waehlen Sie wo organisierte Dateien gespeichert werden\n- Neuer Ordner mit Datum/Uhrzeit erstellt\n\nSchritt 7: Dateien Retten\n- Aktivieren/Deaktivieren Sie zu kopierende Kategorien\n- Klicken Sie auf AUSGEWA HLTE RETTEN\n- Dateien werden zu Ziel in organisierten Ordnern kopiert\n- Urspruengliche Dateien bleiben unberuehrt\n\nHAUPTMERKMALE\n- Doppelklick auf Dateien um Speicherort zu oeffnen\n- Admin Button: Mit Administratorbefugnissen fuer geschuetzte Ordner\n- Sprachbutton: Zwischen 6 Sprachen waehlen\n- Loeschbutton: Alles zuruecksetzen\n- Dateizahl entspricht genau was kopiert wird\n\nINTELLIGENTES CACHE-SYSTEM (NEUE FUNKTION)\n\nKiloFilter enthaelt nun ein intelligentes Cache-System, das Analyseergebnisse automatisch speichert. Wenn Sie denselben Ordner erneut analysieren:\n\n- Erstes Scannen: Vollstaendige Analyse durchgefuehrt, Ergebnisse automatisch gespeichert\n- Nachfolgendes Scannen: Falls Ordnerinhalt nicht geaendert hat, werden Sie benachrichtigt und koennen das gecachte Ergebnis in <1 Sekunde statt Minuten laden\n- Aenderungserkennung: Das System erkennt, ob Dateien mithilfe erweitertes Content-Hashing hinzugefuegt, geloescht oder geaendert wurden\n- Automatische Bereinigung: Cache wird automatisch nach 30 Tagen Nichtbenutzung entfernt, um Speicherplatzansammlung zu vermeiden\n\nSo verwenden Sie es:\n- Klicken Sie auf die Schaltflaeche 📋 Verlauf um alle gespeicherten Analysen anzuzeigen\n- Waehlen Sie eine vorherige Analyse aus um sie sofort zu laden\n- Loeschen Sie einzelne Analysen oder leeren Sie den gesamten Cache nach Bedarf\n- Das System verwaltet alles automatisch - keine Benutzerkonfiguration erforderlich\n\nDiese Funktion spart Zeit bei der Arbeit mit grossen Ordnern, die Sie wiederholt analysieren!\n\nINTELLIGENTE DUPLIKATLOESCHUNG (v2.1.0 - NEU!)\n\nDiese erweiterte Funktion ermoeglicht es Ihnen, Duplikatdateien intelligent mit drei verschiedenen Strategien zu loeschen:\n\nDrei Loeschstrategien:\n\n1. NEUESTE BEHALTEN - Behaelt die zuletzt geaenderte Datei aus jeder Duplikatgruppe\n- Perfekt wenn Sie die neueste Version moechten\n- Beispiel: Wenn Sie 3 Kopien einer Datei von verschiedenen Daten haben, behaelt die neueste\n\n2. ALTESTE BEHALTEN - Behaelt die urspruengliche/alteste Datei aus jeder Duplikatgruppe\n- Nuetzlich fuer Archiv- und historische Zwecke\n- Beispiel: Erste Kopie behalten, neuere Kopien loeschen\n\n3. KLEINSTE BEHALTEN - Behaelt die kleinste Datei aus jeder Duplikatgruppe\n- Optimiert den Speicherplatz maximal\n- Beispiel: Mehrere Kopien desselben Dokuments bei unterschiedlichen Kompressionen, behaelt am meisten komprimiert\n\nSo verwenden Sie es:\n\n1. Klicken Sie auf DUPLIKATE ANALYSIEREN (orangerer Button) um alle Duplikatdateien zu finden\n2. Gehen Sie zu Registerkarte 3 (Suche & Filterung) fuer erweiterte Optionen\n3. (Optional) Filtrer anwenden: Geben Sie Namensuche ein, legen Sie Groessenbereich fest, klicken Sie auf FILTER ANWENDEN\n4. Waehlen Sie Ihre gewuenschte Loeschstrategie (Neueste/Alteste/Kleinste Behalten)\n5. Ueberpruefen Sie die Echtzeitvorschau zeigt Dateien zum Loeschen und freizugebenden Speicherplatz\n6. Klicken Sie auf INTELLIGENT LOESCHEN um auszufuehren\n7. Bestaetigen Sie die Loeschung\n\nErweiterte Filterung:\n- Namensuche nach Teilnamen\n- Groessenbereich-Filterung (min/max)\n- Echtzeitvorschau-Aktualisierungen\n- Genaue Speicherplatzberechnung\n\nWICHTIGE HINWEISE:\n- Ueberpruefen Sie immer die Vorschau vor dem Loeschen\n- Geloeschte Dateien sind permanent (nicht im Papierkorb)\n- Die Strategie gilt fuer ALLE Duplikatgruppen\n- Verwenden Sie verschiedene Strategien um die beste Option zu finden\n\nWICHTIG: Im Modus KEINE DUPLIKATE wird nur 1 Kopie pro Duplikatgruppe kopiert, was Speicherplatz spart." },
+                { Language.Italian, "COME USARE KILOFILTER\n\nGUIDEA RAPIDA\n\nPassaggio 1: Selezionare Cartella Sorgente\n- Clicca su Sfoglia accanto a CARTELLA SORGENTE\n- Naviga fino alla cartella con i file\n\nPassaggio 2: Scegliere Modalita di Analisi\n\nOpzione A: ANALIZZA DISCO (Pulsante Viola)\n- Scansiona TUTTI i file e li categorizza per tipo\n- Mostra tutti i file inclusi i duplicati\n- Usa quando vuoi copiare tutto\n\nOpzione B: ANALIZZA (SENZA DUPLICATI) (Pulsante Arancione)\n- Rileva ed elimina automaticamente file duplicati\n- Mostra solo 1 file da ogni gruppo di duplicati\n- Genera Rapporto Duplicati con dettagli\n- Usa per risparmiare spazio rimuovendo copie\n\nPassaggio 3: Rivedere i Risultati\n- Controlla lista categorie (Immagini, Video, Documenti, etc.)\n- Ogni riga mostra: Categoria, Numero file, Dimensione totale\n- Clicca su Visualizza Dettagli per file individuali\n- In modalita SENZA DUPLICATI puoi Riapri Report\n\nPassaggio 4: Configurare (Opzionale)\n- Clicca su Configura per personalizzare estensioni per categoria\n- Usa scheda BLACKLIST per escludere tipi indesiderati\n- Imposta dimensioni minime per estensione\n\nPassaggio 5: Creare Categorie Personalizzate (Opzionale)\n- Clicca su Nuova Categoria per creare tuoi gruppi\n- Inserisci nome, aggiungi estensioni, scegli analisi\n\nPassaggio 6: Selezionare Cartella Destinazione\n- Clicca su Sfoglia accanto a CARTELLA DI DESTINAZIONE\n- Scegli dove salvare file organizzati\n- Nuova cartella creata con data/ora\n\nPassaggio 7: Salvare File\n- Seleziona/deseleziona categorie da copiare\n- Clicca su SALVA SELEZIONATI\n- I file sono copiati a destinazione in cartelle organizzate\n- I file originali rimangono intatti\n\nCARATTERISTICHE PRINCIPALI\n- Doppio clic su file per aprire posizione\n- Pulsante Admin: Esegui con privilegi amministrativi per cartelle protette\n- Pulsante Lingua: Scegli tra 6 lingue\n- Pulsante Pulisci: Ripristina tutto\n- Il numero di file corrisponde esattamente a cosa sara copiato\n\nSISTEMA CACHE INTELLIGENTE (NUOVA FUNZIONE)\n\nKiloFilter ora include un sistema cache intelligente che salva automaticamente i risultati dell'analisi. Quando analizzi di nuovo la stessa cartella:\n\n- Prima scansione: Analisi completa eseguita, risultati salvati automaticamente\n- Scansioni successive: Se il contenuto della cartella non e cambato, vieni notificato e puoi ricaricare il risultato in cache in <1 secondo invece di minuti\n- Rilevamento modifiche: Il sistema rileva se i file sono stati aggiunti, eliminati o modificati utilizzando hashing avanzato del contenuto\n- Pulizia automatica: La cache viene rimossa automaticamente dopo 30 giorni di non utilizzo per prevenire accumulo di spazio su disco\n\nCome usare:\n- Clicca sul pulsante 📋 Cronologia per visualizzare tutte le analisi salvate\n- Seleziona un'analisi precedente per caricarla istantaneamente\n- Elimina singole analisi o cancella tutta la cache secondo necessita\n- Il sistema gestisce tutto automaticamente - nessuna configurazione utente richiesta\n\nQuesta funzione risparmia tempo quando lavori con cartelle grandi che analizzi ripetutamente!\n\nELIMINAZIONE INTELLIGENTE DI DUPLICATI (v2.1.0 - NUOVO!)\n\nQuesta funzione avanzata ti consente di eliminare intelligentemente i file duplicati utilizzando tre diverse strategie:\n\nTre Strategie di Eliminazione:\n\n1. MANTIENI PIU RECENTE - Mantiene il file modificato piu di recente da ogni gruppo di duplicati\n- Perfetto quando vuoi la versione piu recente\n- Esempio: Se hai 3 copie di un file da date diverse, mantiene la piu nuova\n\n2. MANTIENI PIU ANTICO - Mantiene il file originale/piu antico da ogni gruppo di duplicati\n- Utile per scopi di archiviazione e storici\n- Esempio: Mantieni la prima copia, elimina le copie piu nuove\n\n3. MANTIENI PIU PICCOLO - Mantiene il file piu piccolo da ogni gruppo di duplicati\n- Ottimizza al massimo lo spazio di archiviazione\n- Esempio: Piu copie dello stesso documento a compressioni diverse, mantiene la piu compressa\n\nCome utilizzare:\n\n1. Fai clic su ANALIZZA DUPLICATI (pulsante arancione) per trovare tutti i file duplicati\n2. Vai alla Scheda 3 (Ricerca e Filtro) per le opzioni avanzate\n3. (Opzionale) Applica filtri: Inserisci ricerca del nome, imposta intervallo di dimensioni, fai clic su APPLICA FILTRI\n4. Seleziona la tua strategia di eliminazione desiderata (Mantieni Piu Recente/Antico/Piccolo)\n5. Esamina l'Anteprima in Tempo Reale mostrando file da eliminare e spazio da liberare\n6. Fai clic su ELIMINA INTELLIGENTEMENTE per eseguire\n7. Conferma l'eliminazione\n\nFiltri Avanzati:\n- Ricerca per nome parziale\n- Filtri per intervallo di dimensioni (min/max)\n- Aggiornamenti anteprima in tempo reale\n- Calcolo spazio esatto\n\nNOTE IMPORTANTI:\n- Esamina sempre l'anteprima prima di eliminare\n- I file eliminati sono permanenti (non nel Cestino)\n- La strategia si applica a TUTTI i gruppi di duplicati\n- Usa diverse strategie per trovare l'opzione migliore per le tue esigenze\n\nIMPORTANTE: In modalita SENZA DUPLICATI, una sola copia da ogni gruppo di duplicati viene copiata, risparmiando spazio di archiviazione." },
+                { Language.Japanese, "KILOFILTER NO TSUKAIKATA\n\nQUICK START GUIDE\n\nステップ1: ソースフォルダーを選択\n- ソースフォルダーの横の参照をクリック\n- ファイルが含まれているフォルダーに移動\n\nステップ2: 分析モードを選択\n\nオプションA: ディスク分析（紫ボタン）\n- すべてのファイルをスキャンタイプ別に分類\n- 重複を含むすべてのファイルを表示\n- すべてをコピーしたい場合に使用\n\nオプションB: 分析（重複なし）（橙ボタン）\n- 重複ファイルを自動検出して削除\n- 各グループから1ファイルのみ表示\n- 重複レポートを生成\n- ストレージ容量削減で重複コピー削除\n\nステップ3: 結果を確認\n- カテゴリーリスト（画像、動画、ドキュメント等）を確認\n- 各行表示: カテゴリー、ファイル数、合計サイズ\n- 詳細表示で個別ファイルを表示\n- 重複なしモード: レポート再度開く\n\nステップ4: 設定（オプション）\n- 設定をクリックしてカテゴリー別拡張子をカスタマイズ\n- ブラックリストタブで不要なタイプを除外\n- 拡張子別の最小ファイルサイズ設定\n\nステップ5: カスタムカテゴリー作成（オプション）\n- 新しいカテゴリーをクリックして独自グループ作成\n- 名前入力、拡張子追加、分析選択\n\nステップ6: 保存先フォルダー選択\n- 保存先フォルダーの横の参照をクリック\n- 整理ファイルの保存場所を選択\n- 日付/時刻でフォルダー作成\n\nステップ7: ファイル救出\n- コピー対象をチェック/チェック解除\n- 選択を救出をクリック\n- ファイルは整理フォルダーにコピー\n- 元のファイルは変更なし\n\n主な機能\n- ダブルクリックでファイル位置を開く\n- 管理者ボタン: 保護フォルダーに管理者権限\n- 言語ボタン: 6言語から選択\n- クリアボタン: すべてをリセット\n- ファイル数はコピーされます\n\nインテリジェント キャッシュ システム（新機能）\n\nKiloFilterには、分析結果を自動的に保存するインテリジェント キャッシュ システムが含まれるようになりました。同じフォルダーを再度分析するとき:\n\n- 最初のスキャン: 完全な分析が実行され、結果は自動的に保存されます\n- その後のスキャン: フォルダーの内容が変わっていない場合、通知が送られて、キャッシュされた結果が数分ではなく1秒以内で読み込めます\n- 変更検出: システムは高度なコンテンツ ハッシュを使用してファイルが追加、削除、または変更されたかを検出\n- 自動クリーンアップ: キャッシュは30日間の未使用後に自動的に削除され、ディスク容量の蓄積を防ぎます\n\n使用方法:\n- 📋 履歴ボタンをクリックして、保存されたすべての分析を表示\n- 前の分析を選択して即座に読み込む\n- 個別の分析を削除するか、必要に応じてすべてのキャッシュをクリア\n- システムがすべてを自動的に処理します - ユーザー設定は不要\n\nこの機能は、繰り返し分析する大きなフォルダーで作業するときに時間を節約します!\n\nインテリジェント重複削除 (v2.1.0 - 新機能!)\n\nこの高度な機能により、3つの異なる戦略を使用して重複ファイルをインテリジェントに削除できます:\n\n3つの削除戦略:\n\n1. 最新を保持 - 各重複グループから最後に修正されたファイルを保持\n- 最新バージョンが必要な場合に最適\n- 例: 異なる日付の同じファイルのコピーが3つある場合、最新を保持\n\n2. 最古を保持 - 各重複グループから元の/最も古いファイルを保持\n- アーカイブおよび履歴目的に有用\n- 例: 最初のコピーを保持、新しいコピーを削除\n\n3. 最小を保持 - 各重複グループから最も小さいファイルを保持\n- ストレージ容量を最大限に最適化\n- 例: 異なる圧縮率の同じドキュメントの複数コピー、最も圧縮されたものを保持\n\n使用方法:\n\n1. 重複分析をクリック（オレンジボタン）すべての重複ファイルを検索\n2. タブ3（検索とフィルター）で詳細オプションに移動\n3. （オプション）フィルターを適用: ファイル名検索を入力、サイズ範囲を設定、フィルター適用をクリック\n4. 希望する削除戦略を選択（最新/最古/最小を保持）\n5. リアルタイムプレビューを確認 削除するファイルと解放するスペースを表示\n6. インテリジェント削除をクリックして実行\n7. 削除を確認\n\n高度なフィルタリング:\n- 部分的な名前で名前検索\n- サイズ範囲フィルター（最小/最大）\n- リアルタイムプレビュー更新\n- 正確なスペース計算\n\n重要な注意:\n- 削除する前に必ずプレビューを確認してください\n- 削除されたファイルは永続的です（ごみ箱にはありません）\n- 選択した戦略はすべての重複グループに適用されます\n- さまざまな戦略を使用して最適なオプションを見つけてください\n\n重要: 重複なしモードでは各グループから1コピーのみコピーされ、ストレージ削減。" }
             }},
             { "BTN_ADMIN", new Dictionary<Language, string> {
                 { Language.English, "👑 Admin (Optional)" },
@@ -1061,12 +1061,12 @@ namespace KiloFilter.Core
                 { Language.Japanese, "管理者リクエストが拒否またはキャンセルされました。管理者権限で再度お試しください。" }
             }},
             { "BTN_ANALYZE_DUPLICATES", new Dictionary<Language, string> {
-                { Language.English, "ANALYZE (NO DUPLICATES)" },
-                { Language.Spanish, "ANALIZAR (SIN DUPLICADOS)" },
-                { Language.French, "ANALYSER (SANS DOUBLONS)" },
-                { Language.German, "ANALYSIEREN (KEINE DUPLIKATE)" },
-                { Language.Italian, "ANALIZZA (SENZA DUPLICATI)" },
-                { Language.Japanese, "分析（重複なし）" }
+                { Language.English, "⛏ ANALYZE (NO DUPLICATES)" },
+                { Language.Spanish, "⛏ ANALIZAR (SIN DUPLICADOS)" },
+                { Language.French, "⛏ ANALYSER (SANS DOUBLONS)" },
+                { Language.German, "⛏ ANALYSIEREN (KEINE DUPLIKATE)" },
+                { Language.Italian, "⛏ ANALIZZA (SENZA DUPLICATI)" },
+                { Language.Japanese, "⛏分析（重複なし）" }
             }},
             { "STATUS_ANALYZING_DUPLICATES", new Dictionary<Language, string> {
                 { Language.English, "Analyzing files (excluding duplicates)..." },
@@ -1189,12 +1189,284 @@ namespace KiloFilter.Core
                 { Language.Japanese, "合計" }
             }},
             { "BTN_CLOSE", new Dictionary<Language, string> {
-                { Language.English, "Close" },
-                { Language.Spanish, "Cerrar" },
-                { Language.French, "Fermer" },
-                { Language.German, "Schließen" },
-                { Language.Italian, "Chiudi" },
-                { Language.Japanese, "閉じる" }
+                { Language.English, "☓ Close" },
+                { Language.Spanish, "☓ Cerrar" },
+                { Language.French, "☓ Fermer" },
+                { Language.German, "☓ Schließen" },
+                { Language.Italian, "☓ Chiudi" },
+                { Language.Japanese, "☓ 閉じる" }
+            }},
+            { "BTN_HISTORY", new Dictionary<Language, string> {
+                { Language.English, "📋 Analysis History" },
+                { Language.Spanish, "📋 Historial de Análisis" },
+                { Language.French, "📋 Historique d'Analyse" },
+                { Language.German, "📋 Analyseverlauf" },
+                { Language.Italian, "📋 Cronologia Analisi" },
+                { Language.Japanese, "📋 分析履歴" }
+            }},
+            { "CACHE_LOADED", new Dictionary<Language, string> {
+                { Language.English, "✅ Analysis loaded from cache" },
+                { Language.Spanish, "✅ Análisis cargado desde caché" },
+                { Language.French, "✅ Analyse chargée à partir du cache" },
+                { Language.German, "✅ Analyse aus Cache geladen" },
+                { Language.Italian, "✅ Analisi caricata dalla cache" },
+                { Language.Japanese, "✅ キャッシュから分析を読み込みました" }
+            }},
+            { "CACHE_FOUND", new Dictionary<Language, string> {
+                { Language.English, "📊 Previous analysis found" },
+                { Language.Spanish, "📊 Análisis anterior encontrado" },
+                { Language.French, "📊 Analyse antérieure trouvée" },
+                { Language.German, "📊 Frühere Analyse gefunden" },
+                { Language.Italian, "📊 Analisi precedente trovata" },
+                { Language.Japanese, "📊 前回の分析が見つかりました" }
+            }},
+            { "FEATURE_CACHE", new Dictionary<Language, string> {
+                { Language.English, "Smart Cache System: Analyzes are automatically saved and reused for faster results on repeated scans." },
+                { Language.Spanish, "Sistema de Caché Inteligente: Los análisis se guardan automáticamente y se reutilizan para resultados más rápidos en escaneos repetidos." },
+                { Language.French, "Système de Cache Intelligent: Les analyses sont automatiquement enregistrées et réutilisées pour des résultats plus rapides lors des analyses répétées." },
+                { Language.German, "Intelligentes Cache-System: Analysen werden automatisch gespeichert und wiederverwendet, um schnellere Ergebnisse bei wiederholten Scans zu erhalten." },
+                { Language.Italian, "Sistema Cache Intelligente: Le analisi vengono salvate automaticamente e riutilizzate per risultati più rapidi durante le scansioni ripetute." },
+                { Language.Japanese, "スマートキャッシュシステム: 分析は自動的に保存され、繰り返しスキャンでより高速な結果が得られるように再利用されます。" }
+            }},
+            { "HISTORY_TITLE", new Dictionary<Language, string> {
+                { Language.English, "Analysis History" },
+                { Language.Spanish, "Historial de Análisis" },
+                { Language.French, "Historique des Analyses" },
+                { Language.German, "Analyseverlauf" },
+                { Language.Italian, "Cronologia Analisi" },
+                { Language.Japanese, "分析履歴" }
+            }},
+            { "HISTORY_COL_FOLDER", new Dictionary<Language, string> {
+                { Language.English, "Folder" },
+                { Language.Spanish, "Carpeta" },
+                { Language.French, "Dossier" },
+                { Language.German, "Ordner" },
+                { Language.Italian, "Cartella" },
+                { Language.Japanese, "フォルダー" }
+            }},
+            { "HISTORY_COL_DATE", new Dictionary<Language, string> {
+                { Language.English, "Analysis Date" },
+                { Language.Spanish, "Fecha del Análisis" },
+                { Language.French, "Date d'Analyse" },
+                { Language.German, "Analysedatum" },
+                { Language.Italian, "Data Analisi" },
+                { Language.Japanese, "分析日" }
+            }},
+            { "HISTORY_COL_FILES", new Dictionary<Language, string> {
+                { Language.English, "📁 Files" },
+                { Language.Spanish, "📁 Archivos" },
+                { Language.French, "📁 Fichiers" },
+                { Language.German, "📁 Dateien" },
+                { Language.Italian, "📁 File" },
+                { Language.Japanese, "📁 ファイル" }
+            }},
+            { "HISTORY_BTN_LOAD", new Dictionary<Language, string> {
+                { Language.English, "📂 Load Analysis" },
+                { Language.Spanish, "📂 Cargar Análisis" },
+                { Language.French, "📂 Charger Analyse" },
+                { Language.German, "📂 Analyse Laden" },
+                { Language.Italian, "📂 Carica Analisi" },
+                { Language.Japanese, "📂 分析を読み込む" }
+            }},
+            { "HISTORY_BTN_DELETE", new Dictionary<Language, string> {
+                { Language.English, "🗑️ Delete" },
+                { Language.Spanish, "🗑️ Eliminar" },
+                { Language.French, "🗑️ Supprimer" },
+                { Language.German, "🗑️ Löschen" },
+                { Language.Italian, "🗑️ Elimina" },
+                { Language.Japanese, "🗑️ 削除" }
+            }},
+            { "HISTORY_BTN_REFRESH", new Dictionary<Language, string> {
+                { Language.English, "🔄 Refresh" },
+                { Language.Spanish, "🔄 Refrescar" },
+                { Language.French, "🔄 Actualiser" },
+                { Language.German, "🔄 Aktualisieren" },
+                { Language.Italian, "🔄 Aggiorna" },
+                { Language.Japanese, "🔄 更新" }
+            }},
+            { "HISTORY_BTN_CLEAR", new Dictionary<Language, string> {
+                { Language.English, "🧹 Clear All" },
+                { Language.Spanish, "🧹 Limpiar Todo" },
+                { Language.French, "🧹 Effacer Tout" },
+                { Language.German, "🧹 Alles Löschen" },
+                { Language.Italian, "🧹 Cancella Tutto" },
+                { Language.Japanese, "🧹 すべてクリア" }
+            }},
+            { "HISTORY_BTN_CLOSE", new Dictionary<Language, string> {
+                { Language.English, "☓ Close" },
+                { Language.Spanish, "☓ Cerrar" },
+                { Language.French, "☓ Fermer" },
+                { Language.German, "☓ Schließen" },
+                { Language.Italian, "☓ Chiudi" },
+                { Language.Japanese, "☓ 閉じる" }
+            }},
+            { "HISTORY_NO_CACHE", new Dictionary<Language, string> {
+                { Language.English, "ℹ️ No cached analyses" },
+                { Language.Spanish, "ℹ️ No hay análisis guardados en caché" },
+                { Language.French, "ℹ️ Aucune analyse mise en cache" },
+                { Language.German, "ℹ️ Keine zwischengespeicherten Analysen" },
+                { Language.Italian, "ℹ️ Nessuna analisi in cache" },
+                { Language.Japanese, "ℹ️ キャッシュされた分析なし" }
+            }},
+            { "HISTORY_FOUND_FORMAT", new Dictionary<Language, string> {
+                { Language.English, "✅ {0} analyses found in cache" },
+                { Language.Spanish, "✅ {0} análisis encontrados en caché" },
+                { Language.French, "✅ {0} analyses trouvées en cache" },
+                { Language.German, "✅ {0} Analysen im Cache gefunden" },
+                { Language.Italian, "✅ {0} analisi trovate in cache" },
+                { Language.Japanese, "✅ キャッシュで{0}個の分析が見つかりました" }
+            }},
+            { "HISTORY_SELECT_TO_LOAD", new Dictionary<Language, string> {
+                { Language.English, "Select an analysis to load." },
+                { Language.Spanish, "Selecciona un análisis para cargar." },
+                { Language.French, "Sélectionnez une analyse à charger." },
+                { Language.German, "Wählen Sie eine zu ladende Analyse." },
+                { Language.Italian, "Seleziona un'analisi da caricare." },
+                { Language.Japanese, "読み込む分析を選択してください。" }
+            }},
+            { "HISTORY_ERROR_LOAD", new Dictionary<Language, string> {
+                { Language.English, "Failed to load selected analysis." },
+                { Language.Spanish, "No se pudo cargar el análisis seleccionado." },
+                { Language.French, "Impossible de charger l'analyse sélectionnée." },
+                { Language.German, "Ausgewählte Analyse konnte nicht geladen werden." },
+                { Language.Italian, "Impossibile caricare l'analisi selezionata." },
+                { Language.Japanese, "選択した分析を読み込むことができませんでした。" }
+            }},
+            { "HISTORY_SELECT_TO_DELETE", new Dictionary<Language, string> {
+                { Language.English, "Select an analysis to delete." },
+                { Language.Spanish, "Selecciona un análisis para eliminar." },
+                { Language.French, "Sélectionnez une analyse à supprimer." },
+                { Language.German, "Wählen Sie eine zu löschende Analyse." },
+                { Language.Italian, "Seleziona un'analisi da eliminare." },
+                { Language.Japanese, "削除する分析を選択してください。" }
+            }},
+            { "HISTORY_CONFIRM_DELETE", new Dictionary<Language, string> {
+                { Language.English, "Are you sure you want to delete the cache for:\n\n{0}?" },
+                { Language.Spanish, "¿Estás seguro de que deseas eliminar el caché para:\n\n{0}?" },
+                { Language.French, "Êtes-vous sûr de vouloir supprimer le cache pour:\n\n{0}?" },
+                { Language.German, "Sind Sie sicher, dass Sie den Cache für folgende Adresse löschen möchten:\n\n{0}?" },
+                { Language.Italian, "Sei sicuro di voler eliminare la cache per:\n\n{0}?" },
+                { Language.Japanese, "次のキャッシュを削除してもよろしいですか:\n\n{0}?" }
+            }},
+            { "HISTORY_CONFIRM_DELETE_TITLE", new Dictionary<Language, string> {
+                { Language.English, "Confirm Deletion" },
+                { Language.Spanish, "Confirmar eliminación" },
+                { Language.French, "Confirmer la suppression" },
+                { Language.German, "Löschung Bestätigen" },
+                { Language.Italian, "Conferma Eliminazione" },
+                { Language.Japanese, "削除を確認" }
+            }},
+            { "HISTORY_DELETED_SUCCESS", new Dictionary<Language, string> {
+                { Language.English, "✅ Cache deleted successfully." },
+                { Language.Spanish, "✅ Caché eliminado correctamente." },
+                { Language.French, "✅ Cache supprimé avec succès." },
+                { Language.German, "✅ Cache erfolgreich gelöscht." },
+                { Language.Italian, "✅ Cache eliminato correttamente." },
+                { Language.Japanese, "✅ キャッシュが正常に削除されました。" }
+            }},
+            { "HISTORY_CLEAR_WARNING", new Dictionary<Language, string> {
+                { Language.English, "⚠️ Are you sure you want to delete ALL cache?\n\nThis action cannot be undone." },
+                { Language.Spanish, "⚠️ ¿Estás seguro de que deseas eliminar TODO el caché?\n\nEsta acción no se puede deshacer." },
+                { Language.French, "⚠️ Êtes-vous sûr de vouloir supprimer TOUT le cache?\n\nCette action ne peut pas être annulée." },
+                { Language.German, "⚠️ Sind Sie sicher, dass Sie ALLE Cache löschen möchten?\n\nDiese Aktion kann nicht rückgängig gemacht werden." },
+                { Language.Italian, "⚠️ Sei sicuro di voler eliminare TUTTA la cache?\n\nQuesta azione non può essere annullata." },
+                { Language.Japanese, "⚠️ 全キャッシュを削除してもよろしいですか?\n\nこのアクションを元に戻すことはできません。" }
+            }},
+            { "HISTORY_CLEAR_TITLE", new Dictionary<Language, string> {
+                { Language.English, "Clear All Cache" },
+                { Language.Spanish, "Limpiar todo el caché" },
+                { Language.French, "Effacer Tout le Cache" },
+                { Language.German, "Alle Caches Löschen" },
+                { Language.Italian, "Cancella Tutta la Cache" },
+                { Language.Japanese, "すべてのキャッシュをクリア" }
+            }},
+            { "HISTORY_CLEARED_FORMAT", new Dictionary<Language, string> {
+                { Language.English, "✅ {0} analyses deleted from cache." },
+                { Language.Spanish, "✅ {0} análisis eliminados del caché." },
+                { Language.French, "✅ {0} analyses supprimées du cache." },
+                { Language.German, "✅ {0} Analysen aus dem Cache gelöscht." },
+                { Language.Italian, "✅ {0} analisi eliminate dalla cache." },
+                { Language.Japanese, "✅ キャッシュから{0}個の分析が削除されました。" }
+            }},
+            { "TITLE_INFORMATION", new Dictionary<Language, string> {
+                { Language.English, "Information" },
+                { Language.Spanish, "Información" },
+                { Language.French, "Information" },
+                { Language.German, "Information" },
+                { Language.Italian, "Informazione" },
+                { Language.Japanese, "情報" }
+            }},
+            { "TITLE_ERROR", new Dictionary<Language, string> {
+                { Language.English, "Error" },
+                { Language.Spanish, "Error" },
+                { Language.French, "Erreur" },
+                { Language.German, "Fehler" },
+                { Language.Italian, "Errore" },
+                { Language.Japanese, "エラー" }
+            }},
+            { "TITLE_SUCCESS", new Dictionary<Language, string> {
+                { Language.English, "Success" },
+                { Language.Spanish, "Éxito" },
+                { Language.French, "Succès" },
+                { Language.German, "Erfolg" },
+                { Language.Italian, "Successo" },
+                { Language.Japanese, "成功" }
+            }},
+            { "CACHE_CHECK_DIALOG_TITLE", new Dictionary<Language, string> {
+                { Language.English, "Cached Analysis" },
+                { Language.Spanish, "Análisis en Caché" },
+                { Language.French, "Analyse en Cache" },
+                { Language.German, "Gecachte Analyse" },
+                { Language.Italian, "Analisi in Cache" },
+                { Language.Japanese, "キャッシュされた分析" }
+            }},
+            { "CACHE_CHANGED_MESSAGE", new Dictionary<Language, string> {
+                { Language.English, "Previous analysis found from {0}\n\n⚠ The folder has changed since the last analysis.\n\nDo you want to reuse the previous analysis or perform a new one?" },
+                { Language.Spanish, "Se encontró análisis anterior del {0}\n\n⚠ La carpeta ha cambiado desde el último análisis.\n\n¿Deseas reutilizar el análisis anterior o hacer uno nuevo?" },
+                { Language.French, "Analyse antérieure trouvée du {0}\n\n⚠ Le dossier a changé depuis la dernière analyse.\n\nVoulez-vous réutiliser l'analyse antérieure ou en effectuer une nouvelle?" },
+                { Language.German, "Frühere Analyse vom {0} gefunden\n\n⚠ Der Ordner hat sich seit der letzten Analyse geändert.\n\nMöchten Sie die vorherige Analyse wiederverwenden oder eine neue durchführen?" },
+                { Language.Italian, "Analisi precedente trovata del {0}\n\n⚠ La cartella è cambiata dall'ultima analisi.\n\nVuoi riutilizzare l'analisi precedente o eseguire una nuova?" },
+                { Language.Japanese, "前回の分析が見つかりました{0}\n\n⚠ フォルダは最後の分析以降に変更されました。\n\n前の分析を再利用するか、新しい分析を実行しますか?" }
+            }},
+            { "CACHE_UNCHANGED_MESSAGE", new Dictionary<Language, string> {
+                { Language.English, "Previous analysis found from {0}\n\n✅ The folder has not changed.\n\nDo you want to reuse this analysis (faster) or perform a new one?" },
+                { Language.Spanish, "Se encontró análisis anterior del {0}\n\n✅ La carpeta no ha cambiado.\n\n¿Deseas reutilizar este análisis (más rápido) o hacer uno nuevo?" },
+                { Language.French, "Analyse antérieure trouvée du {0}\n\n✅ Le dossier n'a pas changé.\n\nVoulez-vous réutiliser cette analyse (plus rapide) ou en effectuer une nouvelle?" },
+                { Language.German, "Frühere Analyse vom {0} gefunden\n\n✅ Der Ordner hat sich nicht geändert.\n\nMöchten Sie diese Analyse wiederverwenden (schneller) oder eine neue durchführen?" },
+                { Language.Italian, "Analisi precedente trovata del {0}\n\n✅ La cartella non è cambiata.\n\nVuoi riutilizzare questa analisi (più veloce) o eseguire una nuova?" },
+                { Language.Japanese, "前回の分析が見つかりました{0}\n\n✅ フォルダは変更されていません。\n\nこの分析を再利用する（高速）または新しい分析を実行しますか?" }
+            }},
+            { "CACHE_LOADED_STATUS", new Dictionary<Language, string> {
+                { Language.English, "✅ Analysis loaded from cache ({0:dd/MM/yyyy HH:mm})" },
+                { Language.Spanish, "✅ Análisis cargado desde caché ({0:dd/MM/yyyy HH:mm})" },
+                { Language.French, "✅ Analyse chargée à partir du cache ({0:dd/MM/yyyy HH:mm})" },
+                { Language.German, "✅ Analyse aus Cache geladen ({0:dd/MM/yyyy HH:mm})" },
+                { Language.Italian, "✅ Analisi caricata dalla cache ({0:dd/MM/yyyy HH:mm})" },
+                { Language.Japanese, "✅ キャッシュから分析を読み込みました ({0:dd/MM/yyyy HH:mm})" }
+            }},
+            { "CACHE_BTN_USE_PREVIOUS", new Dictionary<Language, string> {
+                { Language.English, "Use previous analysis" },
+                { Language.Spanish, "Usar análisis anterior" },
+                { Language.French, "Utiliser l'analyse antérieure" },
+                { Language.German, "Vorherige Analyse verwenden" },
+                { Language.Italian, "Usa analisi precedente" },
+                { Language.Japanese, "前の分析を使用" }
+            }},
+            { "CACHE_BTN_REDO", new Dictionary<Language, string> {
+                { Language.English, "Redo analysis" },
+                { Language.Spanish, "Rehacer análisis" },
+                { Language.French, "Refaire l'analyse" },
+                { Language.German, "Analyse wiederholen" },
+                { Language.Italian, "Ripeti analisi" },
+                { Language.Japanese, "分析をやり直す" }
+            }},
+            { "CACHE_BTN_CANCEL", new Dictionary<Language, string> {
+                { Language.English, "Cancel" },
+                { Language.Spanish, "Cancelar" },
+                { Language.French, "Annuler" },
+                { Language.German, "Abbrechen" },
+                { Language.Italian, "Annulla" },
+                { Language.Japanese, "キャンセル" }
             }},
             { "HELP_TITLE", new Dictionary<Language, string> {
                 { Language.English, "KiloFilter Help - How to Use" },
@@ -1203,6 +1475,103 @@ namespace KiloFilter.Core
                 { Language.German, "KiloFilter Hilfe - Anleitung" },
                 { Language.Italian, "Aiuto KiloFilter - Come Usare" },
                 { Language.Japanese, "KiloFilter ヘルプ - 使い方" }
+            }},
+            // Búsqueda y Filtrado Avanzado
+            { "SEARCH_FILTER", new Dictionary<Language, string> {
+                { Language.English, "🔍 Search & Filter" },
+                { Language.Spanish, "🔍 Búsqueda y Filtrado" },
+                { Language.French, "🔍 Recherche et Filtrage" },
+                { Language.German, "🔍 Suche und Filterung" },
+                { Language.Italian, "🔍 Ricerca e Filtro" },
+                { Language.Japanese, "🔍 検索とフィルター" }
+            }},
+            { "FILTER_BY_NAME", new Dictionary<Language, string> {
+                { Language.English, "Filter by filename:" },
+                { Language.Spanish, "Filtrar por nombre:" },
+                { Language.French, "Filtrer par nom:" },
+                { Language.German, "Nach Name filtern:" },
+                { Language.Italian, "Filtrare per nome:" },
+                { Language.Japanese, "ファイル名でフィルター:" }
+            }},
+            { "FILTER_BY_SIZE", new Dictionary<Language, string> {
+                { Language.English, "Min size:" },
+                { Language.Spanish, "Tamaño mínimo:" },
+                { Language.French, "Taille min:" },
+                { Language.German, "Mindestgröße:" },
+                { Language.Italian, "Dimensione minima:" },
+                { Language.Japanese, "最小サイズ:" }
+            }},
+            { "FILTER_MAX_SIZE", new Dictionary<Language, string> {
+                { Language.English, "Max size:" },
+                { Language.Spanish, "Tamaño máximo:" },
+                { Language.French, "Taille max:" },
+                { Language.German, "Maximale Größe:" },
+                { Language.Italian, "Dimensione massima:" },
+                { Language.Japanese, "最大サイズ:" }
+            }},
+            { "SMART_DELETE", new Dictionary<Language, string> {
+                { Language.English, "☠ Smart Delete Duplicates" },
+                { Language.Spanish, "☠ Eliminar Duplicados Inteligentemente" },
+                { Language.French, "☠ Supprimer les Doublons Intelligemment" },
+                { Language.German, "☠ Duplikate Intelligent Löschen" },
+                { Language.Italian, "☠Elimina i Duplicati Intelligentemente" },
+                { Language.Japanese, "☠ スマート削除" }
+            }},
+            { "KEEP_NEWEST", new Dictionary<Language, string> {
+                { Language.English, "Keep newest" },
+                { Language.Spanish, "Guardar más reciente" },
+                { Language.French, "Garder le plus récent" },
+                { Language.German, "Neuste behalten" },
+                { Language.Italian, "Mantieni il più recente" },
+                { Language.Japanese, "最新のものを保持" }
+            }},
+            { "KEEP_OLDEST", new Dictionary<Language, string> {
+                { Language.English, "Keep oldest" },
+                { Language.Spanish, "Guardar más antiguo" },
+                { Language.French, "Garder le plus ancien" },
+                { Language.German, "Älteste behalten" },
+                { Language.Italian, "Mantieni il più vecchio" },
+                { Language.Japanese, "最古のものを保持" }
+            }},
+            { "KEEP_SMALLEST", new Dictionary<Language, string> {
+                { Language.English, "Keep smallest" },
+                { Language.Spanish, "Guardar el más pequeño" },
+                { Language.French, "Garder le plus petit" },
+                { Language.German, "Kleinste behalten" },
+                { Language.Italian, "Mantieni il più piccolo" },
+                { Language.Japanese, "最小のものを保持" }
+            }},
+            { "DELETE_PREVIEW", new Dictionary<Language, string> {
+                { Language.English, "Preview delete:" },
+                { Language.Spanish, "Vista previa de eliminación:" },
+                { Language.French, "Aperçu de la suppression:" },
+                { Language.German, "Vorschau löschen:" },
+                { Language.Italian, "Anteprima elimina:" },
+                { Language.Japanese, "削除プレビュー:" }
+            }},
+            { "DELETE_CONFIRM", new Dictionary<Language, string> {
+                { Language.English, "⚠️  Delete {0} files? This cannot be undone!" },
+                { Language.Spanish, "⚠️  ¿Eliminar {0} archivos? ¡Esto no se puede deshacer!" },
+                { Language.French, "⚠️  Supprimer {0} fichiers? Cela ne peut pas être annulé!" },
+                { Language.German, "⚠️  {0} Dateien löschen? Dies kann nicht rückgängig gemacht werden!" },
+                { Language.Italian, "⚠️  Eliminare {0} file? Questo non può essere annullato!" },
+                { Language.Japanese, "⚠️  {0}ファイルを削除しますか? これは取り消せません!" }
+            }},
+            { "DELETE_SUCCESS", new Dictionary<Language, string> {
+                { Language.English, "✅ Deleted {0} duplicate files ({1})" },
+                { Language.Spanish, "✅ Eliminados {0} archivos duplicados ({1})" },
+                { Language.French, "✅ {0} fichiers en double supprimés ({1})" },
+                { Language.German, "✅ {0} Duplikatdateien gelöscht ({1})" },
+                { Language.Italian, "✅ Eliminati {0} file duplicati ({1})" },
+                { Language.Japanese, "✅ {0}個の重複ファイルを削除しました ({1})" }
+            }},
+            { "NO_DUPLICATES_FOUND", new Dictionary<Language, string> {
+                { Language.English, "No duplicates match the selected criteria" },
+                { Language.Spanish, "No hay duplicados que coincidan con los criterios seleccionados" },
+                { Language.French, "Aucun doublon ne correspond aux critères sélectionnés" },
+                { Language.German, "Keine Duplikate entsprechen den ausgewählten Kriterien" },
+                { Language.Italian, "Nessun duplicato corrisponde ai criteri selezionati" },
+                { Language.Japanese, "選択した条件に一致する重複ファイルはありません" }
             }}
         };
 

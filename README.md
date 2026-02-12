@@ -19,6 +19,9 @@ KiloFilter is a powerful file management tool that helps you:
 
 | Feature | Description |
 |---------|-------------|
+| ❌ Smart duplicate deletion | Three strategies: Keep Newest, Keep Oldest, or Keep Smallest files |
+| 📋 Real-time preview | See exactly which files will be deleted before confirming changes |
+| 🔍 Advanced filtering | Search duplicates by filename and filter by size range (min/max) |
 | 📂 Auto classification | Scans folders and sorts files by type (images, videos, docs, etc.) |
 | 🔍 Duplicate detection | Finds identical files using partial and full file hashing (Blake3) |
 | 📋 Detailed analysis | View file breakdowns by extension with statistics |
@@ -31,7 +34,23 @@ KiloFilter is a powerful file management tool that helps you:
 | 🖱️ Drag & drop | Drag folders directly to source/destination fields |
 | 💾 Report reopening | View previous duplicate analysis results instantly |
 
-## 🆕 Recent Updates
+## 🪴 Recent Updates
+
+### Smart Duplicate Deletion (v2.1.0 - Latest!)
+- **Three deletion strategies**: Keep Newest, Keep Oldest, or Keep Smallest files
+- **Real-time preview**: See exactly which files will be deleted before confirming
+- **Advanced filtering**: Search duplicates by filename and filter by size range
+- **Automatic preview**: Real-time updates as you change filters and strategies
+- **Space calculation**: Shows total disk space that will be freed before deletion
+- **Button emojis**: 22+ buttons with consistent emoji icons for better usability
+
+### Smart Cache System
+- **Automatic caching**: Analysis results are automatically saved after each scan
+- **Change detection**: Advanced content hashing detects if folder contents have changed
+- **Instant reload**: Load previous analyses in <1 second instead of minutes—perfect for repeated scans
+- **History browser**: New 📋 History button to browse, load, and manage all cached analyses
+- **Auto cleanup**: Cache automatically removed after 30 days to prevent disk space accumulation
+- **Transparent operation**: No configuration needed—cache works automatically in the background
 
 ### Duplicate Analysis & Management
 - **Three-stage duplicate detection**: File size grouping → Partial hash (64KB) → Full file hash
@@ -45,7 +64,29 @@ KiloFilter is a powerful file management tool that helps you:
 - **Progress tracking**: Real-time progress bars during file scanning and processing
 - **Better organization**: Improved button layout and visual feedback
 
+## ⚡ Performance: Smart Cache System
+
+The Smart Cache System significantly speeds up your workflow when analyzing the same folders repeatedly:
+
+**How it works:**
+1. **First analysis**: Scans the folder completely and saves results to cache
+2. **Subsequent analysis**: Detects if folder content has changed using cryptographic hashing
+3. **No changes?**: Instantly load previous results from cache (typically <1 second)
+4. **Changes detected?**: Automatically offers to perform a fresh scan or load cached results anyway
+
+**Get the most out of it:**
+- Click the **📋 History** button to see all cached analyses
+- Select a previous analysis to reload it instantly
+- Manually delete individual cache entries or clear all cache as needed
+- Perfect for large folder hierarchies that have repeated analyses
+
+**Cache management:**
+- Caches are stored in `%AppData%\Roaming\KiloFilter\Cache` (user-accessible for inspection)
+- Old caches (>30 days) are automatically removed on application startup
+- All cache data is stored as human-readable JSON files
+
 ## 🧠 How It Works
+
 
 ### File Organization
 1. Scans the source folder recursively
@@ -84,8 +125,22 @@ The executable will be at `publish\KiloFilter.exe`.
 5. **Destination Folder** — Choose where organized files will be copied
 6. **Rescue** — Copy selected files to organized folders by category
 
-### Duplicate Analysis
+### Smart Duplicate Deletion (v2.1.0+)
 1. **Analyze Duplicates** — Scan for identical files using cryptographic hashing
+2. **(Optional) Apply Filters**:
+   - Enter filename search criteria (e.g., ".log" for log files only)
+   - Set minimum/maximum file size range
+   - Click **Apply Filters** to see preview
+3. **Select Deletion Strategy**:
+   - **Keep Newest** — Retains most recently modified file from each group
+   - **Keep Oldest** — Retains original/oldest file from each group
+   - **Keep Smallest** — Retains smallest file (optimizes storage)
+4. **Review Preview** — See files marked for deletion and total space to be freed
+5. **❌ Smart Delete** — Execute deletion (files are removed, not moved to trash)
+6. **Confirm** — Verify the deletion in the confirmation dialog
+
+### Advanced Duplicate Analysis (v2.0+)
+1. **Analyze Duplicates** — Scan folder completely for identical files
 2. **Review Report** — See duplicate groups, file counts, and wasted space
 3. **Select Duplicates** — Choose which files to delete (originals are safe)
 4. **Delete** — Remove duplicates and free up disk space

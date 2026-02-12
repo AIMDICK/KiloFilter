@@ -238,11 +238,11 @@ namespace KiloFilter.Forms
 
             lvSummary.Columns.Add(Localization.Get("COL_SELECTION"), 40);
             lvSummary.Columns.Add(Localization.Get("COL_EXTENSION"), 130);
-            lvSummary.Columns.Add(Localization.Get("COL_QUANTITY"), 100);
-            lvSummary.Columns.Add(Localization.Get("COL_TOTAL_SIZE"), 130);
-            lvSummary.Columns.Add(Localization.Get("COL_AVERAGE_SIZE"), 130);
-            lvSummary.Columns.Add(Localization.Get("COL_PERCENTAGE"), 100);
-            lvSummary.Columns.Add(Localization.Get("COL_LARGEST"), 130);
+            lvSummary.Columns.Add(Localization.Get("COL_QUANTITY"), 110);
+            lvSummary.Columns.Add(Localization.Get("COL_TOTAL_SIZE"), 140);
+            lvSummary.Columns.Add(Localization.Get("COL_AVERAGE_SIZE"), 140);
+            lvSummary.Columns.Add(Localization.Get("COL_PERCENTAGE"), 125);
+            lvSummary.Columns.Add(Localization.Get("COL_LARGEST"), 240);
 
             Label lblActions = new Label {
                 Text = Localization.Get("MOVE_TO"),
@@ -583,12 +583,12 @@ namespace KiloFilter.Forms
                 Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right
             };
 
-            lvFileExplorer.Columns.Add(Localization.Get("COL_NAME"), 220);
+            lvFileExplorer.Columns.Add(Localization.Get("COL_NAME"), 230);
             lvFileExplorer.Columns.Add(Localization.Get("COL_EXTENSION"), 80);
-            lvFileExplorer.Columns.Add(Localization.Get("COL_SIZE"), 90);
-            lvFileExplorer.Columns.Add(Localization.Get("COL_MODIFIED_DATE"), 130);
-            lvFileExplorer.Columns.Add(Localization.Get("COL_CREATION_DATE"), 130);
-            lvFileExplorer.Columns.Add(Localization.Get("COL_FOLDER"), 250);
+            lvFileExplorer.Columns.Add(Localization.Get("COL_SIZE"), 100);
+            lvFileExplorer.Columns.Add(Localization.Get("COL_MODIFIED_DATE"), 140);
+            lvFileExplorer.Columns.Add(Localization.Get("COL_CREATION_DATE"), 140);
+            lvFileExplorer.Columns.Add(Localization.Get("COL_FOLDER"), 235);
 
             lvFileExplorer.DoubleClick += (s, e) =>
             {

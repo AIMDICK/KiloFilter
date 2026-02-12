@@ -75,7 +75,7 @@ namespace KiloFilter.Forms
             // Otros
             ".db-journal", ".dat", ".bin", ".inf", ".cat", ".node", ".vdf", ".svg", ".tif", ".webp", 
             ".meta", ".qml", ".res", ".str", ".vue", ".json", ".jar", ".info", ".descarga", ".cd4nodes", 
-            ".xml", ".m3u", ".m3u8", ".vbsfile", ".xaml", ".prf", ".msu", ".sha1" 
+            ".xml", ".m3u", ".m3u8", ".vbsfile", ".xaml", ".prf", ".msu", ".sha1", ".ucas" 
         };
 
         static readonly Dictionary<string, List<string>> DefaultGroups = new Dictionary<string, List<string>> {
@@ -121,7 +121,7 @@ namespace KiloFilter.Forms
             // Otros
             ".db-journal", ".dat", ".bin", ".inf", ".cat", ".node", ".vdf", ".svg", ".tif", ".webp", 
             ".meta", ".qml", ".res", ".str", ".vue", ".json", ".jar", ".info", ".descarga", ".cd4nodes", 
-            ".xml", ".m3u", ".m3u8", ".vbsfile", ".xaml", ".prf", ".msu", ".sha1" 
+            ".xml", ".m3u", ".m3u8", ".vbsfile", ".xaml", ".prf", ".msu", ".sha1", ".ucas" 
         };
 
         static readonly Dictionary<string, long> DefaultMinFileSizes = new Dictionary<string, long> {
@@ -145,8 +145,10 @@ namespace KiloFilter.Forms
         public static Font emojiFontBold = new Font("Segoe UI Emoji", 9F, FontStyle.Bold);
         public static Font regularFont = new Font("Segoe UI", 9F, FontStyle.Regular);
 
-        private List<FileInfo> FilesFound = new List<FileInfo>();
+        // ✅ Use Dictionary to prevent duplicate files by normalized path
+        private Dictionary<string, FileInfo> FilesFound = new Dictionary<string, FileInfo>(StringComparer.OrdinalIgnoreCase);
         private List<DuplicateGroup> DuplicatesFound = new List<DuplicateGroup>();
+        private List<FileInfo> deduplicatedFiles = new List<FileInfo>();
         private Label lblStatus = null!;
         private TextBox txtSrc = null!;
         private TextBox txtDst = null!;
@@ -180,6 +182,9 @@ namespace KiloFilter.Forms
             // Icono incrustado
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             
+            // ✅ Limpiar caché antiguo automáticamente
+            Task.Run(() => CacheManager.CleanOldCache(30));
+            
             InitializeComponents();
         }
 
@@ -211,9 +216,20 @@ namespace KiloFilter.Forms
                 }
             };
 
+            Button btnHistory = new Button { 
+                Text = Localization.Get("BTN_HISTORY"),
+                Location = new Point(310, 85), 
+                Width = 130, 
+                Height = 35, 
+                BackColor = Color.FromArgb(70, 130, 180), 
+                FlatStyle = FlatStyle.Flat, 
+                Font = MainForm.emojiFontBold
+            };
+            btnHistory.Click += (s, e) => ShowAnalysisHistory();
+
             btnNewCategory = new Button {
                 Text = Localization.Get("BTN_NEW_CATEGORY"),
-                Location = new Point(310, 85),
+                Location = new Point(310, 125),
                 Width = 130,
                 Height = 35,
                 BackColor = Color.FromArgb(0, 150, 100),
@@ -312,7 +328,10 @@ namespace KiloFilter.Forms
             };
             btnCancel.Click += (s, e) => CancelOperation();
 
-            this.Controls.AddRange(new Control[] { l1, txtSrc, btnSrc, btnClear, btnAnalyze, btnAnalyzeDuplicates, btnReopenReport, btnCancel, btnConfigExt, btnNewCategory, l2, txtDst, btnDst, btnRescue, lv, pBar, lblStatus, btnAdmin, btnHelp, btnLanguage });
+            this.Controls.AddRange(new Control[] { l1, txtSrc, btnSrc, btnClear, btnAnalyze, btnAnalyzeDuplicates, btnReopenReport, btnHistory, btnCancel, btnConfigExt, btnNewCategory, l2, txtDst, btnDst, btnRescue, lv, pBar, lblStatus, btnAdmin, btnHelp, btnLanguage });
+            
+            // 🎯 Load default categories on startup
+            InitializeDefaultCategories();
         }
 
         private void CreateNewCategory() {
@@ -334,6 +353,8 @@ namespace KiloFilter.Forms
                         });
                     } else {
                         lblStatus.Text = $"✅ Categoría '{categoryName}' creada con {extensions.Count} extensión(es). Lista para usar.";
+                        // Refresh categories view to show the new category
+                        InitializeDefaultCategories();
                     }
                 } else {
                     MessageBox.Show("Ya existe una categoría con ese nombre.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -357,7 +378,7 @@ namespace KiloFilter.Forms
 
         private void ShowCategoryDetails(string categoryKey) {
             // ✅ Use internal key to find files
-            var categoryFiles = FilesFound.Where(f => GetFolder(f.Extension.ToLower()) == categoryKey).ToList();
+            var categoryFiles = FilesFound.Values.Where(f => GetFolder(f.Extension.ToLower()) == categoryKey).ToList();
             
             if (categoryFiles.Count == 0) {
                 // ✅ Show translated name in message
@@ -382,6 +403,10 @@ namespace KiloFilter.Forms
                 Blacklist = configForm.GetUpdatedBlacklist();
                 MinFileSizes = configForm.GetUpdatedMinFileSizes();
                 lblStatus.Text = "Configuración actualizada correctamente.";
+                // Refresh categories view if no analysis data exists yet
+                if (FilesFound.Count == 0) {
+                    InitializeDefaultCategories();
+                }
             }
         }
 
@@ -389,6 +414,22 @@ namespace KiloFilter.Forms
         {
             HelpForm helpForm = new HelpForm();
             helpForm.ShowDialog(this);
+        }
+
+        private void ShowAnalysisHistory()
+        {
+            var historyForm = new HistoryForm();
+            if (historyForm.ShowDialog(this) == DialogResult.OK)
+            {
+                var selectedCache = historyForm.GetSelectedCache();
+                if (selectedCache != null)
+                {
+                    // Cargar análisis desde el caché
+                    txtSrc.Text = selectedCache.FolderPath;
+                    LoadAnalysisFromCache(selectedCache);
+                    lblStatus.Text = $"✅ Análisis cargado desde caché ({selectedCache.AnalysisDate:dd/MM/yyyy HH:mm})";
+                }
+            }
         }
 
         private void ShowLanguageMenu(Button btnLanguage)
@@ -431,6 +472,10 @@ namespace KiloFilter.Forms
         {
             // Recargar todos los textos del formulario
             InitializeComponents();
+            // Recargar categorías con los nombres traducidos
+            if (lv.Items.Count > 0) {
+                InitializeDefaultCategories();
+            }
         }
 
         private void CancelOperation()
@@ -467,72 +512,33 @@ namespace KiloFilter.Forms
         }
 
         private void ResetAll() {
-            txtSrc.Clear(); txtDst.Clear(); lv.Items.Clear(); FilesFound.Clear();
+            txtSrc.Clear(); txtDst.Clear(); lv.Items.Clear(); FilesFound.Clear(); deduplicatedFiles.Clear();
             pBar.Value = 0; pBar.Style = ProgressBarStyle.Continuous;
             lblStatus.Text = Localization.Get("STATUS_RESET");
+            // Restore default categories after clearing
+            InitializeDefaultCategories();
+        }
+
+        // ✅ Normalize file path to prevent duplicates from different path representations
+        private string NormalizePath(string path) {
+            return Path.GetFullPath(path).ToLowerInvariant();
         }
 
         private async Task DoAnalyze() {
             if (!Directory.Exists(txtSrc.Text)) return;
-            FilesFound.Clear(); lv.Items.Clear();
-            btnReopenReport.Visible = false;
-            lblStatus.Text = Localization.Get("STATUS_ANALYZING");
-            pBar.Style = ProgressBarStyle.Continuous;
-            pBar.Value = 0;
-
-            // Crear token de cancelación
-            cancellationTokenSource = new CancellationTokenSource();
-            DisableAllControls();
-
-            try {
-                // Pre-scan to count total files
-                var countState = new ScanState { Count = 0 };
-                await Task.Run(() => CountFiles(new DirectoryInfo(txtSrc.Text), countState));
-                if (cancellationTokenSource.Token.IsCancellationRequested) return;
-                int totalFiles = countState.Count;
-
-                // Full scan with progress
-                var scanState = new ScanState { Count = 0 };
-                await Task.Run(() => DeepScanWithProgress(new DirectoryInfo(txtSrc.Text), totalFiles, scanState));
-                if (cancellationTokenSource.Token.IsCancellationRequested) return;
-
-                var groups = FilesFound.GroupBy(f => GetFolder(f.Extension.ToLower()))
-                                       .OrderBy(g => {
-                                           int index = CategoryOrder.IndexOf(g.Key);
-                                           return index == -1 ? 999 : index;
-                                       });
-                
-                foreach (var g in groups) {
-                    string categoryKey = g.Key;
-                    string translatedName = Localization.GetFolderName(categoryKey);
-
-                    var it = new ListViewItem(""); 
-                    it.Checked = true;
-                    it.Tag = categoryKey;  // ✅ Store internal key in Tag
-                    it.SubItems.Add(translatedName);
-                    it.SubItems.Add(g.Count().ToString());
-                    it.SubItems.Add(ToSize(g.Sum(f => f.Length)));
-                    it.SubItems.Add(Localization.Get("BTN_VIEW_DETAILS"));
-                    
-                    it.UseItemStyleForSubItems = false;
-                    it.SubItems[4].ForeColor = Color.Cyan;
-                    it.SubItems[4].Font = new Font(lv.Font, FontStyle.Bold);
-                    
-                    lv.Items.Add(it);
-                }
-
-                pBar.Value = 100;
-                lblStatus.Text = string.Format(Localization.Get("STATUS_ANALYSIS_COMPLETE"), FilesFound.Count);
-            } finally {
-                EnableAllControls();
-            }
+            
+            // ✅ Verificar caché antes de analizar
+            await CheckAndOfferCache(txtSrc.Text, isDuplicateAnalysis: false);
         }
 
         private async Task DoAnalyzeDuplicates() {
             if (!Directory.Exists(txtSrc.Text)) return;
-            
-            // ✅ Siempre limpiar y hacer un nuevo análisis para la carpeta actual
+            await CheckAndOfferCache(txtSrc.Text, isDuplicateAnalysis: true);
+        }
+
+        private async Task DoAnalyzeDuplicatesInternal() {
             FilesFound.Clear();
+            deduplicatedFiles.Clear();
             lv.Items.Clear();
             btnReopenReport.Visible = false;
             
@@ -560,14 +566,14 @@ namespace KiloFilter.Forms
                 pBar.Value = 0;
 
                 int filesProcessed = 0;
-                totalFiles = FilesFound.Count;
+                totalFiles = FilesFound.Values.Count;
 
                 var filesToShow = new List<FileInfo>();
             var duplicateGroups = new List<DuplicatesReportForm.DuplicateGroupInfo>();
 
             await Task.Run(() => {
                 // FILTER 1: Group by file size
-                var sizeGroups = FilesFound.GroupBy(f => f.Length)
+                var sizeGroups = FilesFound.Values.GroupBy(f => f.Length)
                                            .Where(g => g.Count() > 1);  // Solo grupos con potenciales duplicados
 
                 foreach (var sizeGroup in sizeGroups) {
@@ -627,7 +633,7 @@ namespace KiloFilter.Forms
 
                 // Agregar archivos que no tienen posibles duplicados (tamaño único)
                 if (cancellationTokenSource.Token.IsCancellationRequested) return;
-                var uniqueSizeFiles = FilesFound.GroupBy(f => f.Length)
+                var uniqueSizeFiles = FilesFound.Values.GroupBy(f => f.Length)
                                                 .Where(g => g.Count() == 1)
                                                 .SelectMany(g => g);
                 filesToShow.AddRange(uniqueSizeFiles);
@@ -641,6 +647,9 @@ namespace KiloFilter.Forms
                                         int index = CategoryOrder.IndexOf(g.Key);
                                         return index == -1 ? 999 : index;
                                     });
+
+            // ✅ Guardar la lista deduplicada para usarla en DoRescue()
+            deduplicatedFiles = filesToShow;
 
             foreach (var g in groups) {
                 if (cancellationTokenSource.Token.IsCancellationRequested) return;
@@ -676,6 +685,9 @@ namespace KiloFilter.Forms
             } else {
                 this.Invoke(new Action(() => btnReopenReport.Visible = false));
             }
+            
+            // ✅ Guardar análisis de duplicados en caché
+            await Task.Run(() => SaveAnalysisToCache(txtSrc.Text, filesToShow));
             } finally {
                 EnableAllControls();
             }
@@ -760,7 +772,8 @@ namespace KiloFilter.Forms
                         }
                     }
                     
-                    lock (lockObj) FilesFound.Add(f);
+                    string normalizedPath = NormalizePath(f.FullName);
+                    lock (lockObj) FilesFound[normalizedPath] = f;
                     UpdateProgress(state.Count, totalFiles);
                 }
                 var subDirs = dir.GetDirectories().Where(d => (d.Attributes & FileAttributes.Hidden) == 0).ToArray();
@@ -794,7 +807,8 @@ namespace KiloFilter.Forms
                         if (f.Length < MinFileSizes[ext]) continue;
                     }
                     
-                    lock (lockObj) FilesFound.Add(f);
+                    string normalizedPath = NormalizePath(f.FullName);
+                    lock (lockObj) FilesFound[normalizedPath] = f;
                 }
                 var subDirs = dir.GetDirectories().Where(d => (d.Attributes & FileAttributes.Hidden) == 0).ToArray();
                 Parallel.ForEach(subDirs, sub => {
@@ -803,6 +817,32 @@ namespace KiloFilter.Forms
                 });
             } catch { }
             RefreshListViewDetails();
+        }
+
+        private void InitializeDefaultCategories() {
+            // 🎯 Load categories with 0 files initially (before analysis)
+            lv.Items.Clear();
+            
+            foreach (var categoryKey in CategoryOrder) {
+                // Only show categories that are in Groups (active categories)
+                if (Groups.ContainsKey(categoryKey)) {
+                    string translatedName = Localization.GetFolderName(categoryKey);
+                    
+                    var it = new ListViewItem("");
+                    it.Checked = true;
+                    it.Tag = categoryKey;  // Store internal key in Tag
+                    it.SubItems.Add(translatedName);
+                    it.SubItems.Add("0");  // 0 files initially
+                    it.SubItems.Add(ToSize(0));  // 0 bytes
+                    it.SubItems.Add(Localization.Get("BTN_VIEW_DETAILS"));
+                    
+                    it.UseItemStyleForSubItems = false;
+                    it.SubItems[4].ForeColor = Color.Cyan;
+                    it.SubItems[4].Font = new Font(lv.Font, FontStyle.Bold);
+                    
+                    lv.Items.Add(it);
+                }
+            }
         }
 
         private void RefreshListViewDetails() {
@@ -814,7 +854,7 @@ namespace KiloFilter.Forms
             }
         }
         private async Task DoRescue() {
-            if (FilesFound.Count == 0 || !Directory.Exists(txtDst.Text)) return;
+            if (deduplicatedFiles.Count == 0 || !Directory.Exists(txtDst.Text)) return;
             
             // Crear token de cancelación
             cancellationTokenSource = new CancellationTokenSource();
@@ -826,14 +866,23 @@ namespace KiloFilter.Forms
                     .Select(item => item.Tag?.ToString() ?? "")
                     .Where(key => !string.IsNullOrEmpty(key))
                     .ToList();
-                var filesToCopy = FilesFound
+                // ✅ Use deduplicatedFiles instead of FilesFound to avoid copying duplicates
+                var filesToCopy = deduplicatedFiles
                     .Where(f => allowedCategoryKeys.Contains(GetFolder(f.Extension.ToLower())))
                     .ToList();
 
                 if (filesToCopy.Count == 0) { MessageBox.Show(Localization.Get("NO_CATEGORIES_SELECTED")); return; }
 
                 string target = Path.Combine(txtDst.Text, "RESCATE_" + DateTime.Now.ToString("yyyyMMdd_HHmm"));
+                string logPath = Path.Combine(target, "RESCUE_LOG.txt");
                 long total = filesToCopy.Sum(f => f.Length), current = 0;
+                int successCount = 0, failCount = 0;
+                int expectedCount = filesToCopy.Count;
+                List<string> logLines = new List<string>();
+                
+                logLines.Add($"KiloFilter Rescue Log - {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
+                logLines.Add($"Expected files: {expectedCount}");
+                logLines.Add("========================================\n");
                 
                 pBar.Style = ProgressBarStyle.Continuous;
                 await Task.Run(() => {
@@ -847,11 +896,34 @@ namespace KiloFilter.Forms
                             if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
                             f.CopyTo(Path.Combine(folder, f.Name), true);
                             current += f.Length;
+                            successCount++;
                             this.Invoke(new Action(() => pBar.Value = (int)((double)current / total * 100)));
-                        } catch { }
+                        } catch (Exception ex) {
+                            failCount++;
+                            logLines.Add($"FAILED: {f.FullName}");
+                            logLines.Add($"  Reason: {ex.GetType().Name} - {ex.Message}");
+                            logLines.Add("");
+                        }
                     }
                 });
-                lblStatus.Text = Localization.Get("STATUS_RESCUE_COMPLETE");
+                
+                logLines.Add("========================================");
+                logLines.Add($"Successfully copied: {successCount}/{expectedCount}");
+                logLines.Add($"Failed: {failCount}/{expectedCount}");
+                
+                // Write log file
+                if (!Directory.Exists(target)) Directory.CreateDirectory(target);
+                File.WriteAllLines(logPath, logLines);
+                
+                // Report results
+                lblStatus.Text = string.Format("Rescue Complete - {0}/{1} files copied", successCount, expectedCount);
+                MessageBox.Show(
+                    string.Format("Files copied: {0}\nFiles failed: {1}\n\nDetailed log saved to:\n{2}\n\nCommon causes:\n- Files in use by another application\n- Permission restrictions\n- Files deleted during rescue\n- Insufficient disk space\n- Path length exceeds limit", successCount, failCount, logPath),
+                    "Rescue Summary",
+                    MessageBoxButtons.OK,
+                    failCount > 0 ? MessageBoxIcon.Warning : MessageBoxIcon.Information
+                );
+                
                 if (!cancellationTokenSource.Token.IsCancellationRequested)
                     Process.Start("explorer.exe", target);
             } finally {
@@ -894,5 +966,269 @@ namespace KiloFilter.Forms
                 MessageBox.Show(Localization.Get("ADMIN_DENIED"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // ✅ CACHE MANAGEMENT METHODS
+        private async Task CheckAndOfferCache(string folderPath, bool isDuplicateAnalysis = false)
+        {
+            var cachedAnalysis = CacheManager.GetCachedAnalysis(folderPath);
+            
+            if (cachedAnalysis != null)
+            {
+                // Verificar si el contenido ha cambiado
+                string currentHash = CacheManager.GetFolderContentHash(folderPath, Blacklist);
+                bool hasChanged = currentHash != cachedAnalysis.ContentHash;
+
+                string message = hasChanged 
+                    ? string.Format(Localization.Get("CACHE_CHANGED_MESSAGE"), cachedAnalysis.AnalysisDate.ToString("dd/MM/yyyy HH:mm:ss"))
+                    : string.Format(Localization.Get("CACHE_UNCHANGED_MESSAGE"), cachedAnalysis.AnalysisDate.ToString("dd/MM/yyyy HH:mm:ss"));
+
+                using (var decisionForm = new CacheDecisionForm(
+                    message,
+                    Localization.Get("CACHE_CHECK_DIALOG_TITLE"),
+                    hasChanged))
+                {
+                    decisionForm.ShowDialog(this);
+                    
+                    if (decisionForm.CacheDecision == DialogResult.Yes)
+                    {
+                        // Rehacer análisis - continuar con nuevo análisis
+                        // No hacer nada aquí, continuará abajo
+                    }
+                    else if (decisionForm.CacheDecision == DialogResult.No)
+                    {
+                        // Usar análisis anterior
+                        LoadAnalysisFromCache(cachedAnalysis);
+                        return;
+                    }
+                    else if (decisionForm.CacheDecision == DialogResult.Cancel)
+                    {
+                        // Cancelar operación
+                        return;
+                    }
+                }
+            }
+
+            // Hacer nuevo análisis
+            if (isDuplicateAnalysis)
+            {
+                await DoAnalyzeDuplicatesInternal();
+            }
+            else
+            {
+                await DoAnalyzeInternal(folderPath);
+            }
+        }
+
+        private void LoadAnalysisFromCache(AnalysisCache cache)
+        {
+            FilesFound.Clear();
+            deduplicatedFiles.Clear();
+            lv.Items.Clear();
+            btnReopenReport.Visible = false;
+
+            // Reconstruir FilesFound desde caché
+            foreach (var fileData in cache.AllFiles)
+            {
+                try
+                {
+                    if (File.Exists(fileData.FullPath))
+                    {
+                        var fileInfo = new FileInfo(fileData.FullPath);
+                        string normalizedPath = NormalizePath(fileData.FullPath);
+                        FilesFound[normalizedPath] = fileInfo;
+                    }
+                }
+                catch { }
+            }
+
+            // Reconstruir ListView desde caché
+            foreach (var category in CategoryOrder)
+            {
+                if (cache.Categories.ContainsKey(category))
+                {
+                    var catData = cache.Categories[category];
+                    string translatedName = Localization.GetFolderName(category);
+
+                    var it = new ListViewItem("");
+                    it.Checked = true;
+                    it.Tag = category;
+                    it.SubItems.Add(translatedName);
+                    it.SubItems.Add(catData.FileCount.ToString());
+                    it.SubItems.Add(ToSize(catData.TotalSize));
+                    it.SubItems.Add(Localization.Get("BTN_VIEW_DETAILS"));
+
+                    it.UseItemStyleForSubItems = false;
+                    it.SubItems[4].ForeColor = Color.Cyan;
+                    it.SubItems[4].Font = new Font(lv.Font, FontStyle.Bold);
+
+                    lv.Items.Add(it);
+                }
+            }
+
+            deduplicatedFiles = new List<FileInfo>(FilesFound.Values);
+            pBar.Value = 100;
+            
+            // Restaurar información de duplicados si aplica
+            if (cache.IsDuplicateAnalysis && cache.DuplicateGroups.Count > 0)
+            {
+                lastDuplicateGroups = new List<DuplicatesReportForm.DuplicateGroupInfo>();
+                foreach (var dupInfo in cache.DuplicateGroups)
+                {
+                    var fileList = new List<FileInfo>();
+                    foreach (var filePath in dupInfo.FilePaths)
+                    {
+                        try
+                        {
+                            if (File.Exists(filePath))
+                            {
+                                fileList.Add(new FileInfo(filePath));
+                            }
+                        }
+                        catch { }
+                    }
+                    
+                    if (fileList.Count > 0)
+                    {
+                        lastDuplicateGroups.Add(new DuplicatesReportForm.DuplicateGroupInfo
+                        {
+                            Hash = dupInfo.Hash,
+                            FileSize = dupInfo.FileSize,
+                            Files = fileList
+                        });
+                    }
+                }
+                
+                if (lastDuplicateGroups.Count > 0)
+                {
+                    btnReopenReport.Visible = true;
+                }
+            }
+            
+            lblStatus.Text = string.Format(Localization.Get("CACHE_LOADED_STATUS"), cache.AnalysisDate) + $" - {FilesFound.Count} " + Localization.Get("COL_FILES").ToLower();
+        }
+
+        private async Task DoAnalyzeInternal(string folderPath)
+        {
+            if (!Directory.Exists(folderPath)) return;
+            
+            FilesFound.Clear();
+            deduplicatedFiles.Clear();
+            lv.Items.Clear();
+            btnReopenReport.Visible = false;
+            lblStatus.Text = Localization.Get("STATUS_ANALYZING");
+            pBar.Style = ProgressBarStyle.Continuous;
+            pBar.Value = 0;
+
+            cancellationTokenSource = new CancellationTokenSource();
+            DisableAllControls();
+
+            try
+            {
+                var countState = new ScanState { Count = 0 };
+                await Task.Run(() => CountFiles(new DirectoryInfo(folderPath), countState));
+                if (cancellationTokenSource.Token.IsCancellationRequested) return;
+                int totalFiles = countState.Count;
+
+                var scanState = new ScanState { Count = 0 };
+                await Task.Run(() => DeepScanWithProgress(new DirectoryInfo(folderPath), totalFiles, scanState));
+                if (cancellationTokenSource.Token.IsCancellationRequested) return;
+
+                var groups = FilesFound.Values.GroupBy(f => GetFolder(f.Extension.ToLower()))
+                                       .OrderBy(g => {
+                                           int index = CategoryOrder.IndexOf(g.Key);
+                                           return index == -1 ? 999 : index;
+                                       });
+
+                foreach (var g in groups)
+                {
+                    string categoryKey = g.Key;
+                    string translatedName = Localization.GetFolderName(categoryKey);
+
+                    var it = new ListViewItem("");
+                    it.Checked = true;
+                    it.Tag = categoryKey;
+                    it.SubItems.Add(translatedName);
+                    it.SubItems.Add(g.Count().ToString());
+                    it.SubItems.Add(ToSize(g.Sum(f => f.Length)));
+                    it.SubItems.Add(Localization.Get("BTN_VIEW_DETAILS"));
+
+                    it.UseItemStyleForSubItems = false;
+                    it.SubItems[4].ForeColor = Color.Cyan;
+                    it.SubItems[4].Font = new Font(lv.Font, FontStyle.Bold);
+
+                    lv.Items.Add(it);
+                }
+
+                pBar.Value = 100;
+                deduplicatedFiles = new List<FileInfo>(FilesFound.Values);
+                lblStatus.Text = string.Format(Localization.Get("STATUS_ANALYSIS_COMPLETE"), FilesFound.Count);
+
+                // ✅ Guardar en caché
+                await Task.Run(() => SaveAnalysisToCache(folderPath, FilesFound.Values.ToList()));
+            }
+            finally
+            {
+                EnableAllControls();
+            }
+        }
+
+        private void SaveAnalysisToCache(string folderPath, List<FileInfo> files)
+        {
+            try
+            {
+                var cache = new AnalysisCache
+                {
+                    FolderPath = folderPath,
+                    AnalysisDate = DateTime.Now,
+                    ContentHash = CacheManager.GetFolderContentHash(folderPath, Blacklist),
+                    TotalFiles = files.Count,
+                    TotalSize = files.Sum(f => f.Length),
+                    IsDuplicateAnalysis = lastDuplicateGroups.Count > 0  // Marcar si hay duplicados
+                };
+
+                // Agrupar por categoría
+                foreach (var group in files.GroupBy(f => GetFolder(f.Extension.ToLower())))
+                {
+                    cache.Categories[group.Key] = new CategoryData
+                    {
+                        CategoryKey = group.Key,
+                        FileCount = group.Count(),
+                        TotalSize = group.Sum(f => f.Length)
+                    };
+                }
+
+                // Guardar lista de archivos
+                foreach (var file in files)
+                {
+                    cache.AllFiles.Add(new FileData
+                    {
+                        Name = file.Name,
+                        FullPath = file.FullName,
+                        Size = file.Length,
+                        Extension = file.Extension,
+                        LastWriteTime = file.LastWriteTime,
+                        CreationTime = file.CreationTime
+                    });
+                }
+
+                // Guardar información de duplicados si aplica
+                if (lastDuplicateGroups.Count > 0)
+                {
+                    foreach (var dupGroup in lastDuplicateGroups)
+                    {
+                        cache.DuplicateGroups.Add(new Models.DuplicateGroupInfo
+                        {
+                            Hash = dupGroup.Hash,
+                            FileSize = dupGroup.FileSize,
+                            FilePaths = dupGroup.Files.Select(f => f.FullName).ToList()
+                        });
+                    }
+                }
+
+                CacheManager.SaveAnalysisToCache(cache);
+            }
+            catch { }
+        }
     }
 }
+
